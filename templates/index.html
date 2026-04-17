@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CS 527 · Fault-Tolerant System · Group 12</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0a0c0f;
+    --surface: #111418;
+    --border: #1e2329;
+    --border-bright: #2e3540;
+    --text: #c8d0dc;
+    --text-dim: #5a6478;
+    --text-bright: #eef2f8;
+    --green: #22d98c;
+    --green-dim: rgba(34,217,140,0.15);
+    --red: #ff4d6a;
+    --red-dim: rgba(255,77,106,0.15);
+    --yellow: #f5c542;
+    --yellow-dim: rgba(245,197,66,0.15);
+    --blue: #4d9fff;
+    --blue-dim: rgba(77,159,255,0.15);
+    --mono: 'Space Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Grid noise texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header */
+  header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-left h1 {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+  }
+
+  .header-left h2 {
+    font-family: var(--mono);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-bright);
+    line-height: 1.2;
+  }
+
+  .header-left h2 span { color: var(--green); }
+
+  .header-right {
+    text-align: right;
+    font-size: 12px;
+    color: var(--text-dim);
+    font-family: var(--mono);
+    line-height: 1.8;
+  }
+
+  /* State display */
+  .state-hero {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    transition: border-color 0.4s;
+  }
+
+  .state-indicator {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+  }
+
+  .state-indicator::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+    opacity: 0.3;
+  }
+
+  .state-indicator.operational { background: var(--green-dim); color: var(--green); }
+  .state-indicator.error       { background: var(--red-dim);   color: var(--red);   }
+  .state-indicator.recovery    { background: var(--yellow-dim);color: var(--yellow);}
+
+  .state-indicator.operational::after,
+  .state-indicator.error::after,
+  .state-indicator.recovery::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+    opacity: 0;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%   { transform: scale(1);   opacity: 0.4; }
+    100% { transform: scale(1.5); opacity: 0; }
+  }
+
+  .state-info { flex: 1; }
+
+  .state-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+  }
+
+  .state-name {
+    font-family: var(--mono);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 6px;
+    transition: color 0.3s;
+  }
+
+  .state-name.operational { color: var(--green); }
+  .state-name.error       { color: var(--red);   }
+  .state-name.recovery    { color: var(--yellow);}
+
+  .current-fault {
+    font-size: 13px;
+    color: var(--text-dim);
+    font-family: var(--mono);
+  }
+
+  .current-fault span { color: var(--red); }
+
+  /* State diagram */
+  .diagram-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+
+  .diagram-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+  }
+
+  .diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+    row-gap: 16px;
+  }
+
+  .d-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .d-circle {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    border: 2px solid var(--border-bright);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    transition: all 0.4s;
+    position: relative;
+  }
+
+  .d-circle .d-icon { font-size: 22px; }
+  .d-circle .d-lbl  { font-size: 9px;  }
+
+  .d-circle.active-op { border-color: var(--green); color: var(--green); background: var(--green-dim); }
+  .d-circle.active-er { border-color: var(--red);   color: var(--red);   background: var(--red-dim);   }
+  .d-circle.active-rc { border-color: var(--yellow);color: var(--yellow);background: var(--yellow-dim);}
+
+  .d-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 8px;
+    gap: 4px;
+  }
+
+  .d-arrow-line {
+    width: 48px;
+    height: 2px;
+    background: var(--border-bright);
+    position: relative;
+  }
+
+  .d-arrow-line::after {
+    content: '▶';
+    position: absolute;
+    right: -6px;
+    top: -7px;
+    font-size: 10px;
+    color: var(--border-bright);
+  }
+
+  .d-arrow-label {
+    font-size: 9px;
+    font-family: var(--mono);
+    color: var(--text-dim);
+    text-align: center;
+    max-width: 60px;
+    line-height: 1.3;
+  }
+
+  /* Two-row layout */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  /* Metrics */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .metric-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px;
+  }
+
+  .metric-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+  }
+
+  .metric-value {
+    font-family: var(--mono);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-bright);
+  }
+
+  .metric-value.good  { color: var(--green); }
+  .metric-value.bad   { color: var(--red);   }
+  .metric-value.warn  { color: var(--yellow);}
+
+  .metric-unit {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-left: 2px;
+  }
+
+  /* Log */
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .panel-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .panel-header .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: blink 1.5s infinite;
+  }
+
+  @keyframes blink {
+    0%,100% { opacity: 1; }
+    50%      { opacity: 0.2; }
+  }
+
+  .log-body {
+    padding: 16px;
+    height: 220px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .log-body::-webkit-scrollbar { width: 4px; }
+  .log-body::-webkit-scrollbar-track { background: transparent; }
+  .log-body::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 2px; }
+
+  .log-entry {
+    display: flex;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 11px;
+    line-height: 1.5;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } }
+
+  .log-time { color: var(--text-dim); flex-shrink: 0; }
+
+  .log-badge {
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 9px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 1px;
+  }
+
+  .log-badge.op { background: var(--green-dim); color: var(--green); }
+  .log-badge.er { background: var(--red-dim);   color: var(--red);   }
+  .log-badge.rc { background: var(--yellow-dim);color: var(--yellow);}
+
+  .log-msg { color: var(--text); }
+
+  /* Controls */
+  .controls-body { padding: 20px; }
+
+  .control-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 10px 18px;
+    border-radius: 5px;
+    border: 1px solid var(--border-bright);
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-dim); }
+
+  .btn.danger:hover { border-color: var(--red); color: var(--red); background: var(--red-dim); }
+
+  .btn.success:hover { border-color: var(--green); color: var(--green); background: var(--green-dim); }
+
+  .btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+  select {
+    padding: 10px 14px;
+    border-radius: 5px;
+    border: 1px solid var(--border-bright);
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 11px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  select:focus { border-color: var(--blue); }
+
+  /* Footer */
+  footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-dim);
+    font-family: var(--mono);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--green-dim);
+    color: var(--green);
+    border: 1px solid rgba(34,217,140,0.3);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .live-badge .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: blink 1s infinite;
+  }
+
+  @media (max-width: 640px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .state-hero { flex-direction: column; text-align: center; }
+    .state-name { font-size: 24px; }
+    header { flex-direction: column; gap: 12px; }
+    .header-right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="header-left">
+      <h1>CS 527 · Group 12 · Research Project</h1>
+      <h2>Fault-Tolerant System<br/><span>State Machine Monitor</span></h2>
+    </div>
+    <div class="header-right">
+      David Zhao · Chelsea Sun<br/>
+      University of Illinois<br/>
+      Urbana-Champaign<br/>
+      <span class="live-badge" style="margin-top:8px;display:inline-flex"><span class="dot"></span>Live</span>
+    </div>
+  </header>
+
+  <!-- State Hero -->
+  <div class="state-hero" id="state-hero">
+    <div class="state-indicator operational" id="state-indicator">
+      <span id="state-icon">✓</span>
+    </div>
+    <div class="state-info">
+      <div class="state-label">Current System State</div>
+      <div class="state-name operational" id="state-name">Operational</div>
+      <div class="current-fault" id="current-fault">System running normally — no active faults</div>
+    </div>
+  </div>
+
+  <!-- State Diagram -->
+  <div class="diagram-wrap">
+    <div class="diagram-title">State Transition Diagram</div>
+    <div class="diagram">
+      <div class="d-node">
+        <div class="d-circle active-op" id="d-op">
+          <span class="d-icon">⬡</span>
+          <span class="d-lbl">Operational</span>
+        </div>
+      </div>
+      <div class="d-arrow">
+        <div class="d-arrow-line"></div>
+        <div class="d-arrow-label">fault detected</div>
+      </div>
+      <div class="d-node">
+        <div class="d-circle" id="d-er">
+          <span class="d-icon">⚠</span>
+          <span class="d-lbl">Error</span>
+        </div>
+      </div>
+      <div class="d-arrow">
+        <div class="d-arrow-line"></div>
+        <div class="d-arrow-label">recovery triggered</div>
+      </div>
+      <div class="d-node">
+        <div class="d-circle" id="d-rc">
+          <span class="d-icon">↻</span>
+          <span class="d-lbl">Recovery</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+
+    <!-- Metrics Panel -->
+    <div class="panel">
+      <div class="panel-header">📊 Evaluation Metrics</div>
+      <div style="padding:16px">
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-label">Total Faults</div>
+            <div class="metric-value" id="m-faults">0</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Recovery Rate</div>
+            <div class="metric-value good" id="m-rate">100<span class="metric-unit">%</span></div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Successful</div>
+            <div class="metric-value good" id="m-success">0</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Avg Recovery Time</div>
+            <div class="metric-value" id="m-time">—<span class="metric-unit">s</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls Panel -->
+    <div class="panel">
+      <div class="panel-header">⌨ Manual Controls</div>
+      <div class="controls-body">
+        <div style="margin-bottom:10px;font-size:12px;color:var(--text-dim);font-family:var(--mono)">
+          INJECT FAULT TYPE
+        </div>
+        <div class="control-row" style="margin-bottom:14px">
+          <select id="fault-select">
+            <option value="">Random</option>
+          </select>
+          <button class="btn danger" id="btn-fault" onclick="injectFault()">Inject Fault</button>
+        </div>
+        <div style="margin-bottom:10px;font-size:12px;color:var(--text-dim);font-family:var(--mono)">
+          SYSTEM CONTROL
+        </div>
+        <div class="control-row">
+          <button class="btn success" onclick="resetSystem()">Reset System</button>
+        </div>
+        <div style="margin-top:16px;font-size:11px;color:var(--text-dim);font-family:var(--mono);line-height:1.7">
+          Auto-simulation runs every 3s.<br/>
+          Fault prob: 20% · Recovery rate: 85%
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Event Log -->
+  <div class="panel">
+    <div class="panel-header">
+      <span class="dot"></span>
+      Event Log — Live State Transitions
+    </div>
+    <div class="log-body" id="log-body">
+      <div class="log-entry">
+        <span class="log-time">--:--:--</span>
+        <span class="log-badge op">OP</span>
+        <span class="log-msg">System initialized. Monitoring active.</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span>CS 527 · Model-Based Software Architecture · Fault Tolerance</span>
+    <span id="footer-time">—</span>
+  </footer>
+
+</div>
+
+<script>
+const stateConfig = {
+  "Operational": {
+    cls: "operational", icon: "✓", badgeCls: "op",
+    faultMsg: "System running normally — no active faults"
+  },
+  "Error": {
+    cls: "error", icon: "✕", badgeCls: "er",
+    faultMsg: null
+  },
+  "Recovery": {
+    cls: "recovery", icon: "↻", badgeCls: "rc",
+    faultMsg: null
+  }
+};
+
+let lastLogCount = 0;
+
+async function fetchStatus() {
+  try {
+    const r = await fetch("/api/status");
+    const data = await r.json();
+    updateUI(data);
+  } catch(e) {}
+}
+
+function updateUI(data) {
+  const cfg = stateConfig[data.state];
+  const stateName = document.getElementById("state-name");
+  const stateIndicator = document.getElementById("state-indicator");
+  const stateIcon = document.getElementById("state-icon");
+  const currentFault = document.getElementById("current-fault");
+
+  stateName.className = "state-name " + cfg.cls;
+  stateName.textContent = data.state;
+  stateIndicator.className = "state-indicator " + cfg.cls;
+  stateIcon.textContent = cfg.icon;
+
+  if (data.current_fault) {
+    currentFault.innerHTML = `Active fault: <span>${data.current_fault}</span>`;
+  } else {
+    currentFault.textContent = cfg.faultMsg || "Processing...";
+  }
+
+  // Diagram
+  document.getElementById("d-op").className = "d-circle" + (data.state === "Operational" ? " active-op" : "");
+  document.getElementById("d-er").className = "d-circle" + (data.state === "Error" ? " active-er" : "");
+  document.getElementById("d-rc").className = "d-circle" + (data.state === "Recovery" ? " active-rc" : "");
+
+  // Metrics
+  const m = data.metrics;
+  document.getElementById("m-faults").textContent = m.total_faults;
+  document.getElementById("m-success").textContent = m.successful_recoveries;
+
+  const rateEl = document.getElementById("m-rate");
+  rateEl.innerHTML = m.recovery_success_rate + '<span class="metric-unit">%</span>';
+  rateEl.className = "metric-value " + (m.recovery_success_rate >= 70 ? "good" : m.recovery_success_rate >= 50 ? "warn" : "bad");
+
+  const timeEl = document.getElementById("m-time");
+  timeEl.innerHTML = (m.avg_recovery_time_s > 0 ? m.avg_recovery_time_s : "—") + '<span class="metric-unit">s</span>';
+
+  // Log
+  if (data.log.length !== lastLogCount) {
+    lastLogCount = data.log.length;
+    const logBody = document.getElementById("log-body");
+    logBody.innerHTML = data.log.map(e => {
+      const state = e.state;
+      const bcls = stateConfig[state]?.badgeCls || "op";
+      return `<div class="log-entry">
+        <span class="log-time">${e.time}</span>
+        <span class="log-badge ${bcls}">${state.substring(0,2).toUpperCase()}</span>
+        <span class="log-msg">${e.message}</span>
+      </div>`;
+    }).join("");
+  }
+
+  document.getElementById("footer-time").textContent =
+    new Date().toLocaleTimeString() + " · Auto-polling every 1.5s";
+}
+
+async function injectFault() {
+  const sel = document.getElementById("fault-select").value;
+  const body = sel ? { fault_type: sel } : {};
+  const btn = document.getElementById("btn-fault");
+  btn.disabled = true;
+  await fetch("/api/inject_fault", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body)
+  });
+  setTimeout(() => { btn.disabled = false; }, 1500);
+  await fetchStatus();
+}
+
+async function resetSystem() {
+  await fetch("/api/reset", { method: "POST" });
+  lastLogCount = 0;
+  await fetchStatus();
+}
+
+async function loadFaultTypes() {
+  const r = await fetch("/api/fault_types");
+  const types = await r.json();
+  const sel = document.getElementById("fault-select");
+  types.forEach(t => {
+    const opt = document.createElement("option");
+    opt.value = t; opt.textContent = t;
+    sel.appendChild(opt);
+  });
+}
+
+loadFaultTypes();
+fetchStatus();
+setInterval(fetchStatus, 1500);
+</script>
+</body>
+</html>
