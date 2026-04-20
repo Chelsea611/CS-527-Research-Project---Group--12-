@@ -6,8 +6,8 @@ Group 12: David Zhao, Chelsea Sun
 from flask import Flask, jsonify, request, render_template
 from state_machine import FaultTolerantSystem, FaultType
 
-app = Flask(__name__)
-system = FaultTolerantSystem(fault_probability=0.2, recovery_success_rate=0.85)
+app = Flask(__name__) 
+system = FaultTolerantSystem()
 system.start_auto(interval=3.0)
 
 

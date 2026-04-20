@@ -1,501 +1,61 @@
-trial_id,fault_type,recovered,attempts,time_s,final_state,configured_rate
-1,Database Failure,True,1,0.0139,Operational,0.7
-2,Server Crash,True,1,0.0106,Operational,0.7
-3,Database Failure,True,1,0.0126,Operational,0.7
-4,Database Failure,True,1,0.0126,Operational,0.7
-5,Network Timeout,True,1,0.0125,Operational,0.7
-6,Network Timeout,True,1,0.0126,Operational,0.7
-7,Database Failure,True,1,0.0126,Operational,0.7
-8,Database Failure,True,1,0.0126,Operational,0.7
-9,Database Failure,True,1,0.0102,Operational,0.7
-10,Database Failure,True,1,0.0126,Operational,0.7
-11,Server Crash,True,1,0.0126,Operational,0.7
-12,Database Failure,True,1,0.0126,Operational,0.7
-13,Server Crash,True,1,0.0126,Operational,0.7
-14,Network Timeout,True,1,0.0126,Operational,0.7
-15,Network Timeout,True,1,0.0126,Operational,0.7
-16,Server Crash,True,1,0.0127,Operational,0.7
-17,Network Timeout,True,2,0.0245,Operational,0.7
-18,Database Failure,True,1,0.0127,Operational,0.7
-19,Server Crash,True,1,0.0124,Operational,0.7
-20,Database Failure,True,1,0.0128,Operational,0.7
-21,Server Crash,True,1,0.0127,Operational,0.7
-22,Server Crash,True,1,0.0115,Operational,0.7
-23,Network Timeout,True,1,0.0124,Operational,0.7
-24,Network Timeout,True,1,0.0137,Operational,0.7
-25,Server Crash,True,1,0.0155,Operational,0.7
-26,Network Timeout,True,1,0.0134,Operational,0.7
-27,Server Crash,True,1,0.0111,Operational,0.7
-28,Server Crash,True,1,0.0123,Operational,0.7
-29,Server Crash,True,1,0.0121,Operational,0.7
-30,Network Timeout,True,1,0.0126,Operational,0.7
-31,Network Timeout,True,1,0.0126,Operational,0.7
-32,Database Failure,True,1,0.0116,Operational,0.7
-33,Network Timeout,True,1,0.012,Operational,0.7
-34,Server Crash,True,1,0.0119,Operational,0.7
-35,Network Timeout,True,1,0.0115,Operational,0.7
-36,Database Failure,True,2,0.0217,Operational,0.7
-37,Server Crash,True,1,0.0114,Operational,0.7
-38,Server Crash,True,1,0.0116,Operational,0.7
-39,Network Timeout,True,1,0.0117,Operational,0.7
-40,Network Timeout,True,1,0.0102,Operational,0.7
-41,Server Crash,True,1,0.0112,Operational,0.7
-42,Network Timeout,True,1,0.0128,Operational,0.7
-43,Network Timeout,True,1,0.0111,Operational,0.7
-44,Server Crash,True,2,0.0234,Operational,0.7
-45,Network Timeout,True,1,0.0114,Operational,0.7
-46,Network Timeout,True,1,0.0123,Operational,0.7
-47,Network Timeout,True,1,0.0128,Operational,0.7
-48,Database Failure,True,1,0.0128,Operational,0.7
-49,Network Timeout,True,1,0.0112,Operational,0.7
-50,Database Failure,True,1,0.0113,Operational,0.7
-51,Server Crash,True,1,0.0111,Operational,0.7
-52,Database Failure,True,3,0.0361,Operational,0.7
-53,Database Failure,True,1,0.0111,Operational,0.7
-54,Network Timeout,True,4,0.0457,Operational,0.7
-55,Server Crash,True,1,0.0124,Operational,0.7
-56,Server Crash,True,1,0.0123,Operational,0.7
-57,Network Timeout,True,1,0.0115,Operational,0.7
-58,Network Timeout,True,2,0.0227,Operational,0.7
-59,Database Failure,True,2,0.0252,Operational,0.7
-60,Server Crash,True,1,0.0126,Operational,0.7
-61,Server Crash,True,1,0.0104,Operational,0.7
-62,Network Timeout,True,1,0.0102,Operational,0.7
-63,Database Failure,True,1,0.0125,Operational,0.7
-64,Server Crash,True,1,0.0115,Operational,0.7
-65,Server Crash,True,1,0.0101,Operational,0.7
-66,Server Crash,True,1,0.0126,Operational,0.7
-67,Database Failure,True,1,0.0126,Operational,0.7
-68,Network Timeout,True,1,0.0126,Operational,0.7
-69,Network Timeout,True,1,0.0102,Operational,0.7
-70,Network Timeout,True,1,0.0103,Operational,0.7
-71,Network Timeout,True,2,0.0233,Operational,0.7
-72,Database Failure,True,1,0.0126,Operational,0.7
-73,Server Crash,True,2,0.0238,Operational,0.7
-74,Network Timeout,True,1,0.011,Operational,0.7
-75,Database Failure,True,1,0.0106,Operational,0.7
-76,Database Failure,True,1,0.0126,Operational,0.7
-77,Network Timeout,True,2,0.0251,Operational,0.7
-78,Database Failure,True,1,0.0116,Operational,0.7
-79,Network Timeout,True,2,0.0241,Operational,0.7
-80,Database Failure,True,1,0.0108,Operational,0.7
-81,Network Timeout,True,1,0.0106,Operational,0.7
-82,Database Failure,True,1,0.0114,Operational,0.7
-83,Network Timeout,True,1,0.0102,Operational,0.7
-84,Database Failure,True,1,0.0116,Operational,0.7
-85,Database Failure,True,1,0.0127,Operational,0.7
-86,Database Failure,True,1,0.0128,Operational,0.7
-87,Server Crash,True,1,0.0116,Operational,0.7
-88,Network Timeout,True,2,0.0216,Operational,0.7
-89,Server Crash,True,2,0.024,Operational,0.7
-90,Network Timeout,True,1,0.0159,Operational,0.7
-91,Database Failure,True,1,0.0175,Operational,0.7
-92,Network Timeout,True,2,0.0252,Operational,0.7
-93,Database Failure,True,2,0.0251,Operational,0.7
-94,Server Crash,True,1,0.0126,Operational,0.7
-95,Server Crash,True,1,0.0126,Operational,0.7
-96,Network Timeout,True,4,0.0494,Operational,0.7
-97,Database Failure,True,1,0.0122,Operational,0.7
-98,Database Failure,True,2,0.0252,Operational,0.7
-99,Server Crash,True,1,0.0105,Operational,0.7
-100,Database Failure,True,1,0.0127,Operational,0.7
-1,Server Crash,True,1,0.0127,Operational,0.8
-2,Server Crash,True,1,0.0126,Operational,0.8
-3,Network Timeout,True,1,0.0106,Operational,0.8
-4,Database Failure,True,2,0.0244,Operational,0.8
-5,Server Crash,True,1,0.0127,Operational,0.8
-6,Network Timeout,True,1,0.0125,Operational,0.8
-7,Server Crash,True,1,0.0126,Operational,0.8
-8,Network Timeout,True,1,0.0126,Operational,0.8
-9,Database Failure,True,1,0.0117,Operational,0.8
-10,Database Failure,True,1,0.0126,Operational,0.8
-11,Server Crash,True,1,0.0126,Operational,0.8
-12,Network Timeout,True,1,0.0126,Operational,0.8
-13,Server Crash,True,1,0.0126,Operational,0.8
-14,Server Crash,True,1,0.0125,Operational,0.8
-15,Server Crash,True,3,0.0377,Operational,0.8
-16,Server Crash,True,1,0.0122,Operational,0.8
-17,Network Timeout,True,1,0.0126,Operational,0.8
-18,Server Crash,True,1,0.0126,Operational,0.8
-19,Server Crash,True,1,0.0126,Operational,0.8
-20,Server Crash,True,1,0.0123,Operational,0.8
-21,Network Timeout,True,1,0.0127,Operational,0.8
-22,Server Crash,True,1,0.0127,Operational,0.8
-23,Server Crash,True,1,0.0111,Operational,0.8
-24,Network Timeout,True,3,0.0358,Operational,0.8
-25,Database Failure,True,1,0.0127,Operational,0.8
-26,Database Failure,True,1,0.0111,Operational,0.8
-27,Database Failure,True,1,0.0109,Operational,0.8
-28,Database Failure,True,1,0.0106,Operational,0.8
-29,Server Crash,True,1,0.0109,Operational,0.8
-30,Database Failure,True,2,0.0398,Operational,0.8
-31,Server Crash,True,1,0.0124,Operational,0.8
-32,Network Timeout,True,1,0.0125,Operational,0.8
-33,Server Crash,True,1,0.0101,Operational,0.8
-34,Database Failure,True,1,0.0126,Operational,0.8
-35,Database Failure,True,1,0.0126,Operational,0.8
-36,Database Failure,True,1,0.0126,Operational,0.8
-37,Database Failure,True,1,0.0107,Operational,0.8
-38,Database Failure,True,2,0.0251,Operational,0.8
-39,Database Failure,True,1,0.0122,Operational,0.8
-40,Network Timeout,True,1,0.0117,Operational,0.8
-41,Network Timeout,True,1,0.0126,Operational,0.8
-42,Network Timeout,True,1,0.0127,Operational,0.8
-43,Network Timeout,True,1,0.0128,Operational,0.8
-44,Server Crash,True,1,0.0113,Operational,0.8
-45,Database Failure,True,1,0.0117,Operational,0.8
-46,Server Crash,True,4,0.0498,Operational,0.8
-47,Network Timeout,True,1,0.0126,Operational,0.8
-48,Server Crash,True,1,0.0126,Operational,0.8
-49,Database Failure,True,1,0.0125,Operational,0.8
-50,Database Failure,True,1,0.0126,Operational,0.8
-51,Network Timeout,True,1,0.0126,Operational,0.8
-52,Database Failure,True,1,0.0126,Operational,0.8
-53,Server Crash,True,1,0.0126,Operational,0.8
-54,Network Timeout,True,1,0.0127,Operational,0.8
-55,Network Timeout,True,1,0.0104,Operational,0.8
-56,Server Crash,True,3,0.0362,Operational,0.8
-57,Server Crash,True,3,0.0376,Operational,0.8
-58,Database Failure,True,1,0.0128,Operational,0.8
-59,Network Timeout,True,1,0.0127,Operational,0.8
-60,Network Timeout,True,1,0.0126,Operational,0.8
-61,Server Crash,True,1,0.0126,Operational,0.8
-62,Database Failure,True,1,0.0108,Operational,0.8
-63,Database Failure,True,1,0.0126,Operational,0.8
-64,Network Timeout,True,2,0.0252,Operational,0.8
-65,Database Failure,True,1,0.0105,Operational,0.8
-66,Network Timeout,True,1,0.0126,Operational,0.8
-67,Database Failure,True,1,0.0116,Operational,0.8
-68,Network Timeout,True,2,0.0251,Operational,0.8
-69,Network Timeout,True,1,0.0126,Operational,0.8
-70,Server Crash,True,1,0.0125,Operational,0.8
-71,Server Crash,True,1,0.0126,Operational,0.8
-72,Server Crash,True,1,0.0126,Operational,0.8
-73,Network Timeout,True,1,0.0126,Operational,0.8
-74,Network Timeout,True,1,0.012,Operational,0.8
-75,Database Failure,True,2,0.0233,Operational,0.8
-76,Network Timeout,True,1,0.0126,Operational,0.8
-77,Network Timeout,True,2,0.0251,Operational,0.8
-78,Network Timeout,True,1,0.0116,Operational,0.8
-79,Server Crash,True,1,0.0107,Operational,0.8
-80,Network Timeout,True,1,0.0126,Operational,0.8
-81,Network Timeout,True,1,0.0126,Operational,0.8
-82,Network Timeout,True,1,0.0119,Operational,0.8
-83,Network Timeout,True,1,0.0126,Operational,0.8
-84,Server Crash,True,1,0.0123,Operational,0.8
-85,Server Crash,True,1,0.0127,Operational,0.8
-86,Database Failure,True,1,0.0107,Operational,0.8
-87,Network Timeout,True,1,0.0113,Operational,0.8
-88,Database Failure,True,1,0.0122,Operational,0.8
-89,Network Timeout,True,1,0.0127,Operational,0.8
-90,Database Failure,True,1,0.0113,Operational,0.8
-91,Server Crash,True,1,0.0119,Operational,0.8
-92,Server Crash,True,1,0.0126,Operational,0.8
-93,Database Failure,True,1,0.0126,Operational,0.8
-94,Network Timeout,True,1,0.0126,Operational,0.8
-95,Network Timeout,True,2,0.0235,Operational,0.8
-96,Database Failure,True,1,0.0115,Operational,0.8
-97,Database Failure,True,1,0.0125,Operational,0.8
-98,Database Failure,True,2,0.022,Operational,0.8
-99,Network Timeout,True,1,0.0125,Operational,0.8
-100,Database Failure,True,1,0.0126,Operational,0.8
-1,Database Failure,True,1,0.0126,Operational,0.85
-2,Network Timeout,True,1,0.0127,Operational,0.85
-3,Database Failure,True,2,0.0233,Operational,0.85
-4,Database Failure,True,1,0.0127,Operational,0.85
-5,Database Failure,True,1,0.0108,Operational,0.85
-6,Database Failure,True,1,0.0123,Operational,0.85
-7,Server Crash,True,1,0.0126,Operational,0.85
-8,Network Timeout,True,1,0.0126,Operational,0.85
-9,Database Failure,True,2,0.0251,Operational,0.85
-10,Database Failure,True,1,0.0126,Operational,0.85
-11,Server Crash,True,2,0.0248,Operational,0.85
-12,Database Failure,True,1,0.0126,Operational,0.85
-13,Server Crash,True,1,0.0126,Operational,0.85
-14,Server Crash,True,1,0.0126,Operational,0.85
-15,Network Timeout,True,1,0.0126,Operational,0.85
-16,Network Timeout,True,1,0.0126,Operational,0.85
-17,Server Crash,True,1,0.0126,Operational,0.85
-18,Network Timeout,True,1,0.0106,Operational,0.85
-19,Network Timeout,True,1,0.0126,Operational,0.85
-20,Server Crash,True,1,0.0126,Operational,0.85
-21,Database Failure,True,1,0.0126,Operational,0.85
-22,Database Failure,True,1,0.0126,Operational,0.85
-23,Database Failure,True,1,0.0126,Operational,0.85
-24,Network Timeout,True,1,0.0126,Operational,0.85
-25,Network Timeout,True,1,0.0126,Operational,0.85
-26,Network Timeout,True,1,0.0125,Operational,0.85
-27,Network Timeout,True,1,0.0126,Operational,0.85
-28,Database Failure,True,2,0.0252,Operational,0.85
-29,Server Crash,True,1,0.0111,Operational,0.85
-30,Network Timeout,True,1,0.0126,Operational,0.85
-31,Database Failure,True,1,0.0116,Operational,0.85
-32,Network Timeout,True,1,0.0116,Operational,0.85
-33,Server Crash,True,1,0.0116,Operational,0.85
-34,Network Timeout,True,1,0.0126,Operational,0.85
-35,Server Crash,True,1,0.0127,Operational,0.85
-36,Database Failure,True,1,0.0127,Operational,0.85
-37,Network Timeout,True,1,0.0122,Operational,0.85
-38,Server Crash,True,1,0.0122,Operational,0.85
-39,Network Timeout,True,1,0.0119,Operational,0.85
-40,Server Crash,True,1,0.0126,Operational,0.85
-41,Database Failure,True,1,0.0129,Operational,0.85
-42,Database Failure,True,1,0.0116,Operational,0.85
-43,Database Failure,True,1,0.0128,Operational,0.85
-44,Database Failure,True,1,0.0117,Operational,0.85
-45,Server Crash,True,1,0.0125,Operational,0.85
-46,Database Failure,True,1,0.0118,Operational,0.85
-47,Network Timeout,True,1,0.0115,Operational,0.85
-48,Database Failure,True,1,0.011,Operational,0.85
-49,Server Crash,True,1,0.0117,Operational,0.85
-50,Database Failure,True,2,0.0229,Operational,0.85
-51,Database Failure,True,1,0.0116,Operational,0.85
-52,Database Failure,True,1,0.0106,Operational,0.85
-53,Database Failure,True,1,0.0121,Operational,0.85
-54,Network Timeout,True,1,0.0117,Operational,0.85
-55,Network Timeout,True,1,0.0127,Operational,0.85
-56,Network Timeout,True,1,0.0121,Operational,0.85
-57,Network Timeout,True,1,0.0122,Operational,0.85
-58,Server Crash,True,1,0.0127,Operational,0.85
-59,Network Timeout,True,1,0.0128,Operational,0.85
-60,Server Crash,True,2,0.0229,Operational,0.85
-61,Server Crash,True,1,0.0107,Operational,0.85
-62,Network Timeout,True,1,0.011,Operational,0.85
-63,Network Timeout,True,1,0.0128,Operational,0.85
-64,Server Crash,True,1,0.0131,Operational,0.85
-65,Server Crash,True,2,0.0242,Operational,0.85
-66,Database Failure,True,1,0.0145,Operational,0.85
-67,Database Failure,True,1,0.0105,Operational,0.85
-68,Database Failure,True,2,0.0211,Operational,0.85
-69,Server Crash,True,2,0.0243,Operational,0.85
-70,Network Timeout,True,1,0.0115,Operational,0.85
-71,Network Timeout,True,2,0.0257,Operational,0.85
-72,Network Timeout,True,2,0.0233,Operational,0.85
-73,Network Timeout,True,1,0.0109,Operational,0.85
-74,Server Crash,True,1,0.0107,Operational,0.85
-75,Server Crash,True,1,0.0104,Operational,0.85
-76,Database Failure,True,1,0.0116,Operational,0.85
-77,Network Timeout,True,1,0.0117,Operational,0.85
-78,Database Failure,True,2,0.0252,Operational,0.85
-79,Network Timeout,True,3,0.0344,Operational,0.85
-80,Server Crash,True,1,0.0128,Operational,0.85
-81,Server Crash,True,1,0.0174,Operational,0.85
-82,Server Crash,True,1,0.0127,Operational,0.85
-83,Database Failure,True,1,0.0119,Operational,0.85
-84,Database Failure,True,1,0.0115,Operational,0.85
-85,Database Failure,True,1,0.0119,Operational,0.85
-86,Database Failure,True,1,0.012,Operational,0.85
-87,Server Crash,True,2,0.0311,Operational,0.85
-88,Server Crash,True,1,0.0121,Operational,0.85
-89,Database Failure,True,1,0.0116,Operational,0.85
-90,Database Failure,True,1,0.011,Operational,0.85
-91,Network Timeout,True,1,0.0105,Operational,0.85
-92,Database Failure,True,1,0.0126,Operational,0.85
-93,Server Crash,True,2,0.0236,Operational,0.85
-94,Server Crash,True,1,0.012,Operational,0.85
-95,Server Crash,True,1,0.0109,Operational,0.85
-96,Database Failure,True,1,0.0109,Operational,0.85
-97,Database Failure,True,1,0.0123,Operational,0.85
-98,Database Failure,True,2,0.0224,Operational,0.85
-99,Network Timeout,True,1,0.0127,Operational,0.85
-100,Database Failure,True,1,0.0127,Operational,0.85
-1,Database Failure,True,1,0.0122,Operational,0.9
-2,Server Crash,True,1,0.0104,Operational,0.9
-3,Database Failure,True,1,0.0126,Operational,0.9
-4,Network Timeout,True,1,0.0126,Operational,0.9
-5,Server Crash,True,1,0.0126,Operational,0.9
-6,Database Failure,True,1,0.0127,Operational,0.9
-7,Network Timeout,True,1,0.0125,Operational,0.9
-8,Network Timeout,True,1,0.0109,Operational,0.9
-9,Database Failure,True,1,0.0116,Operational,0.9
-10,Server Crash,True,1,0.0105,Operational,0.9
-11,Database Failure,True,1,0.0127,Operational,0.9
-12,Server Crash,True,1,0.0127,Operational,0.9
-13,Database Failure,True,1,0.0117,Operational,0.9
-14,Server Crash,True,1,0.0117,Operational,0.9
-15,Network Timeout,True,1,0.011,Operational,0.9
-16,Database Failure,True,1,0.0125,Operational,0.9
-17,Network Timeout,True,1,0.0106,Operational,0.9
-18,Database Failure,True,3,0.0376,Operational,0.9
-19,Server Crash,True,1,0.0127,Operational,0.9
-20,Network Timeout,True,1,0.0127,Operational,0.9
-21,Network Timeout,True,1,0.0108,Operational,0.9
-22,Network Timeout,True,1,0.0112,Operational,0.9
-23,Database Failure,True,1,0.0108,Operational,0.9
-24,Database Failure,True,1,0.0127,Operational,0.9
-25,Server Crash,True,2,0.0227,Operational,0.9
-26,Network Timeout,True,1,0.0105,Operational,0.9
-27,Network Timeout,True,2,0.022,Operational,0.9
-28,Database Failure,True,1,0.0108,Operational,0.9
-29,Database Failure,True,1,0.0117,Operational,0.9
-30,Database Failure,True,1,0.0107,Operational,0.9
-31,Database Failure,True,1,0.0127,Operational,0.9
-32,Server Crash,True,2,0.0237,Operational,0.9
-33,Network Timeout,True,1,0.0125,Operational,0.9
-34,Server Crash,True,1,0.0112,Operational,0.9
-35,Database Failure,True,1,0.0119,Operational,0.9
-36,Database Failure,True,1,0.0108,Operational,0.9
-37,Network Timeout,True,1,0.0125,Operational,0.9
-38,Network Timeout,True,1,0.0103,Operational,0.9
-39,Database Failure,True,1,0.0105,Operational,0.9
-40,Database Failure,True,1,0.0123,Operational,0.9
-41,Server Crash,True,1,0.0122,Operational,0.9
-42,Server Crash,True,2,0.0214,Operational,0.9
-43,Network Timeout,True,1,0.0118,Operational,0.9
-44,Server Crash,True,1,0.011,Operational,0.9
-45,Server Crash,True,1,0.0123,Operational,0.9
-46,Server Crash,True,2,0.0231,Operational,0.9
-47,Server Crash,True,1,0.0122,Operational,0.9
-48,Server Crash,True,1,0.0128,Operational,0.9
-49,Database Failure,True,1,0.0127,Operational,0.9
-50,Server Crash,True,1,0.0126,Operational,0.9
-51,Database Failure,True,1,0.0133,Operational,0.9
-52,Database Failure,True,1,0.0117,Operational,0.9
-53,Network Timeout,True,2,0.0219,Operational,0.9
-54,Database Failure,True,1,0.0124,Operational,0.9
-55,Database Failure,True,1,0.0128,Operational,0.9
-56,Server Crash,True,1,0.0122,Operational,0.9
-57,Server Crash,True,1,0.0119,Operational,0.9
-58,Database Failure,True,2,0.0252,Operational,0.9
-59,Server Crash,True,1,0.0116,Operational,0.9
-60,Database Failure,True,1,0.0127,Operational,0.9
-61,Server Crash,True,1,0.0126,Operational,0.9
-62,Network Timeout,True,1,0.0126,Operational,0.9
-63,Database Failure,True,1,0.0124,Operational,0.9
-64,Network Timeout,True,1,0.0122,Operational,0.9
-65,Network Timeout,True,1,0.0129,Operational,0.9
-66,Network Timeout,True,1,0.0127,Operational,0.9
-67,Database Failure,True,1,0.0104,Operational,0.9
-68,Database Failure,True,1,0.0127,Operational,0.9
-69,Database Failure,True,1,0.0156,Operational,0.9
-70,Network Timeout,True,2,0.0226,Operational,0.9
-71,Database Failure,True,1,0.0128,Operational,0.9
-72,Database Failure,True,1,0.0127,Operational,0.9
-73,Network Timeout,True,1,0.0108,Operational,0.9
-74,Database Failure,True,1,0.0117,Operational,0.9
-75,Network Timeout,True,1,0.0123,Operational,0.9
-76,Database Failure,True,1,0.0118,Operational,0.9
-77,Network Timeout,True,1,0.0106,Operational,0.9
-78,Database Failure,True,1,0.0119,Operational,0.9
-79,Database Failure,True,1,0.0127,Operational,0.9
-80,Server Crash,True,2,0.0224,Operational,0.9
-81,Network Timeout,True,1,0.0112,Operational,0.9
-82,Server Crash,True,2,0.0212,Operational,0.9
-83,Network Timeout,True,1,0.0105,Operational,0.9
-84,Server Crash,True,1,0.0126,Operational,0.9
-85,Server Crash,True,2,0.0247,Operational,0.9
-86,Network Timeout,True,1,0.0118,Operational,0.9
-87,Server Crash,True,1,0.0109,Operational,0.9
-88,Database Failure,True,1,0.0107,Operational,0.9
-89,Database Failure,True,1,0.0126,Operational,0.9
-90,Network Timeout,True,1,0.0125,Operational,0.9
-91,Network Timeout,True,1,0.0126,Operational,0.9
-92,Network Timeout,True,1,0.0126,Operational,0.9
-93,Network Timeout,True,1,0.0101,Operational,0.9
-94,Network Timeout,True,1,0.0126,Operational,0.9
-95,Server Crash,True,1,0.0126,Operational,0.9
-96,Network Timeout,True,1,0.0126,Operational,0.9
-97,Server Crash,True,1,0.011,Operational,0.9
-98,Server Crash,True,1,0.0126,Operational,0.9
-99,Network Timeout,True,1,0.0124,Operational,0.9
-100,Server Crash,True,1,0.0108,Operational,0.9
-1,Network Timeout,True,1,0.0121,Operational,0.95
-2,Network Timeout,True,1,0.0113,Operational,0.95
-3,Server Crash,True,1,0.0113,Operational,0.95
-4,Database Failure,True,1,0.012,Operational,0.95
-5,Server Crash,True,1,0.0121,Operational,0.95
-6,Database Failure,True,1,0.0102,Operational,0.95
-7,Server Crash,True,1,0.0127,Operational,0.95
-8,Network Timeout,True,1,0.0122,Operational,0.95
-9,Server Crash,True,1,0.0115,Operational,0.95
-10,Server Crash,True,1,0.0127,Operational,0.95
-11,Server Crash,True,1,0.011,Operational,0.95
-12,Server Crash,True,1,0.0126,Operational,0.95
-13,Network Timeout,True,1,0.0126,Operational,0.95
-14,Server Crash,True,1,0.0124,Operational,0.95
-15,Network Timeout,True,1,0.0123,Operational,0.95
-16,Server Crash,True,1,0.0126,Operational,0.95
-17,Network Timeout,True,1,0.0124,Operational,0.95
-18,Database Failure,True,1,0.0126,Operational,0.95
-19,Server Crash,True,1,0.0117,Operational,0.95
-20,Database Failure,True,1,0.0126,Operational,0.95
-21,Database Failure,True,1,0.0126,Operational,0.95
-22,Server Crash,True,1,0.0111,Operational,0.95
-23,Server Crash,True,1,0.012,Operational,0.95
-24,Network Timeout,True,1,0.0117,Operational,0.95
-25,Database Failure,True,2,0.0251,Operational,0.95
-26,Server Crash,True,1,0.0126,Operational,0.95
-27,Network Timeout,True,1,0.0121,Operational,0.95
-28,Database Failure,True,1,0.0126,Operational,0.95
-29,Network Timeout,True,1,0.0115,Operational,0.95
-30,Network Timeout,True,1,0.0116,Operational,0.95
-31,Database Failure,True,1,0.0127,Operational,0.95
-32,Server Crash,True,1,0.0129,Operational,0.95
-33,Network Timeout,True,1,0.0126,Operational,0.95
-34,Database Failure,True,1,0.0109,Operational,0.95
-35,Network Timeout,True,1,0.0119,Operational,0.95
-36,Server Crash,True,1,0.0103,Operational,0.95
-37,Server Crash,True,1,0.0117,Operational,0.95
-38,Database Failure,True,1,0.0119,Operational,0.95
-39,Network Timeout,True,1,0.0124,Operational,0.95
-40,Server Crash,True,1,0.0117,Operational,0.95
-41,Server Crash,True,1,0.0122,Operational,0.95
-42,Network Timeout,True,1,0.0121,Operational,0.95
-43,Network Timeout,True,1,0.0112,Operational,0.95
-44,Network Timeout,True,1,0.0128,Operational,0.95
-45,Server Crash,True,1,0.0119,Operational,0.95
-46,Network Timeout,True,1,0.0104,Operational,0.95
-47,Database Failure,True,1,0.0103,Operational,0.95
-48,Database Failure,True,1,0.0116,Operational,0.95
-49,Database Failure,True,1,0.0126,Operational,0.95
-50,Network Timeout,True,1,0.0118,Operational,0.95
-51,Network Timeout,True,1,0.0126,Operational,0.95
-52,Network Timeout,True,1,0.0108,Operational,0.95
-53,Network Timeout,True,1,0.0117,Operational,0.95
-54,Server Crash,True,1,0.0126,Operational,0.95
-55,Database Failure,True,1,0.0114,Operational,0.95
-56,Network Timeout,True,2,0.0252,Operational,0.95
-57,Server Crash,True,1,0.0122,Operational,0.95
-58,Server Crash,True,2,0.025,Operational,0.95
-59,Database Failure,True,1,0.0121,Operational,0.95
-60,Network Timeout,True,1,0.0119,Operational,0.95
-61,Server Crash,True,1,0.0126,Operational,0.95
-62,Database Failure,True,1,0.0126,Operational,0.95
-63,Server Crash,True,1,0.0126,Operational,0.95
-64,Server Crash,True,1,0.0107,Operational,0.95
-65,Database Failure,True,1,0.0127,Operational,0.95
-66,Server Crash,True,1,0.0126,Operational,0.95
-67,Network Timeout,True,1,0.0126,Operational,0.95
-68,Server Crash,True,1,0.0119,Operational,0.95
-69,Database Failure,True,1,0.0126,Operational,0.95
-70,Network Timeout,True,1,0.0126,Operational,0.95
-71,Network Timeout,True,1,0.0126,Operational,0.95
-72,Network Timeout,True,1,0.0121,Operational,0.95
-73,Network Timeout,True,1,0.0126,Operational,0.95
-74,Server Crash,True,1,0.0126,Operational,0.95
-75,Server Crash,True,1,0.0126,Operational,0.95
-76,Database Failure,True,1,0.0122,Operational,0.95
-77,Server Crash,True,1,0.0126,Operational,0.95
-78,Network Timeout,True,1,0.0126,Operational,0.95
-79,Server Crash,True,1,0.0115,Operational,0.95
-80,Database Failure,True,1,0.0122,Operational,0.95
-81,Server Crash,True,1,0.0123,Operational,0.95
-82,Database Failure,True,1,0.0103,Operational,0.95
-83,Database Failure,True,1,0.0118,Operational,0.95
-84,Server Crash,True,2,0.0243,Operational,0.95
-85,Server Crash,True,1,0.0128,Operational,0.95
-86,Database Failure,True,1,0.0128,Operational,0.95
-87,Database Failure,True,2,0.0218,Operational,0.95
-88,Database Failure,True,1,0.0118,Operational,0.95
-89,Server Crash,True,1,0.0119,Operational,0.95
-90,Database Failure,True,1,0.0125,Operational,0.95
-91,Server Crash,True,1,0.0127,Operational,0.95
-92,Server Crash,True,1,0.0126,Operational,0.95
-93,Network Timeout,True,1,0.0135,Operational,0.95
-94,Server Crash,True,1,0.0102,Operational,0.95
-95,Server Crash,True,1,0.0116,Operational,0.95
-96,Database Failure,True,2,0.0229,Operational,0.95
-97,Server Crash,True,1,0.0125,Operational,0.95
-98,Database Failure,True,1,0.0118,Operational,0.95
-99,Server Crash,True,1,0.0127,Operational,0.95
-100,Database Failure,True,1,0.0126,Operational,0.95
+trial_id,fault_type,recovered,time_s,message,final_state
+1,Network Timeout,True,1.8083,TCP connection verified — server responding,Operational
+2,Network Timeout,True,1.8116,TCP connection verified — server responding,Operational
+3,Network Timeout,True,1.8114,TCP connection verified — server responding,Operational
+4,Network Timeout,True,1.8081,TCP connection verified — server responding,Operational
+5,Network Timeout,True,1.814,TCP connection verified — server responding,Operational
+6,Network Timeout,True,1.8124,TCP connection verified — server responding,Operational
+7,Network Timeout,True,1.8137,TCP connection verified — server responding,Operational
+8,Network Timeout,True,1.8075,TCP connection verified — server responding,Operational
+9,Network Timeout,True,1.8113,TCP connection verified — server responding,Operational
+10,Network Timeout,True,1.817,TCP connection verified — server responding,Operational
+11,Network Timeout,True,1.8138,TCP connection verified — server responding,Operational
+12,Network Timeout,True,1.8058,TCP connection verified — server responding,Operational
+13,Network Timeout,True,1.8128,TCP connection verified — server responding,Operational
+14,Network Timeout,True,1.8124,TCP connection verified — server responding,Operational
+15,Network Timeout,True,1.8091,TCP connection verified — server responding,Operational
+16,Network Timeout,True,1.8077,TCP connection verified — server responding,Operational
+17,Network Timeout,True,1.8129,TCP connection verified — server responding,Operational
+18,Network Timeout,True,1.8078,TCP connection verified — server responding,Operational
+19,Network Timeout,True,1.8111,TCP connection verified — server responding,Operational
+20,Network Timeout,True,1.8112,TCP connection verified — server responding,Operational
+21,Database Failure,True,0.0094,"DB verified — 1 config rows, write test passed",Operational
+22,Database Failure,True,0.005,"DB verified — 1 config rows, write test passed",Operational
+23,Database Failure,True,0.0037,"DB verified — 1 config rows, write test passed",Operational
+24,Database Failure,True,0.0033,"DB verified — 1 config rows, write test passed",Operational
+25,Database Failure,True,0.0033,"DB verified — 1 config rows, write test passed",Operational
+26,Database Failure,True,0.0028,"DB verified — 1 config rows, write test passed",Operational
+27,Database Failure,True,0.0024,"DB verified — 1 config rows, write test passed",Operational
+28,Database Failure,True,0.0028,"DB verified — 1 config rows, write test passed",Operational
+29,Database Failure,True,0.0027,"DB verified — 1 config rows, write test passed",Operational
+30,Database Failure,True,0.0022,"DB verified — 1 config rows, write test passed",Operational
+31,Database Failure,True,0.0022,"DB verified — 1 config rows, write test passed",Operational
+32,Database Failure,True,0.0021,"DB verified — 1 config rows, write test passed",Operational
+33,Database Failure,True,0.0023,"DB verified — 1 config rows, write test passed",Operational
+34,Database Failure,True,0.002,"DB verified — 1 config rows, write test passed",Operational
+35,Database Failure,True,0.0019,"DB verified — 1 config rows, write test passed",Operational
+36,Database Failure,True,0.0021,"DB verified — 1 config rows, write test passed",Operational
+37,Database Failure,True,0.0021,"DB verified — 1 config rows, write test passed",Operational
+38,Database Failure,True,0.0017,"DB verified — 1 config rows, write test passed",Operational
+39,Database Failure,True,0.0018,"DB verified — 1 config rows, write test passed",Operational
+40,Database Failure,True,0.0021,"DB verified — 1 config rows, write test passed",Operational
+41,Server Crash,True,0.7059,"Worker verified — processed task correctly (21×2=42), total tasks: 1",Operational
+42,Server Crash,True,0.7093,"Worker verified — processed task correctly (21×2=42), total tasks: 2",Operational
+43,Server Crash,True,0.7054,"Worker verified — processed task correctly (21×2=42), total tasks: 3",Operational
+44,Server Crash,True,0.7087,"Worker verified — processed task correctly (21×2=42), total tasks: 4",Operational
+45,Server Crash,True,0.7097,"Worker verified — processed task correctly (21×2=42), total tasks: 5",Operational
+46,Server Crash,True,0.7088,"Worker verified — processed task correctly (21×2=42), total tasks: 6",Operational
+47,Server Crash,True,0.7053,"Worker verified — processed task correctly (21×2=42), total tasks: 7",Operational
+48,Server Crash,True,0.7072,"Worker verified — processed task correctly (21×2=42), total tasks: 8",Operational
+49,Server Crash,True,0.708,"Worker verified — processed task correctly (21×2=42), total tasks: 9",Operational
+50,Server Crash,True,0.7061,"Worker verified — processed task correctly (21×2=42), total tasks: 10",Operational
+51,Server Crash,True,0.71,"Worker verified — processed task correctly (21×2=42), total tasks: 11",Operational
+52,Server Crash,True,0.7087,"Worker verified — processed task correctly (21×2=42), total tasks: 12",Operational
+53,Server Crash,True,0.7105,"Worker verified — processed task correctly (21×2=42), total tasks: 13",Operational
+54,Server Crash,True,0.7102,"Worker verified — processed task correctly (21×2=42), total tasks: 14",Operational
+55,Server Crash,True,0.7069,"Worker verified — processed task correctly (21×2=42), total tasks: 15",Operational
+56,Server Crash,True,0.7096,"Worker verified — processed task correctly (21×2=42), total tasks: 16",Operational
+57,Server Crash,True,0.7077,"Worker verified — processed task correctly (21×2=42), total tasks: 17",Operational
+58,Server Crash,True,0.7038,"Worker verified — processed task correctly (21×2=42), total tasks: 18",Operational
+59,Server Crash,True,0.7086,"Worker verified — processed task correctly (21×2=42), total tasks: 19",Operational
+60,Server Crash,True,0.7065,"Worker verified — processed task correctly (21×2=42), total tasks: 20",Operational

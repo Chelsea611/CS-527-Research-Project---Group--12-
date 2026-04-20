@@ -1,117 +1,104 @@
 """
-CS 527 - Fault-Tolerant System: Evaluation Simulation
+CS 527 - Fault-Tolerant System: Evaluation Simulation (Real Faults)
 Group 12: David Zhao, Chelsea Sun
 
-Runs 100 fault scenarios and outputs results.csv for the report.
+Runs 60 real fault-recovery cycles across all 3 fault types.
+Each trial actually breaks a subsystem and verifies real recovery.
 Usage: python run_simulation.py
 """
 
 import csv
 import time
-import random
 from state_machine import FaultTolerantSystem, FaultType
 
-NUM_TRIALS = 100
-RECOVERY_RATES = [0.7, 0.80, 0.85, 0.90, 0.95]   # test multiple recovery rates
+NUM_TRIALS_PER_FAULT = 20   # 20 trials × 3 fault types = 60 total
 RESULTS_FILE = "simulation_results.csv"
 
 
-def run_single_trial(system, trial_id, fault_type):
-    """Simulate one fault-to-recovery cycle. Returns a result dict."""
+def run_trial(system, trial_id, fault_type):
+    """One full fault → recovery cycle. Returns result dict."""
+    # Ensure system is operational before injecting
+    if system.state.value != "Operational":
+        return None
+
     start = time.time()
-
-    system.state_override = None   # reset via public method
-    system.state.__class__  # just touch it
-
-    # inject fault
-    from state_machine import State
-    system.state = State.OPERATIONAL
-    system.transition("fault_detected", fault_type.value)
-    system.transition("recovery_triggered")
-
-    attempts = 0
-    max_attempts = 5
-    recovered = False
-
-    while attempts < max_attempts:
-        attempts += 1
-        time.sleep(0.01)   # simulate processing time
-        if random.random() < system.recovery_success_rate:
-            system.transition("recovery_success")
-            recovered = True
-            break
-        else:
-            system.transition("recovery_failed")
-            system.transition("recovery_triggered")
-
+    system.trigger_fault(fault_type)
+    success, message = system.attempt_recovery()
     elapsed = round(time.time() - start, 4)
 
     return {
         "trial_id": trial_id,
         "fault_type": fault_type.value,
-        "recovered": recovered,
-        "attempts": attempts,
+        "recovered": success,
         "time_s": elapsed,
+        "message": message,
         "final_state": system.state.value,
     }
 
 
 def run_evaluation():
     print("=" * 60)
-    print("CS 527 · Fault-Tolerant System Evaluation")
+    print("CS 527 · Fault-Tolerant System Evaluation (Real Faults)")
     print("Group 12: David Zhao, Chelsea Sun")
     print("=" * 60)
 
     all_rows = []
+    trial_id = 1
 
-    for rate in RECOVERY_RATES:
-        system = FaultTolerantSystem(recovery_success_rate=rate)
-        print(f"\n[Recovery Rate: {int(rate*100)}%] Running {NUM_TRIALS} trials...")
+    for fault_type in FaultType:
+        system = FaultTolerantSystem()
+        print(f"\n[{fault_type.value}] Running {NUM_TRIALS_PER_FAULT} trials...")
 
         successes = 0
         times = []
 
-        for i in range(NUM_TRIALS):
-            fault = random.choice(list(FaultType))
-            row = run_single_trial(system, trial_id=i + 1, fault_type=fault)
-            row["configured_rate"] = rate
+        for i in range(NUM_TRIALS_PER_FAULT):
+            row = run_trial(system, trial_id, fault_type)
+            if row is None:
+                print(f"  ⚠ Trial {trial_id} skipped (system not operational)")
+                continue
+
             all_rows.append(row)
+            trial_id += 1
+
+            status = "✓" if row["recovered"] else "✗"
+            print(f"  {status} Trial {i+1:02d} | {row['time_s']}s | {row['message']}")
+
             if row["recovered"]:
                 successes += 1
                 times.append(row["time_s"])
 
-        actual_rate = round(successes / NUM_TRIALS * 100, 1)
-        avg_time = round(sum(times) / len(times), 4) if times else 0
-        print(f"  ✓ Actual recovery rate : {actual_rate}%")
-        print(f"  ✓ Avg recovery time    : {avg_time}s")
-        print(f"  ✓ Successful trials    : {successes}/{NUM_TRIALS}")
+        rate = round(successes / NUM_TRIALS_PER_FAULT * 100, 1)
+        avg  = round(sum(times) / len(times), 4) if times else 0
+        print(f"\n  → Recovery rate: {rate}% | Avg time: {avg}s | {successes}/{NUM_TRIALS_PER_FAULT} succeeded")
 
     # Write CSV
-    with open(RESULTS_FILE, "w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=all_rows[0].keys())
-        writer.writeheader()
-        writer.writerows(all_rows)
+    if all_rows:
+        with open(RESULTS_FILE, "w", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=all_rows[0].keys())
+            writer.writeheader()
+            writer.writerows(all_rows)
+        print(f"\n[✓] Results saved to {RESULTS_FILE}")
 
-    print(f"\n[✓] Results saved to {RESULTS_FILE}")
     print_summary(all_rows)
 
 
 def print_summary(rows):
     from collections import defaultdict
-    by_rate = defaultdict(list)
+    by_fault = defaultdict(list)
     for r in rows:
-        by_rate[r["configured_rate"]].append(r)
+        by_fault[r["fault_type"]].append(r)
 
     print("\n" + "=" * 60)
     print("SUMMARY TABLE")
-    print(f"{'Config Rate':>12} | {'Actual Rate':>11} | {'Avg Time (s)':>12} | {'Trials':>6}")
+    print(f"{'Fault Type':<22} | {'Recovery Rate':>13} | {'Avg Time (s)':>12} | {'Trials':>6}")
     print("-" * 60)
-    for rate, trials in sorted(by_rate.items()):
+    for fault, trials in by_fault.items():
         successes = sum(1 for t in trials if t["recovered"])
         times = [t["time_s"] for t in trials if t["recovered"]]
-        actual = round(successes / len(trials) * 100, 1)
+        rate  = round(successes / len(trials) * 100, 1)
         avg_t = round(sum(times) / len(times), 4) if times else 0
-        print(f"{int(rate*100):>11}% | {actual:>10}% | {avg_t:>12} | {len(trials):>6}")
+        print(f"{fault:<22} | {rate:>12}% | {avg_t:>12} | {len(trials):>6}")
     print("=" * 60)
 
 
