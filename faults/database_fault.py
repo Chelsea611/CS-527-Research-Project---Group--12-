@@ -4,12 +4,15 @@ Real Database Fault Handler
 - Recovery: Recreates the DB file, restores schema, verifies a real query works
 """
 
-import sqlite3
+import gc
 import os
+import sqlite3
+import tempfile
 import time
 
-
-DB_PATH = "/tmp/cs527_system.db"
+# One DB file per process so Flask debug reloader (parent + child) does not
+# share the same path and lock each other on Windows.
+DB_PATH = os.path.join(tempfile.gettempdir(), f"cs527_system_{os.getpid()}.db")
 
 
 class DatabaseFaultHandler:
@@ -23,6 +26,8 @@ class DatabaseFaultHandler:
     def _setup_db(self):
         """Create DB and schema from scratch."""
         self._conn = sqlite3.connect(self.db_path, check_same_thread=False)
+        # Avoid WAL sidecar files (-wal/-shm); deleting the main file is simpler on Windows.
+        self._conn.execute("PRAGMA journal_mode=DELETE")
         self._conn.execute("""
             CREATE TABLE IF NOT EXISTS system_log (
                 id        INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -45,6 +50,27 @@ class DatabaseFaultHandler:
 
     # ── Fault & Recovery ────────────────────────────────────
 
+    def _unlink_db_files(self):
+        """Remove main DB and any SQLite sidecars; retry on Windows transient locks."""
+        gc.collect()
+        paths = [
+            self.db_path,
+            self.db_path + "-wal",
+            self.db_path + "-shm",
+            self.db_path + "-journal",
+        ]
+        for path in paths:
+            if not os.path.isfile(path):
+                continue
+            for attempt in range(8):
+                try:
+                    os.remove(path)
+                    break
+                except PermissionError:
+                    time.sleep(0.05 * (attempt + 1))
+                except OSError:
+                    break
+
     def trigger_fault(self):
         """
         Actually break the DB: close connection and delete the file.
@@ -57,8 +83,7 @@ class DatabaseFaultHandler:
                 pass
             self._conn = None
 
-        if os.path.exists(self.db_path):
-            os.remove(self.db_path)
+        self._unlink_db_files()
 
     def try_recover(self):
         """

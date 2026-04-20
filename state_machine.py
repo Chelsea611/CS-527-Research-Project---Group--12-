@@ -102,7 +102,9 @@ class FaultTolerantSystem:
             if random.random() < 0.25:
                 fault = random.choice(list(FaultType))
                 self.trigger_fault(fault)
-        elif self.state == State.ERROR:
+        # Not elif: if we just left OPERATIONAL via trigger_fault above, we must
+        # still recover in this same tick; elif would skip until after sleep(interval).
+        if self.state == State.ERROR:
             time.sleep(0.5)
             self.attempt_recovery()
 

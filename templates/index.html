@@ -596,8 +596,9 @@
           <button class="btn success" onclick="resetSystem()">Reset System</button>
         </div>
         <div style="margin-top:16px;font-size:11px;color:var(--text-dim);font-family:var(--mono);line-height:1.7">
-          Auto-simulation runs every 3s.<br/>
-          Fault prob: 20% · Recovery rate: 85%
+          Auto-simulation tick every 3s.<br/>
+          When Operational: 25% chance to inject a random real fault.<br/>
+          When Error: auto attempt recovery (real subsystem repair + verify).
         </div>
       </div>
     </div>
@@ -642,7 +643,16 @@ const stateConfig = {
   }
 };
 
-let lastLogCount = 0;
+let lastLogFingerprint = "";
+let pollTimer = null;
+let lastFastPoll = null;
+const POLL_MS_STEADY = 800;
+const POLL_MS_ACTIVE = 150;
+
+function setPollInterval(ms) {
+  if (pollTimer) clearInterval(pollTimer);
+  pollTimer = setInterval(fetchStatus, ms);
+}
 
 async function fetchStatus() {
   try {
@@ -653,7 +663,14 @@ async function fetchStatus() {
 }
 
 function updateUI(data) {
-  const cfg = stateConfig[data.state];
+  const fast = data.state === "Error" || data.state === "Recovery";
+  const wantMs = fast ? POLL_MS_ACTIVE : POLL_MS_STEADY;
+  if (pollTimer === null || fast !== lastFastPoll) {
+    lastFastPoll = fast;
+    setPollInterval(wantMs);
+  }
+
+  const cfg = stateConfig[data.state] || stateConfig["Operational"];
   const stateName = document.getElementById("state-name");
   const stateIndicator = document.getElementById("state-indicator");
   const stateIcon = document.getElementById("state-icon");
@@ -687,23 +704,26 @@ function updateUI(data) {
   const timeEl = document.getElementById("m-time");
   timeEl.innerHTML = (m.avg_recovery_time_s > 0 ? m.avg_recovery_time_s : "—") + '<span class="metric-unit">s</span>';
 
-  // Log
-  if (data.log.length !== lastLogCount) {
-    lastLogCount = data.log.length;
+  // Log: API always returns at most 10 rows, so length stops changing — compare content.
+  const logFp = JSON.stringify(data.log);
+  if (logFp !== lastLogFingerprint) {
+    lastLogFingerprint = logFp;
     const logBody = document.getElementById("log-body");
     logBody.innerHTML = data.log.map(e => {
       const state = e.state;
       const bcls = stateConfig[state]?.badgeCls || "op";
+      const msg = String(e.message).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
       return `<div class="log-entry">
         <span class="log-time">${e.time}</span>
         <span class="log-badge ${bcls}">${state.substring(0,2).toUpperCase()}</span>
-        <span class="log-msg">${e.message}</span>
+        <span class="log-msg">${msg}</span>
       </div>`;
     }).join("");
   }
 
+  const pollLabel = fast ? POLL_MS_ACTIVE : POLL_MS_STEADY;
   document.getElementById("footer-time").textContent =
-    new Date().toLocaleTimeString() + " · Auto-polling every 1.5s";
+    new Date().toLocaleTimeString() + " · Polling " + pollLabel + "ms (" + (fast ? "fault/recovery" : "steady") + ")";
 }
 
 async function injectFault() {
@@ -716,13 +736,17 @@ async function injectFault() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body)
   });
-  setTimeout(() => { btn.disabled = false; }, 1500);
-  await fetchStatus();
+  setTimeout(() => { btn.disabled = false; }, 1200);
+  for (let i = 0; i < 20; i++) {
+    await fetchStatus();
+    await new Promise(r => setTimeout(r, 40));
+  }
 }
 
 async function resetSystem() {
   await fetch("/api/reset", { method: "POST" });
-  lastLogCount = 0;
+  lastLogFingerprint = "";
+  lastFastPoll = null;
   await fetchStatus();
 }
 
@@ -739,7 +763,6 @@ async function loadFaultTypes() {
 
 loadFaultTypes();
 fetchStatus();
-setInterval(fetchStatus, 1500);
 </script>
 </body>
 </html>

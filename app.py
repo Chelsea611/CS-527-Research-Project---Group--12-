@@ -3,12 +3,16 @@ CS 527 - Fault-Tolerant System: Flask Backend
 Group 12: David Zhao, Chelsea Sun
 """
 
+import random
+
 from flask import Flask, jsonify, request, render_template
 from state_machine import FaultTolerantSystem, FaultType
 
-app = Flask(__name__) 
+app = Flask(__name__)
+AUTO_INTERVAL_S = 3.0
+
 system = FaultTolerantSystem()
-system.start_auto(interval=3.0)
+system.start_auto(interval=AUTO_INTERVAL_S)
 
 
 @app.route("/")
@@ -23,12 +27,23 @@ def status():
 
 @app.route("/api/inject_fault", methods=["POST"])
 def inject_fault():
+    """Maps to FaultTolerantSystem.trigger_fault (real subsystem fault)."""
     data = request.get_json(silent=True) or {}
     fault_name = data.get("fault_type")
     fault_type = None
     if fault_name:
         fault_type = next((f for f in FaultType if f.value == fault_name), None)
-    success = system.inject_fault(fault_type)
+        if fault_type is None:
+            return jsonify(
+                {
+                    "success": False,
+                    "state": system.state.value,
+                    "message": "Unknown fault_type",
+                }
+            )
+    if fault_type is None:
+        fault_type = random.choice(list(FaultType))
+    success = system.trigger_fault(fault_type)
     return jsonify({"success": success, "state": system.state.value})
 
 
@@ -36,8 +51,8 @@ def inject_fault():
 def reset():
     global system
     system.stop_auto()
-    system = FaultTolerantSystem(fault_probability=0.2, recovery_success_rate=0.85)
-    system.start_auto(interval=3.0)
+    system = FaultTolerantSystem()
+    system.start_auto(interval=AUTO_INTERVAL_S)
     return jsonify({"success": True})
 
 
