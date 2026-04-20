@@ -3,9 +3,10 @@ CS 527 - Fault-Tolerant System: State Machine Core (Real Faults)
 Group 12: David Zhao, Chelsea Sun
 """
 
+from contextlib import contextmanager
 from enum import Enum
-import time
 import threading
+import time
 
 from faults.network_fault import NetworkFaultHandler
 from faults.database_fault import DatabaseFaultHandler
@@ -24,6 +25,26 @@ class FaultType(Enum):
     SERVER_CRASH = "Server Crash"
 
 
+@contextmanager
+def _stress_load(num_threads: int = 8):
+    """CPU-bound background threads (aligns with run_simulation stress profile)."""
+    stop = threading.Event()
+
+    def worker() -> None:
+        while not stop.is_set():
+            _ = sum(i * i for i in range(2500))
+
+    threads = [threading.Thread(target=worker, daemon=True) for _ in range(num_threads)]
+    for t in threads:
+        t.start()
+    try:
+        yield
+    finally:
+        stop.set()
+        for t in threads:
+            t.join(timeout=2.0)
+
+
 class FaultTolerantSystem:
     def __init__(self):
         self.state = State.OPERATIONAL
@@ -39,6 +60,11 @@ class FaultTolerantSystem:
         self._current_fault_type = None
         self._current_handler = None
         self._fault_time = None
+
+        # Dashboard / parity with batch harness: optional recovery-time stress & net delay
+        self.web_stress_recovery = False
+        self.web_net_delay_ms = 0
+        self.web_recovery_cycles_completed = 0
 
         # Pre-initialize all handlers so they start healthy
         self._handlers = {
@@ -71,20 +97,45 @@ class FaultTolerantSystem:
             self._record(f"Fault injected: {fault_type.value} — subsystem is now broken")
             return True
 
+    def set_recovery_env(
+        self,
+        *,
+        stress_during_recovery: bool | None = None,
+        network_recovery_delay_ms: int | None = None,
+    ):
+        """Update web dashboard knobs (thread-safe). None = leave unchanged."""
+        with self._lock:
+            if stress_during_recovery is not None:
+                self.web_stress_recovery = bool(stress_during_recovery)
+            if network_recovery_delay_ms is not None:
+                self.web_net_delay_ms = max(0, min(int(network_recovery_delay_ms), 5000))
+
     def attempt_recovery(self):
         with self._lock:
             if self.state != State.ERROR:
                 return False, "Not in error state"
             self.state = State.RECOVERY
             self._record(f"Recovery started for: {self._current_fault_type.value}")
+            handler = self._current_handler
+            ftype = self._current_fault_type
+            use_stress = self.web_stress_recovery
+            net_delay_ms = self.web_net_delay_ms
 
-        success, message = self._current_handler.try_recover()
+        if ftype == FaultType.NETWORK_TIMEOUT and net_delay_ms > 0:
+            time.sleep(net_delay_ms / 1000.0)
+
+        if use_stress:
+            with _stress_load():
+                success, message = handler.try_recover()
+        else:
+            success, message = handler.try_recover()
 
         with self._lock:
             if success:
                 elapsed = round(time.time() - self._fault_time, 2)
                 self.metrics["successful_recoveries"] += 1
                 self.metrics["recovery_times"].append(elapsed)
+                self.web_recovery_cycles_completed += 1
                 self.state = State.OPERATIONAL
                 self._record(f"Recovery successful in {elapsed}s — {message}")
                 self._current_fault_type = None
@@ -97,13 +148,7 @@ class FaultTolerantSystem:
         return success, message
 
     def _auto_step(self):
-        import random
-        if self.state == State.OPERATIONAL:
-            if random.random() < 0.25:
-                fault = random.choice(list(FaultType))
-                self.trigger_fault(fault)
-        # Not elif: if we just left OPERATIONAL via trigger_fault above, we must
-        # still recover in this same tick; elif would skip until after sleep(interval).
+        """Background loop: no random fault injection—only pull ERROR → recovery."""
         if self.state == State.ERROR:
             time.sleep(0.5)
             self.attempt_recovery()
@@ -143,4 +188,10 @@ class FaultTolerantSystem:
                     ft.value: self._handlers[ft].is_healthy()
                     for ft in FaultType
                 },
+                "recovery_env": {
+                    "stress_during_recovery": self.web_stress_recovery,
+                    "network_recovery_delay_ms": self.web_net_delay_ms,
+                },
+                "recovery_cycles_completed": self.web_recovery_cycles_completed,
+                "recovery_watch_active": self._running,
             }

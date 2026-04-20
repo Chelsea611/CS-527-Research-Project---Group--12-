@@ -4,16 +4,16 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>CS 527 · Fault-Tolerant System · Group 12</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <style>
   :root {
-    --bg: #0a0c0f;
-    --surface: #111418;
+    --bg: #0c0f14;
+    --surface: #12161c;
     --border: #1e2329;
-    --border-bright: #2e3540;
-    --text: #c8d0dc;
-    --text-dim: #5a6478;
-    --text-bright: #eef2f8;
+    --border-bright: #343c4a;
+    --text: #e4e9f0;
+    --text-dim: #8b96a8;
+    --text-bright: #f6f8fc;
     --green: #22d98c;
     --green-dim: rgba(34,217,140,0.15);
     --red: #ff4d6a;
@@ -22,8 +22,8 @@
     --yellow-dim: rgba(245,197,66,0.15);
     --blue: #4d9fff;
     --blue-dim: rgba(77,159,255,0.15);
-    --mono: 'Space Mono', monospace;
-    --sans: 'DM Sans', sans-serif;
+    --mono: "Space Mono", ui-monospace, monospace;
+    --sans: "Inter", system-ui, -apple-system, sans-serif;
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -32,12 +32,13 @@
     background: var(--bg);
     color: var(--text);
     font-family: var(--sans);
-    font-size: 14px;
+    font-size: 15px;
+    line-height: 1.6;
     min-height: 100vh;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* Grid noise texture */
   body::before {
     content: '';
     position: fixed;
@@ -58,7 +59,6 @@
     z-index: 1;
   }
 
-  /* Header */
   header {
     display: flex;
     align-items: flex-start;
@@ -70,33 +70,32 @@
 
   .header-left h1 {
     font-family: var(--mono);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--text-dim);
     margin-bottom: 6px;
   }
 
   .header-left h2 {
-    font-family: var(--mono);
-    font-size: 22px;
-    font-weight: 700;
+    font-family: var(--sans);
+    font-size: 24px;
+    font-weight: 600;
     color: var(--text-bright);
-    line-height: 1.2;
+    line-height: 1.25;
   }
 
   .header-left h2 span { color: var(--green); }
 
   .header-right {
     text-align: right;
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-dim);
-    font-family: var(--mono);
-    line-height: 1.8;
+    font-family: var(--sans);
+    line-height: 1.65;
   }
 
-  /* State display */
   .state-hero {
     display: flex;
     align-items: center;
@@ -151,24 +150,39 @@
     100% { transform: scale(1.5); opacity: 0; }
   }
 
+  @keyframes hero-flash {
+    0% { box-shadow: 0 0 0 0 rgba(77,159,255,0.5); }
+    100% { box-shadow: 0 0 0 12px rgba(77,159,255,0); }
+  }
+  .state-hero.busy { animation: hero-flash 0.9s ease-out 1; }
+
+  .inject-feedback {
+    margin-top: 8px;
+    min-height: 1.3em;
+    font-size: 13px;
+    font-family: var(--sans);
+    color: var(--blue);
+    line-height: 1.45;
+  }
+
   .state-info { flex: 1; }
 
   .state-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
     color: var(--text-dim);
     margin-bottom: 6px;
   }
 
   .state-name {
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 32px;
     font-weight: 700;
     color: var(--text-bright);
     margin-bottom: 6px;
     transition: color 0.3s;
+    letter-spacing: -0.02em;
   }
 
   .state-name.operational { color: var(--green); }
@@ -176,14 +190,13 @@
   .state-name.recovery    { color: var(--yellow);}
 
   .current-fault {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text-dim);
-    font-family: var(--mono);
+    font-family: var(--sans);
   }
 
   .current-fault span { color: var(--red); }
 
-  /* State diagram */
   .diagram-wrap {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -193,12 +206,11 @@
   }
 
   .diagram-title {
-    font-family: var(--mono);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--text-dim);
-    margin-bottom: 20px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-bright);
+    margin-bottom: 18px;
   }
 
   .diagram {
@@ -227,17 +239,18 @@
     align-items: center;
     justify-content: center;
     gap: 4px;
-    font-family: var(--mono);
-    font-size: 10px;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.04em;
     color: var(--text-dim);
     transition: all 0.4s;
     position: relative;
   }
 
   .d-circle .d-icon { font-size: 22px; }
-  .d-circle .d-lbl  { font-size: 9px;  }
+  .d-circle .d-lbl  { font-size: 10px; font-weight: 500; }
 
   .d-circle.active-op { border-color: var(--green); color: var(--green); background: var(--green-dim); }
   .d-circle.active-er { border-color: var(--red);   color: var(--red);   background: var(--red-dim);   }
@@ -268,15 +281,63 @@
   }
 
   .d-arrow-label {
-    font-size: 9px;
-    font-family: var(--mono);
+    font-size: 11px;
+    font-family: var(--sans);
     color: var(--text-dim);
     text-align: center;
-    max-width: 60px;
-    line-height: 1.3;
+    max-width: 100px;
+    line-height: 1.4;
   }
 
-  /* Two-row layout */
+  .diagram-legend {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    font-family: var(--sans);
+    color: var(--text);
+    line-height: 1.65;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .diagram-legend strong { color: var(--text-bright); font-weight: 600; }
+  .diagram-legend code {
+    font-size: 12px;
+    font-family: var(--mono);
+    background: var(--bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+
+  .diagram-trace {
+    margin-top: 14px;
+    font-size: 13px;
+    font-family: var(--sans);
+    color: var(--text-dim);
+    line-height: 1.55;
+    word-break: break-word;
+  }
+
+  @keyframes replay-pulse {
+    0%   { transform: scale(1);   box-shadow: 0 0 0 0 rgba(77,159,255,0.55); }
+    55%  { transform: scale(1.07); box-shadow: 0 0 0 10px rgba(77,159,255,0); }
+    100% { transform: scale(1);   box-shadow: 0 0 0 0 rgba(77,159,255,0); }
+  }
+  .d-circle.diagram-replay-pulse {
+    animation: replay-pulse 0.38s ease-out 1;
+    z-index: 2;
+  }
+
+  .runtime-meta {
+    margin-top: 10px;
+    font-size: 13px;
+    font-family: var(--sans);
+    color: var(--text-dim);
+    line-height: 1.55;
+  }
+
   .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -284,7 +345,6 @@
     margin-bottom: 24px;
   }
 
-  /* Metrics */
   .metrics-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -299,18 +359,18 @@
   }
 
   .metric-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
     color: var(--text-dim);
     margin-bottom: 8px;
   }
 
   .metric-value {
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 28px;
     font-weight: 700;
+    font-variant-numeric: tabular-nums;
     color: var(--text-bright);
   }
 
@@ -324,7 +384,6 @@
     margin-left: 2px;
   }
 
-  /* Log */
   .panel {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -335,11 +394,10 @@
   .panel-header {
     padding: 14px 20px;
     border-bottom: 1px solid var(--border);
-    font-family: var(--mono);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--text-dim);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-bright);
     display: flex;
     align-items: center;
     gap: 8px;
@@ -374,20 +432,21 @@
   .log-entry {
     display: flex;
     gap: 12px;
-    font-family: var(--mono);
-    font-size: 11px;
+    font-family: var(--sans);
+    font-size: 13px;
     line-height: 1.5;
     animation: fadeIn 0.3s ease;
   }
 
   @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } }
 
-  .log-time { color: var(--text-dim); flex-shrink: 0; }
+  .log-time { color: var(--text-dim); flex-shrink: 0; font-family: var(--mono); font-size: 12px; }
 
   .log-badge {
-    padding: 1px 6px;
-    border-radius: 3px;
-    font-size: 9px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
     text-transform: uppercase;
     flex-shrink: 0;
     align-self: flex-start;
@@ -400,7 +459,6 @@
 
   .log-msg { color: var(--text); }
 
-  /* Controls */
   .controls-body { padding: 20px; }
 
   .control-row {
@@ -433,26 +491,62 @@
 
   select {
     padding: 10px 14px;
-    border-radius: 5px;
+    border-radius: 6px;
     border: 1px solid var(--border-bright);
     background: var(--bg);
     color: var(--text);
-    font-family: var(--mono);
-    font-size: 11px;
+    font-family: var(--sans);
+    font-size: 13px;
     cursor: pointer;
     outline: none;
   }
 
   select:focus { border-color: var(--blue); }
 
-  /* Footer */
+  .env-lab { padding: 18px 20px; }
+  .env-lab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 24px;
+    margin-top: 12px;
+  }
+  @media (max-width: 720px) {
+    .env-lab-grid { grid-template-columns: 1fr; }
+  }
+  .env-lab h4 {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-bright);
+    margin-bottom: 10px;
+  }
+  .health-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .health-pill {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border-bright);
+  }
+  .health-pill.ok { border-color: rgba(34,217,140,0.35); background: var(--green-dim); color: var(--green); }
+  .health-pill.bad { border-color: rgba(255,77,106,0.35); background: var(--red-dim); color: var(--red); }
+  .env-note {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--text-dim);
+    font-family: var(--sans);
+    line-height: 1.6;
+  }
+  .env-check { display: flex; align-items: center; gap: 8px; font-size: 14px; margin-bottom: 10px; font-family: var(--sans); }
+  .env-check input { accent-color: var(--blue); }
+
   footer {
     margin-top: 40px;
     padding-top: 20px;
     border-top: 1px solid var(--border);
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-dim);
-    font-family: var(--mono);
+    font-family: var(--sans);
     display: flex;
     justify-content: space-between;
   }
@@ -465,11 +559,10 @@
     color: var(--green);
     border: 1px solid rgba(34,217,140,0.3);
     border-radius: 20px;
-    padding: 3px 10px;
-    font-family: var(--mono);
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    padding: 4px 12px;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
   }
 
   .live-badge .dot {
@@ -500,11 +593,13 @@
       David Zhao · Chelsea Sun<br/>
       University of Illinois<br/>
       Urbana-Champaign<br/>
-      <span class="live-badge" style="margin-top:8px;display:inline-flex"><span class="dot"></span>Live</span>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">
+        <button type="button" class="btn" id="btn-refresh" onclick="fetchStatus()">Refresh status</button>
+        <span class="live-badge" style="display:inline-flex"><span class="dot"></span>On demand</span>
+      </div>
     </div>
   </header>
 
-  <!-- State Hero -->
   <div class="state-hero" id="state-hero">
     <div class="state-indicator operational" id="state-indicator">
       <span id="state-icon">✓</span>
@@ -516,9 +611,8 @@
     </div>
   </div>
 
-  <!-- State Diagram -->
   <div class="diagram-wrap">
-    <div class="diagram-title">State Transition Diagram</div>
+    <div class="diagram-title">State diagram — FaultTolerantSystem</div>
     <div class="diagram">
       <div class="d-node">
         <div class="d-circle active-op" id="d-op">
@@ -528,7 +622,7 @@
       </div>
       <div class="d-arrow">
         <div class="d-arrow-line"></div>
-        <div class="d-arrow-label">fault detected</div>
+        <div class="d-arrow-label"><code>trigger_fault</code> → handler breaks subsystem</div>
       </div>
       <div class="d-node">
         <div class="d-circle" id="d-er">
@@ -538,7 +632,7 @@
       </div>
       <div class="d-arrow">
         <div class="d-arrow-line"></div>
-        <div class="d-arrow-label">recovery triggered</div>
+        <div class="d-arrow-label"><code>attempt_recovery</code> → <code>try_recover</code></div>
       </div>
       <div class="d-node">
         <div class="d-circle" id="d-rc">
@@ -547,11 +641,49 @@
         </div>
       </div>
     </div>
+    <div class="diagram-legend">
+      <p>Recovery → Operational if <code>try_recover</code> succeeds; otherwise Recovery → Error. Inject = <code>trigger_fault</code> + <code>attempt_recovery</code> in one request.</p>
+      <p>Replay briefly shows Error → Recovery → final state when the server responds quickly.</p>
+    </div>
+    <div class="diagram-trace" id="diagram-trace"></div>
+  </div>
+
+  <div class="panel" style="margin-bottom:24px">
+    <div class="panel-header">Subsystems &amp; runtime (live)</div>
+    <div class="env-lab">
+      <div class="env-lab-grid">
+        <div>
+          <h4>Handler health (<code>is_healthy()</code>)</h4>
+          <div class="health-pills" id="health-pills">
+            <span class="health-pill ok">—</span>
+          </div>
+          <div class="runtime-meta" id="runtime-meta">Recovery watch: — · Lab: —</div>
+        </div>
+        <div>
+          <h4>Recovery env (same semantics as run_simulation)</h4>
+          <label class="env-check">
+            <input type="checkbox" id="env-stress"/>
+            <span>CPU stress during <code>try_recover</code> (high load)</span>
+          </label>
+          <div class="control-row" style="align-items:center">
+            <span style="font-size:13px;color:var(--text-dim);font-family:var(--sans)">Net delay (ms)</span>
+            <select id="env-net-ms">
+              <option value="0">0</option>
+              <option value="100">100</option>
+              <option value="200">200</option>
+            </select>
+            <button type="button" class="btn" id="btn-env-apply" onclick="applyRecoveryEnv()">Apply</button>
+          </div>
+          <div class="env-note">
+            Recovery cycles since reset: <strong id="env-cycles">0</strong> · Reset clears lab env (stress off, delay 0). Apply saves env; Refresh loads server state.
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="grid-2">
 
-    <!-- Metrics Panel -->
     <div class="panel">
       <div class="panel-header">📊 Evaluation Metrics</div>
       <div style="padding:16px">
@@ -576,36 +708,29 @@
       </div>
     </div>
 
-    <!-- Controls Panel -->
     <div class="panel">
       <div class="panel-header">⌨ Manual Controls</div>
       <div class="controls-body">
-        <div style="margin-bottom:10px;font-size:12px;color:var(--text-dim);font-family:var(--mono)">
-          INJECT FAULT TYPE
-        </div>
+        <div style="margin-bottom:10px;font-size:13px;color:var(--text-dim);font-family:var(--sans);font-weight:500">Fault type</div>
         <div class="control-row" style="margin-bottom:14px">
           <select id="fault-select">
             <option value="">Random</option>
           </select>
           <button class="btn danger" id="btn-fault" onclick="injectFault()">Inject Fault</button>
         </div>
-        <div style="margin-bottom:10px;font-size:12px;color:var(--text-dim);font-family:var(--mono)">
-          SYSTEM CONTROL
-        </div>
+        <div class="inject-feedback" id="inject-feedback"></div>
+        <div style="margin-bottom:10px;font-size:13px;color:var(--text-dim);font-family:var(--sans);font-weight:500">System</div>
         <div class="control-row">
           <button class="btn success" onclick="resetSystem()">Reset System</button>
         </div>
-        <div style="margin-top:16px;font-size:11px;color:var(--text-dim);font-family:var(--mono);line-height:1.7">
-          Auto-simulation tick every 3s.<br/>
-          When Operational: 25% chance to inject a random real fault.<br/>
-          When Error: auto attempt recovery (real subsystem repair + verify).
+        <div style="margin-top:16px;font-size:13px;color:var(--text-dim);font-family:var(--sans);line-height:1.6">
+          Inject runs fault then recovery in one request. Refresh updates the UI (no auto-poll).
         </div>
       </div>
     </div>
 
   </div>
 
-  <!-- Event Log -->
   <div class="panel">
     <div class="panel-header">
       <span class="dot"></span>
@@ -644,55 +769,56 @@ const stateConfig = {
 };
 
 let lastLogFingerprint = "";
-let pollTimer = null;
-let lastFastPoll = null;
-const POLL_MS_STEADY = 800;
-const POLL_MS_ACTIVE = 150;
-
-function setPollInterval(ms) {
-  if (pollTimer) clearInterval(pollTimer);
-  pollTimer = setInterval(fetchStatus, ms);
-}
+let lastServerRecoveryEnvJson = null;
+window.diagramReplayLock = false;
 
 async function fetchStatus() {
   try {
     const r = await fetch("/api/status");
+    if (!r.ok) return;
     const data = await r.json();
     updateUI(data);
   } catch(e) {}
 }
 
 function updateUI(data) {
-  const fast = data.state === "Error" || data.state === "Recovery";
-  const wantMs = fast ? POLL_MS_ACTIVE : POLL_MS_STEADY;
-  if (pollTimer === null || fast !== lastFastPoll) {
-    lastFastPoll = fast;
-    setPollInterval(wantMs);
-  }
-
   const cfg = stateConfig[data.state] || stateConfig["Operational"];
   const stateName = document.getElementById("state-name");
   const stateIndicator = document.getElementById("state-indicator");
   const stateIcon = document.getElementById("state-icon");
   const currentFault = document.getElementById("current-fault");
 
-  stateName.className = "state-name " + cfg.cls;
-  stateName.textContent = data.state;
-  stateIndicator.className = "state-indicator " + cfg.cls;
-  stateIcon.textContent = cfg.icon;
+  if (!window.diagramReplayLock) {
+    stateName.className = "state-name " + cfg.cls;
+    stateName.textContent = data.state;
+    stateIndicator.className = "state-indicator " + cfg.cls;
+    stateIcon.textContent = cfg.icon;
 
-  if (data.current_fault) {
-    currentFault.innerHTML = `Active fault: <span>${data.current_fault}</span>`;
-  } else {
-    currentFault.textContent = cfg.faultMsg || "Processing...";
+    if (data.current_fault) {
+      currentFault.innerHTML = `Active fault: <span>${data.current_fault}</span>`;
+    } else {
+      currentFault.textContent = cfg.faultMsg || "Processing...";
+    }
   }
 
-  // Diagram
-  document.getElementById("d-op").className = "d-circle" + (data.state === "Operational" ? " active-op" : "");
-  document.getElementById("d-er").className = "d-circle" + (data.state === "Error" ? " active-er" : "");
-  document.getElementById("d-rc").className = "d-circle" + (data.state === "Recovery" ? " active-rc" : "");
+  if (!window.diagramReplayLock) {
+    document.getElementById("d-op").className = "d-circle" + (data.state === "Operational" ? " active-op" : "");
+    document.getElementById("d-er").className = "d-circle" + (data.state === "Error" ? " active-er" : "");
+    document.getElementById("d-rc").className = "d-circle" + (data.state === "Recovery" ? " active-rc" : "");
+  }
 
-  // Metrics
+  const traceEl = document.getElementById("diagram-trace");
+  if (traceEl && !window.diagramReplayLock) {
+    if (typeof window._lastObservedState === "undefined") window._lastObservedState = "";
+    if (data.state !== window._lastObservedState) {
+      window._lastObservedState = data.state;
+      if (!window._stateTraceArr) window._stateTraceArr = [];
+      window._stateTraceArr.push(data.state);
+      if (window._stateTraceArr.length > 16) window._stateTraceArr.shift();
+      traceEl.textContent = "Status trace: " + window._stateTraceArr.join(" → ");
+    }
+  }
+
   const m = data.metrics;
   document.getElementById("m-faults").textContent = m.total_faults;
   document.getElementById("m-success").textContent = m.successful_recoveries;
@@ -704,7 +830,38 @@ function updateUI(data) {
   const timeEl = document.getElementById("m-time");
   timeEl.innerHTML = (m.avg_recovery_time_s > 0 ? m.avg_recovery_time_s : "—") + '<span class="metric-unit">s</span>';
 
-  // Log: API always returns at most 10 rows, so length stops changing — compare content.
+  const hp = document.getElementById("health-pills");
+  if (data.subsystem_health) {
+    hp.innerHTML = Object.entries(data.subsystem_health).map(([name, ok]) => {
+      const cls = ok ? "ok" : "bad";
+      const tag = ok ? "OK" : "DOWN";
+      const esc = String(name).replace(/&/g,"&amp;").replace(/</g,"&lt;");
+      return `<span class="health-pill ${cls}">${esc} · ${tag}</span>`;
+    }).join("");
+  }
+  const renv = data.recovery_env || {};
+  const envJson = JSON.stringify({
+    s: !!renv.stress_during_recovery,
+    m: Number(renv.network_recovery_delay_ms) || 0,
+  });
+  if (lastServerRecoveryEnvJson !== envJson) {
+    lastServerRecoveryEnvJson = envJson;
+    document.getElementById("env-stress").checked = !!renv.stress_during_recovery;
+    const sel = document.getElementById("env-net-ms");
+    const ms = String(renv.network_recovery_delay_ms != null ? renv.network_recovery_delay_ms : 0);
+    if ([...sel.options].some(o => o.value === ms)) sel.value = ms;
+  }
+  document.getElementById("env-cycles").textContent =
+    data.recovery_cycles_completed != null ? data.recovery_cycles_completed : "—";
+
+  const rtm = document.getElementById("runtime-meta");
+  if (rtm) {
+    const watch = data.recovery_watch_active ? "on" : "off";
+    const st = renv.stress_during_recovery ? "on" : "off";
+    const ms = renv.network_recovery_delay_ms != null ? renv.network_recovery_delay_ms : 0;
+    rtm.textContent = "Watch " + watch + " · Stress " + st + " · Net " + ms + " ms";
+  }
+
   const logFp = JSON.stringify(data.log);
   if (logFp !== lastLogFingerprint) {
     lastLogFingerprint = logFp;
@@ -721,23 +878,95 @@ function updateUI(data) {
     }).join("");
   }
 
-  const pollLabel = fast ? POLL_MS_ACTIVE : POLL_MS_STEADY;
+  const watchOn = !!data.recovery_watch_active;
   document.getElementById("footer-time").textContent =
-    new Date().toLocaleTimeString() + " · Polling " + pollLabel + "ms (" + (fast ? "fault/recovery" : "steady") + ")";
+    "Refreshed " + new Date().toLocaleTimeString() + " · Watch " + (watchOn ? "on" : "off");
+}
+
+function clearDiagramNodes() {
+  ["d-op", "d-er", "d-rc"].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.className = "d-circle";
+  });
+}
+
+function highlightDiagramState(stateName) {
+  clearDiagramNodes();
+  const map = {
+    Operational: ["d-op", "active-op"],
+    Error: ["d-er", "active-er"],
+    Recovery: ["d-rc", "active-rc"],
+  };
+  const pair = map[stateName];
+  if (!pair) return;
+  const el = document.getElementById(pair[0]);
+  if (el) el.className = "d-circle " + pair[1] + " diagram-replay-pulse";
+}
+
+function runInjectPathReplay(inj) {
+  if (!inj || !inj.success || !inj.recovery_attempted) return Promise.resolve();
+  const seq =
+    inj.recovery_success === false
+      ? ["Error", "Recovery", "Error"]
+      : ["Error", "Recovery", "Operational"];
+  window.diagramReplayLock = true;
+  return new Promise((resolve) => {
+    let i = 0;
+    function step() {
+      if (i >= seq.length) {
+        window.diagramReplayLock = false;
+        fetchStatus().then(resolve);
+        return;
+      }
+      highlightDiagramState(seq[i]);
+      i += 1;
+      setTimeout(step, 420);
+    }
+    step();
+  });
 }
 
 async function injectFault() {
   const sel = document.getElementById("fault-select").value;
   const body = sel ? { fault_type: sel } : {};
   const btn = document.getElementById("btn-fault");
+  const fb = document.getElementById("inject-feedback");
+  const hero = document.getElementById("state-hero");
   btn.disabled = true;
-  await fetch("/api/inject_fault", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body)
-  });
-  setTimeout(() => { btn.disabled = false; }, 1200);
-  for (let i = 0; i < 20; i++) {
+  lastLogFingerprint = "";
+  if (fb) fb.textContent = "Inject + recovery on server…";
+  if (hero) hero.classList.add("busy");
+
+  let pollTimer = null;
+  const pollFast = () => { fetchStatus(); };
+  pollTimer = setInterval(pollFast, 120);
+
+  let inj = {};
+  try {
+    const res = await fetch("/api/inject_fault", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+    inj = await res.json().catch(() => ({}));
+    if (fb) {
+      if (!res.ok) fb.textContent = "HTTP " + res.status + " — inject failed";
+      else if (!inj.success) fb.textContent = "Inject skipped (state: " + (inj.state || "?") + ")";
+      else if (inj.recovery_success === true) fb.textContent = "Done: fault injected + recovery OK";
+      else if (inj.recovery_success === false) fb.textContent = "Inject OK but recovery failed — " + (inj.recovery_message || "");
+      else fb.textContent = "Done (see metrics / log)";
+    }
+  } catch (err) {
+    if (fb) fb.textContent = "Network error: " + err;
+  } finally {
+    if (pollTimer) clearInterval(pollTimer);
+    if (hero) hero.classList.remove("busy");
+    btn.disabled = false;
+  }
+
+  await runInjectPathReplay(inj);
+
+  for (let i = 0; i < 8; i++) {
     await fetchStatus();
     await new Promise(r => setTimeout(r, 40));
   }
@@ -746,8 +975,30 @@ async function injectFault() {
 async function resetSystem() {
   await fetch("/api/reset", { method: "POST" });
   lastLogFingerprint = "";
-  lastFastPoll = null;
+  lastServerRecoveryEnvJson = null;
+  window._stateTraceArr = [];
+  window._lastObservedState = "";
+  const traceEl = document.getElementById("diagram-trace");
+  if (traceEl) traceEl.textContent = "";
   await fetchStatus();
+}
+
+async function applyRecoveryEnv() {
+  const btn = document.getElementById("btn-env-apply");
+  btn.disabled = true;
+  try {
+    await fetch("/api/recovery_env", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        stress_during_recovery: document.getElementById("env-stress").checked,
+        network_recovery_delay_ms: parseInt(document.getElementById("env-net-ms").value, 10) || 0,
+      }),
+    });
+    await fetchStatus();
+  } finally {
+    btn.disabled = false;
+  }
 }
 
 async function loadFaultTypes() {

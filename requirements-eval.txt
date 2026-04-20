@@ -1,0 +1,2 @@
+# Optional: figures from simulation CSV
+matplotlib>=3.7

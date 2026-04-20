@@ -1,61 +1,1201 @@
-trial_id,fault_type,recovered,time_s,message,final_state
-1,Network Timeout,True,1.8083,TCP connection verified — server responding,Operational
-2,Network Timeout,True,1.8116,TCP connection verified — server responding,Operational
-3,Network Timeout,True,1.8114,TCP connection verified — server responding,Operational
-4,Network Timeout,True,1.8081,TCP connection verified — server responding,Operational
-5,Network Timeout,True,1.814,TCP connection verified — server responding,Operational
-6,Network Timeout,True,1.8124,TCP connection verified — server responding,Operational
-7,Network Timeout,True,1.8137,TCP connection verified — server responding,Operational
-8,Network Timeout,True,1.8075,TCP connection verified — server responding,Operational
-9,Network Timeout,True,1.8113,TCP connection verified — server responding,Operational
-10,Network Timeout,True,1.817,TCP connection verified — server responding,Operational
-11,Network Timeout,True,1.8138,TCP connection verified — server responding,Operational
-12,Network Timeout,True,1.8058,TCP connection verified — server responding,Operational
-13,Network Timeout,True,1.8128,TCP connection verified — server responding,Operational
-14,Network Timeout,True,1.8124,TCP connection verified — server responding,Operational
-15,Network Timeout,True,1.8091,TCP connection verified — server responding,Operational
-16,Network Timeout,True,1.8077,TCP connection verified — server responding,Operational
-17,Network Timeout,True,1.8129,TCP connection verified — server responding,Operational
-18,Network Timeout,True,1.8078,TCP connection verified — server responding,Operational
-19,Network Timeout,True,1.8111,TCP connection verified — server responding,Operational
-20,Network Timeout,True,1.8112,TCP connection verified — server responding,Operational
-21,Database Failure,True,0.0094,"DB verified — 1 config rows, write test passed",Operational
-22,Database Failure,True,0.005,"DB verified — 1 config rows, write test passed",Operational
-23,Database Failure,True,0.0037,"DB verified — 1 config rows, write test passed",Operational
-24,Database Failure,True,0.0033,"DB verified — 1 config rows, write test passed",Operational
-25,Database Failure,True,0.0033,"DB verified — 1 config rows, write test passed",Operational
-26,Database Failure,True,0.0028,"DB verified — 1 config rows, write test passed",Operational
-27,Database Failure,True,0.0024,"DB verified — 1 config rows, write test passed",Operational
-28,Database Failure,True,0.0028,"DB verified — 1 config rows, write test passed",Operational
-29,Database Failure,True,0.0027,"DB verified — 1 config rows, write test passed",Operational
-30,Database Failure,True,0.0022,"DB verified — 1 config rows, write test passed",Operational
-31,Database Failure,True,0.0022,"DB verified — 1 config rows, write test passed",Operational
-32,Database Failure,True,0.0021,"DB verified — 1 config rows, write test passed",Operational
-33,Database Failure,True,0.0023,"DB verified — 1 config rows, write test passed",Operational
-34,Database Failure,True,0.002,"DB verified — 1 config rows, write test passed",Operational
-35,Database Failure,True,0.0019,"DB verified — 1 config rows, write test passed",Operational
-36,Database Failure,True,0.0021,"DB verified — 1 config rows, write test passed",Operational
-37,Database Failure,True,0.0021,"DB verified — 1 config rows, write test passed",Operational
-38,Database Failure,True,0.0017,"DB verified — 1 config rows, write test passed",Operational
-39,Database Failure,True,0.0018,"DB verified — 1 config rows, write test passed",Operational
-40,Database Failure,True,0.0021,"DB verified — 1 config rows, write test passed",Operational
-41,Server Crash,True,0.7059,"Worker verified — processed task correctly (21×2=42), total tasks: 1",Operational
-42,Server Crash,True,0.7093,"Worker verified — processed task correctly (21×2=42), total tasks: 2",Operational
-43,Server Crash,True,0.7054,"Worker verified — processed task correctly (21×2=42), total tasks: 3",Operational
-44,Server Crash,True,0.7087,"Worker verified — processed task correctly (21×2=42), total tasks: 4",Operational
-45,Server Crash,True,0.7097,"Worker verified — processed task correctly (21×2=42), total tasks: 5",Operational
-46,Server Crash,True,0.7088,"Worker verified — processed task correctly (21×2=42), total tasks: 6",Operational
-47,Server Crash,True,0.7053,"Worker verified — processed task correctly (21×2=42), total tasks: 7",Operational
-48,Server Crash,True,0.7072,"Worker verified — processed task correctly (21×2=42), total tasks: 8",Operational
-49,Server Crash,True,0.708,"Worker verified — processed task correctly (21×2=42), total tasks: 9",Operational
-50,Server Crash,True,0.7061,"Worker verified — processed task correctly (21×2=42), total tasks: 10",Operational
-51,Server Crash,True,0.71,"Worker verified — processed task correctly (21×2=42), total tasks: 11",Operational
-52,Server Crash,True,0.7087,"Worker verified — processed task correctly (21×2=42), total tasks: 12",Operational
-53,Server Crash,True,0.7105,"Worker verified — processed task correctly (21×2=42), total tasks: 13",Operational
-54,Server Crash,True,0.7102,"Worker verified — processed task correctly (21×2=42), total tasks: 14",Operational
-55,Server Crash,True,0.7069,"Worker verified — processed task correctly (21×2=42), total tasks: 15",Operational
-56,Server Crash,True,0.7096,"Worker verified — processed task correctly (21×2=42), total tasks: 16",Operational
-57,Server Crash,True,0.7077,"Worker verified — processed task correctly (21×2=42), total tasks: 17",Operational
-58,Server Crash,True,0.7038,"Worker verified — processed task correctly (21×2=42), total tasks: 18",Operational
-59,Server Crash,True,0.7086,"Worker verified — processed task correctly (21×2=42), total tasks: 19",Operational
-60,Server Crash,True,0.7065,"Worker verified — processed task correctly (21×2=42), total tasks: 20",Operational
+config_id,load_profile,net_delay_ms,fault_type,trial_in_session,cold_start,recovered,time_s,message,final_state,trial_id
+idle_d0,idle,0,Network Timeout,1,True,True,0.815302,TCP connection verified — server responding,Operational,1
+idle_d0,idle,0,Network Timeout,2,False,True,0.802252,TCP connection verified — server responding,Operational,2
+idle_d0,idle,0,Network Timeout,3,False,True,0.821187,TCP connection verified — server responding,Operational,3
+idle_d0,idle,0,Network Timeout,4,False,True,0.812199,TCP connection verified — server responding,Operational,4
+idle_d0,idle,0,Network Timeout,5,False,True,0.802788,TCP connection verified — server responding,Operational,5
+idle_d0,idle,0,Network Timeout,6,False,True,0.827776,TCP connection verified — server responding,Operational,6
+idle_d0,idle,0,Network Timeout,7,False,True,0.824012,TCP connection verified — server responding,Operational,7
+idle_d0,idle,0,Network Timeout,8,False,True,0.825533,TCP connection verified — server responding,Operational,8
+idle_d0,idle,0,Network Timeout,9,False,True,0.801964,TCP connection verified — server responding,Operational,9
+idle_d0,idle,0,Network Timeout,10,False,True,0.802326,TCP connection verified — server responding,Operational,10
+idle_d0,idle,0,Network Timeout,11,False,True,0.824701,TCP connection verified — server responding,Operational,11
+idle_d0,idle,0,Network Timeout,12,False,True,0.825028,TCP connection verified — server responding,Operational,12
+idle_d0,idle,0,Network Timeout,13,False,True,0.826363,TCP connection verified — server responding,Operational,13
+idle_d0,idle,0,Network Timeout,14,False,True,0.802403,TCP connection verified — server responding,Operational,14
+idle_d0,idle,0,Network Timeout,15,False,True,0.821752,TCP connection verified — server responding,Operational,15
+idle_d0,idle,0,Network Timeout,16,False,True,0.802992,TCP connection verified — server responding,Operational,16
+idle_d0,idle,0,Network Timeout,17,False,True,0.801944,TCP connection verified — server responding,Operational,17
+idle_d0,idle,0,Network Timeout,18,False,True,0.827994,TCP connection verified — server responding,Operational,18
+idle_d0,idle,0,Network Timeout,19,False,True,0.802202,TCP connection verified — server responding,Operational,19
+idle_d0,idle,0,Network Timeout,20,False,True,0.802563,TCP connection verified — server responding,Operational,20
+idle_d0,idle,0,Network Timeout,21,False,True,0.822879,TCP connection verified — server responding,Operational,21
+idle_d0,idle,0,Network Timeout,22,False,True,0.827994,TCP connection verified — server responding,Operational,22
+idle_d0,idle,0,Network Timeout,23,False,True,0.815052,TCP connection verified — server responding,Operational,23
+idle_d0,idle,0,Network Timeout,24,False,True,0.827104,TCP connection verified — server responding,Operational,24
+idle_d0,idle,0,Network Timeout,25,False,True,0.803417,TCP connection verified — server responding,Operational,25
+idle_d0,idle,0,Network Timeout,26,False,True,0.802236,TCP connection verified — server responding,Operational,26
+idle_d0,idle,0,Network Timeout,27,False,True,0.827685,TCP connection verified — server responding,Operational,27
+idle_d0,idle,0,Network Timeout,28,False,True,0.819812,TCP connection verified — server responding,Operational,28
+idle_d0,idle,0,Network Timeout,29,False,True,0.825255,TCP connection verified — server responding,Operational,29
+idle_d0,idle,0,Network Timeout,30,False,True,0.824651,TCP connection verified — server responding,Operational,30
+idle_d0,idle,0,Network Timeout,31,False,True,0.825377,TCP connection verified — server responding,Operational,31
+idle_d0,idle,0,Network Timeout,32,False,True,0.826937,TCP connection verified — server responding,Operational,32
+idle_d0,idle,0,Network Timeout,33,False,True,0.812551,TCP connection verified — server responding,Operational,33
+idle_d0,idle,0,Network Timeout,34,False,True,0.802285,TCP connection verified — server responding,Operational,34
+idle_d0,idle,0,Network Timeout,35,False,True,0.81267,TCP connection verified — server responding,Operational,35
+idle_d0,idle,0,Network Timeout,36,False,True,0.802297,TCP connection verified — server responding,Operational,36
+idle_d0,idle,0,Network Timeout,37,False,True,0.819783,TCP connection verified — server responding,Operational,37
+idle_d0,idle,0,Network Timeout,38,False,True,0.826842,TCP connection verified — server responding,Operational,38
+idle_d0,idle,0,Network Timeout,39,False,True,0.804281,TCP connection verified — server responding,Operational,39
+idle_d0,idle,0,Network Timeout,40,False,True,0.802162,TCP connection verified — server responding,Operational,40
+idle_d0,idle,0,Network Timeout,41,False,True,0.802036,TCP connection verified — server responding,Operational,41
+idle_d0,idle,0,Network Timeout,42,False,True,0.813569,TCP connection verified — server responding,Operational,42
+idle_d0,idle,0,Network Timeout,43,False,True,0.812328,TCP connection verified — server responding,Operational,43
+idle_d0,idle,0,Network Timeout,44,False,True,0.817586,TCP connection verified — server responding,Operational,44
+idle_d0,idle,0,Network Timeout,45,False,True,0.81885,TCP connection verified — server responding,Operational,45
+idle_d0,idle,0,Network Timeout,46,False,True,0.802422,TCP connection verified — server responding,Operational,46
+idle_d0,idle,0,Network Timeout,47,False,True,0.815786,TCP connection verified — server responding,Operational,47
+idle_d0,idle,0,Network Timeout,48,False,True,0.802163,TCP connection verified — server responding,Operational,48
+idle_d0,idle,0,Network Timeout,49,False,True,0.818926,TCP connection verified — server responding,Operational,49
+idle_d0,idle,0,Network Timeout,50,False,True,0.827062,TCP connection verified — server responding,Operational,50
+idle_d0,idle,0,Network Timeout,51,False,True,0.82572,TCP connection verified — server responding,Operational,51
+idle_d0,idle,0,Network Timeout,52,False,True,0.802789,TCP connection verified — server responding,Operational,52
+idle_d0,idle,0,Network Timeout,53,False,True,0.802435,TCP connection verified — server responding,Operational,53
+idle_d0,idle,0,Network Timeout,54,False,True,0.812864,TCP connection verified — server responding,Operational,54
+idle_d0,idle,0,Network Timeout,55,False,True,0.813372,TCP connection verified — server responding,Operational,55
+idle_d0,idle,0,Network Timeout,56,False,True,0.811962,TCP connection verified — server responding,Operational,56
+idle_d0,idle,0,Network Timeout,57,False,True,0.802036,TCP connection verified — server responding,Operational,57
+idle_d0,idle,0,Network Timeout,58,False,True,0.830562,TCP connection verified — server responding,Operational,58
+idle_d0,idle,0,Network Timeout,59,False,True,0.811436,TCP connection verified — server responding,Operational,59
+idle_d0,idle,0,Network Timeout,60,False,True,0.812403,TCP connection verified — server responding,Operational,60
+idle_d0,idle,0,Network Timeout,61,False,True,0.802475,TCP connection verified — server responding,Operational,61
+idle_d0,idle,0,Network Timeout,62,False,True,0.802651,TCP connection verified — server responding,Operational,62
+idle_d0,idle,0,Network Timeout,63,False,True,0.802382,TCP connection verified — server responding,Operational,63
+idle_d0,idle,0,Network Timeout,64,False,True,0.813042,TCP connection verified — server responding,Operational,64
+idle_d0,idle,0,Network Timeout,65,False,True,0.819445,TCP connection verified — server responding,Operational,65
+idle_d0,idle,0,Network Timeout,66,False,True,0.815803,TCP connection verified — server responding,Operational,66
+idle_d0,idle,0,Network Timeout,67,False,True,0.802063,TCP connection verified — server responding,Operational,67
+idle_d0,idle,0,Network Timeout,68,False,True,0.802215,TCP connection verified — server responding,Operational,68
+idle_d0,idle,0,Network Timeout,69,False,True,0.802078,TCP connection verified — server responding,Operational,69
+idle_d0,idle,0,Network Timeout,70,False,True,0.801876,TCP connection verified — server responding,Operational,70
+idle_d0,idle,0,Network Timeout,71,False,True,0.802274,TCP connection verified — server responding,Operational,71
+idle_d0,idle,0,Network Timeout,72,False,True,0.801955,TCP connection verified — server responding,Operational,72
+idle_d0,idle,0,Network Timeout,73,False,True,0.802283,TCP connection verified — server responding,Operational,73
+idle_d0,idle,0,Network Timeout,74,False,True,0.825438,TCP connection verified — server responding,Operational,74
+idle_d0,idle,0,Network Timeout,75,False,True,0.801719,TCP connection verified — server responding,Operational,75
+idle_d0,idle,0,Network Timeout,76,False,True,0.81979,TCP connection verified — server responding,Operational,76
+idle_d0,idle,0,Network Timeout,77,False,True,0.82194,TCP connection verified — server responding,Operational,77
+idle_d0,idle,0,Network Timeout,78,False,True,0.82673,TCP connection verified — server responding,Operational,78
+idle_d0,idle,0,Network Timeout,79,False,True,0.802587,TCP connection verified — server responding,Operational,79
+idle_d0,idle,0,Network Timeout,80,False,True,0.802281,TCP connection verified — server responding,Operational,80
+idle_d0,idle,0,Network Timeout,81,False,True,0.801838,TCP connection verified — server responding,Operational,81
+idle_d0,idle,0,Network Timeout,82,False,True,0.823765,TCP connection verified — server responding,Operational,82
+idle_d0,idle,0,Network Timeout,83,False,True,0.801854,TCP connection verified — server responding,Operational,83
+idle_d0,idle,0,Network Timeout,84,False,True,0.802051,TCP connection verified — server responding,Operational,84
+idle_d0,idle,0,Network Timeout,85,False,True,0.812602,TCP connection verified — server responding,Operational,85
+idle_d0,idle,0,Network Timeout,86,False,True,0.82607,TCP connection verified — server responding,Operational,86
+idle_d0,idle,0,Network Timeout,87,False,True,0.802286,TCP connection verified — server responding,Operational,87
+idle_d0,idle,0,Network Timeout,88,False,True,0.814632,TCP connection verified — server responding,Operational,88
+idle_d0,idle,0,Network Timeout,89,False,True,0.825857,TCP connection verified — server responding,Operational,89
+idle_d0,idle,0,Network Timeout,90,False,True,0.802404,TCP connection verified — server responding,Operational,90
+idle_d0,idle,0,Network Timeout,91,False,True,0.802112,TCP connection verified — server responding,Operational,91
+idle_d0,idle,0,Network Timeout,92,False,True,0.823974,TCP connection verified — server responding,Operational,92
+idle_d0,idle,0,Network Timeout,93,False,True,0.801661,TCP connection verified — server responding,Operational,93
+idle_d0,idle,0,Network Timeout,94,False,True,0.801832,TCP connection verified — server responding,Operational,94
+idle_d0,idle,0,Network Timeout,95,False,True,0.819497,TCP connection verified — server responding,Operational,95
+idle_d0,idle,0,Network Timeout,96,False,True,0.802237,TCP connection verified — server responding,Operational,96
+idle_d0,idle,0,Network Timeout,97,False,True,0.801647,TCP connection verified — server responding,Operational,97
+idle_d0,idle,0,Network Timeout,98,False,True,0.81506,TCP connection verified — server responding,Operational,98
+idle_d0,idle,0,Network Timeout,99,False,True,0.821175,TCP connection verified — server responding,Operational,99
+idle_d0,idle,0,Network Timeout,100,False,True,0.802394,TCP connection verified — server responding,Operational,100
+idle_d0,idle,0,Database Failure,1,True,True,0.010748,"DB verified — 1 config rows, write test passed",Operational,101
+idle_d0,idle,0,Database Failure,2,False,True,0.012178,"DB verified — 1 config rows, write test passed",Operational,102
+idle_d0,idle,0,Database Failure,3,False,True,0.010054,"DB verified — 1 config rows, write test passed",Operational,103
+idle_d0,idle,0,Database Failure,4,False,True,0.009639,"DB verified — 1 config rows, write test passed",Operational,104
+idle_d0,idle,0,Database Failure,5,False,True,0.010203,"DB verified — 1 config rows, write test passed",Operational,105
+idle_d0,idle,0,Database Failure,6,False,True,0.009709,"DB verified — 1 config rows, write test passed",Operational,106
+idle_d0,idle,0,Database Failure,7,False,True,0.010119,"DB verified — 1 config rows, write test passed",Operational,107
+idle_d0,idle,0,Database Failure,8,False,True,0.010226,"DB verified — 1 config rows, write test passed",Operational,108
+idle_d0,idle,0,Database Failure,9,False,True,0.008962,"DB verified — 1 config rows, write test passed",Operational,109
+idle_d0,idle,0,Database Failure,10,False,True,0.009968,"DB verified — 1 config rows, write test passed",Operational,110
+idle_d0,idle,0,Database Failure,11,False,True,0.010383,"DB verified — 1 config rows, write test passed",Operational,111
+idle_d0,idle,0,Database Failure,12,False,True,0.009675,"DB verified — 1 config rows, write test passed",Operational,112
+idle_d0,idle,0,Database Failure,13,False,True,0.011542,"DB verified — 1 config rows, write test passed",Operational,113
+idle_d0,idle,0,Database Failure,14,False,True,0.010235,"DB verified — 1 config rows, write test passed",Operational,114
+idle_d0,idle,0,Database Failure,15,False,True,0.009302,"DB verified — 1 config rows, write test passed",Operational,115
+idle_d0,idle,0,Database Failure,16,False,True,0.010293,"DB verified — 1 config rows, write test passed",Operational,116
+idle_d0,idle,0,Database Failure,17,False,True,0.009601,"DB verified — 1 config rows, write test passed",Operational,117
+idle_d0,idle,0,Database Failure,18,False,True,0.011513,"DB verified — 1 config rows, write test passed",Operational,118
+idle_d0,idle,0,Database Failure,19,False,True,0.011686,"DB verified — 1 config rows, write test passed",Operational,119
+idle_d0,idle,0,Database Failure,20,False,True,0.023272,"DB verified — 1 config rows, write test passed",Operational,120
+idle_d0,idle,0,Database Failure,21,False,True,0.022323,"DB verified — 1 config rows, write test passed",Operational,121
+idle_d0,idle,0,Database Failure,22,False,True,0.016849,"DB verified — 1 config rows, write test passed",Operational,122
+idle_d0,idle,0,Database Failure,23,False,True,0.013731,"DB verified — 1 config rows, write test passed",Operational,123
+idle_d0,idle,0,Database Failure,24,False,True,0.015987,"DB verified — 1 config rows, write test passed",Operational,124
+idle_d0,idle,0,Database Failure,25,False,True,0.012115,"DB verified — 1 config rows, write test passed",Operational,125
+idle_d0,idle,0,Database Failure,26,False,True,0.010595,"DB verified — 1 config rows, write test passed",Operational,126
+idle_d0,idle,0,Database Failure,27,False,True,0.008818,"DB verified — 1 config rows, write test passed",Operational,127
+idle_d0,idle,0,Database Failure,28,False,True,0.010666,"DB verified — 1 config rows, write test passed",Operational,128
+idle_d0,idle,0,Database Failure,29,False,True,0.009774,"DB verified — 1 config rows, write test passed",Operational,129
+idle_d0,idle,0,Database Failure,30,False,True,0.010247,"DB verified — 1 config rows, write test passed",Operational,130
+idle_d0,idle,0,Database Failure,31,False,True,0.011875,"DB verified — 1 config rows, write test passed",Operational,131
+idle_d0,idle,0,Database Failure,32,False,True,0.010745,"DB verified — 1 config rows, write test passed",Operational,132
+idle_d0,idle,0,Database Failure,33,False,True,0.010613,"DB verified — 1 config rows, write test passed",Operational,133
+idle_d0,idle,0,Database Failure,34,False,True,0.010431,"DB verified — 1 config rows, write test passed",Operational,134
+idle_d0,idle,0,Database Failure,35,False,True,0.009572,"DB verified — 1 config rows, write test passed",Operational,135
+idle_d0,idle,0,Database Failure,36,False,True,0.012482,"DB verified — 1 config rows, write test passed",Operational,136
+idle_d0,idle,0,Database Failure,37,False,True,0.01127,"DB verified — 1 config rows, write test passed",Operational,137
+idle_d0,idle,0,Database Failure,38,False,True,0.011354,"DB verified — 1 config rows, write test passed",Operational,138
+idle_d0,idle,0,Database Failure,39,False,True,0.011996,"DB verified — 1 config rows, write test passed",Operational,139
+idle_d0,idle,0,Database Failure,40,False,True,0.010924,"DB verified — 1 config rows, write test passed",Operational,140
+idle_d0,idle,0,Database Failure,41,False,True,0.010471,"DB verified — 1 config rows, write test passed",Operational,141
+idle_d0,idle,0,Database Failure,42,False,True,0.010958,"DB verified — 1 config rows, write test passed",Operational,142
+idle_d0,idle,0,Database Failure,43,False,True,0.010556,"DB verified — 1 config rows, write test passed",Operational,143
+idle_d0,idle,0,Database Failure,44,False,True,0.010563,"DB verified — 1 config rows, write test passed",Operational,144
+idle_d0,idle,0,Database Failure,45,False,True,0.011867,"DB verified — 1 config rows, write test passed",Operational,145
+idle_d0,idle,0,Database Failure,46,False,True,0.011425,"DB verified — 1 config rows, write test passed",Operational,146
+idle_d0,idle,0,Database Failure,47,False,True,0.009623,"DB verified — 1 config rows, write test passed",Operational,147
+idle_d0,idle,0,Database Failure,48,False,True,0.011965,"DB verified — 1 config rows, write test passed",Operational,148
+idle_d0,idle,0,Database Failure,49,False,True,0.01178,"DB verified — 1 config rows, write test passed",Operational,149
+idle_d0,idle,0,Database Failure,50,False,True,0.010494,"DB verified — 1 config rows, write test passed",Operational,150
+idle_d0,idle,0,Database Failure,51,False,True,0.01004,"DB verified — 1 config rows, write test passed",Operational,151
+idle_d0,idle,0,Database Failure,52,False,True,0.010349,"DB verified — 1 config rows, write test passed",Operational,152
+idle_d0,idle,0,Database Failure,53,False,True,0.008897,"DB verified — 1 config rows, write test passed",Operational,153
+idle_d0,idle,0,Database Failure,54,False,True,0.012564,"DB verified — 1 config rows, write test passed",Operational,154
+idle_d0,idle,0,Database Failure,55,False,True,0.012507,"DB verified — 1 config rows, write test passed",Operational,155
+idle_d0,idle,0,Database Failure,56,False,True,0.010594,"DB verified — 1 config rows, write test passed",Operational,156
+idle_d0,idle,0,Database Failure,57,False,True,0.010654,"DB verified — 1 config rows, write test passed",Operational,157
+idle_d0,idle,0,Database Failure,58,False,True,0.010179,"DB verified — 1 config rows, write test passed",Operational,158
+idle_d0,idle,0,Database Failure,59,False,True,0.009426,"DB verified — 1 config rows, write test passed",Operational,159
+idle_d0,idle,0,Database Failure,60,False,True,0.009842,"DB verified — 1 config rows, write test passed",Operational,160
+idle_d0,idle,0,Database Failure,61,False,True,0.010036,"DB verified — 1 config rows, write test passed",Operational,161
+idle_d0,idle,0,Database Failure,62,False,True,0.010238,"DB verified — 1 config rows, write test passed",Operational,162
+idle_d0,idle,0,Database Failure,63,False,True,0.009729,"DB verified — 1 config rows, write test passed",Operational,163
+idle_d0,idle,0,Database Failure,64,False,True,0.009172,"DB verified — 1 config rows, write test passed",Operational,164
+idle_d0,idle,0,Database Failure,65,False,True,0.010484,"DB verified — 1 config rows, write test passed",Operational,165
+idle_d0,idle,0,Database Failure,66,False,True,0.009796,"DB verified — 1 config rows, write test passed",Operational,166
+idle_d0,idle,0,Database Failure,67,False,True,0.012174,"DB verified — 1 config rows, write test passed",Operational,167
+idle_d0,idle,0,Database Failure,68,False,True,0.011375,"DB verified — 1 config rows, write test passed",Operational,168
+idle_d0,idle,0,Database Failure,69,False,True,0.009244,"DB verified — 1 config rows, write test passed",Operational,169
+idle_d0,idle,0,Database Failure,70,False,True,0.010371,"DB verified — 1 config rows, write test passed",Operational,170
+idle_d0,idle,0,Database Failure,71,False,True,0.010201,"DB verified — 1 config rows, write test passed",Operational,171
+idle_d0,idle,0,Database Failure,72,False,True,0.008559,"DB verified — 1 config rows, write test passed",Operational,172
+idle_d0,idle,0,Database Failure,73,False,True,0.009954,"DB verified — 1 config rows, write test passed",Operational,173
+idle_d0,idle,0,Database Failure,74,False,True,0.009465,"DB verified — 1 config rows, write test passed",Operational,174
+idle_d0,idle,0,Database Failure,75,False,True,0.009948,"DB verified — 1 config rows, write test passed",Operational,175
+idle_d0,idle,0,Database Failure,76,False,True,0.010483,"DB verified — 1 config rows, write test passed",Operational,176
+idle_d0,idle,0,Database Failure,77,False,True,0.008891,"DB verified — 1 config rows, write test passed",Operational,177
+idle_d0,idle,0,Database Failure,78,False,True,0.009263,"DB verified — 1 config rows, write test passed",Operational,178
+idle_d0,idle,0,Database Failure,79,False,True,0.008462,"DB verified — 1 config rows, write test passed",Operational,179
+idle_d0,idle,0,Database Failure,80,False,True,0.009887,"DB verified — 1 config rows, write test passed",Operational,180
+idle_d0,idle,0,Database Failure,81,False,True,0.009214,"DB verified — 1 config rows, write test passed",Operational,181
+idle_d0,idle,0,Database Failure,82,False,True,0.010306,"DB verified — 1 config rows, write test passed",Operational,182
+idle_d0,idle,0,Database Failure,83,False,True,0.010229,"DB verified — 1 config rows, write test passed",Operational,183
+idle_d0,idle,0,Database Failure,84,False,True,0.008754,"DB verified — 1 config rows, write test passed",Operational,184
+idle_d0,idle,0,Database Failure,85,False,True,0.009579,"DB verified — 1 config rows, write test passed",Operational,185
+idle_d0,idle,0,Database Failure,86,False,True,0.009258,"DB verified — 1 config rows, write test passed",Operational,186
+idle_d0,idle,0,Database Failure,87,False,True,0.010451,"DB verified — 1 config rows, write test passed",Operational,187
+idle_d0,idle,0,Database Failure,88,False,True,0.009842,"DB verified — 1 config rows, write test passed",Operational,188
+idle_d0,idle,0,Database Failure,89,False,True,0.008863,"DB verified — 1 config rows, write test passed",Operational,189
+idle_d0,idle,0,Database Failure,90,False,True,0.009276,"DB verified — 1 config rows, write test passed",Operational,190
+idle_d0,idle,0,Database Failure,91,False,True,0.009043,"DB verified — 1 config rows, write test passed",Operational,191
+idle_d0,idle,0,Database Failure,92,False,True,0.010242,"DB verified — 1 config rows, write test passed",Operational,192
+idle_d0,idle,0,Database Failure,93,False,True,0.009325,"DB verified — 1 config rows, write test passed",Operational,193
+idle_d0,idle,0,Database Failure,94,False,True,0.011434,"DB verified — 1 config rows, write test passed",Operational,194
+idle_d0,idle,0,Database Failure,95,False,True,0.010163,"DB verified — 1 config rows, write test passed",Operational,195
+idle_d0,idle,0,Database Failure,96,False,True,0.008432,"DB verified — 1 config rows, write test passed",Operational,196
+idle_d0,idle,0,Database Failure,97,False,True,0.010324,"DB verified — 1 config rows, write test passed",Operational,197
+idle_d0,idle,0,Database Failure,98,False,True,0.00873,"DB verified — 1 config rows, write test passed",Operational,198
+idle_d0,idle,0,Database Failure,99,False,True,0.009988,"DB verified — 1 config rows, write test passed",Operational,199
+idle_d0,idle,0,Database Failure,100,False,True,0.010345,"DB verified — 1 config rows, write test passed",Operational,200
+idle_d0,idle,0,Server Crash,1,True,True,0.712098,"Worker verified — processed task correctly (21×2=42), total tasks: 1",Operational,201
+idle_d0,idle,0,Server Crash,2,False,True,0.712103,"Worker verified — processed task correctly (21×2=42), total tasks: 2",Operational,202
+idle_d0,idle,0,Server Crash,3,False,True,0.704253,"Worker verified — processed task correctly (21×2=42), total tasks: 3",Operational,203
+idle_d0,idle,0,Server Crash,4,False,True,0.715585,"Worker verified — processed task correctly (21×2=42), total tasks: 4",Operational,204
+idle_d0,idle,0,Server Crash,5,False,True,0.701574,"Worker verified — processed task correctly (21×2=42), total tasks: 5",Operational,205
+idle_d0,idle,0,Server Crash,6,False,True,0.712791,"Worker verified — processed task correctly (21×2=42), total tasks: 6",Operational,206
+idle_d0,idle,0,Server Crash,7,False,True,0.702382,"Worker verified — processed task correctly (21×2=42), total tasks: 7",Operational,207
+idle_d0,idle,0,Server Crash,8,False,True,0.715669,"Worker verified — processed task correctly (21×2=42), total tasks: 8",Operational,208
+idle_d0,idle,0,Server Crash,9,False,True,0.703153,"Worker verified — processed task correctly (21×2=42), total tasks: 9",Operational,209
+idle_d0,idle,0,Server Crash,10,False,True,0.713141,"Worker verified — processed task correctly (21×2=42), total tasks: 10",Operational,210
+idle_d0,idle,0,Server Crash,11,False,True,0.711603,"Worker verified — processed task correctly (21×2=42), total tasks: 11",Operational,211
+idle_d0,idle,0,Server Crash,12,False,True,0.702934,"Worker verified — processed task correctly (21×2=42), total tasks: 12",Operational,212
+idle_d0,idle,0,Server Crash,13,False,True,0.700511,"Worker verified — processed task correctly (21×2=42), total tasks: 13",Operational,213
+idle_d0,idle,0,Server Crash,14,False,True,0.701293,"Worker verified — processed task correctly (21×2=42), total tasks: 14",Operational,214
+idle_d0,idle,0,Server Crash,15,False,True,0.70066,"Worker verified — processed task correctly (21×2=42), total tasks: 15",Operational,215
+idle_d0,idle,0,Server Crash,16,False,True,0.714966,"Worker verified — processed task correctly (21×2=42), total tasks: 16",Operational,216
+idle_d0,idle,0,Server Crash,17,False,True,0.715059,"Worker verified — processed task correctly (21×2=42), total tasks: 17",Operational,217
+idle_d0,idle,0,Server Crash,18,False,True,0.700832,"Worker verified — processed task correctly (21×2=42), total tasks: 18",Operational,218
+idle_d0,idle,0,Server Crash,19,False,True,0.703766,"Worker verified — processed task correctly (21×2=42), total tasks: 19",Operational,219
+idle_d0,idle,0,Server Crash,20,False,True,0.716285,"Worker verified — processed task correctly (21×2=42), total tasks: 20",Operational,220
+idle_d0,idle,0,Server Crash,21,False,True,0.710657,"Worker verified — processed task correctly (21×2=42), total tasks: 21",Operational,221
+idle_d0,idle,0,Server Crash,22,False,True,0.715701,"Worker verified — processed task correctly (21×2=42), total tasks: 22",Operational,222
+idle_d0,idle,0,Server Crash,23,False,True,0.700695,"Worker verified — processed task correctly (21×2=42), total tasks: 23",Operational,223
+idle_d0,idle,0,Server Crash,24,False,True,0.703681,"Worker verified — processed task correctly (21×2=42), total tasks: 24",Operational,224
+idle_d0,idle,0,Server Crash,25,False,True,0.703713,"Worker verified — processed task correctly (21×2=42), total tasks: 25",Operational,225
+idle_d0,idle,0,Server Crash,26,False,True,0.70191,"Worker verified — processed task correctly (21×2=42), total tasks: 26",Operational,226
+idle_d0,idle,0,Server Crash,27,False,True,0.701066,"Worker verified — processed task correctly (21×2=42), total tasks: 27",Operational,227
+idle_d0,idle,0,Server Crash,28,False,True,0.714404,"Worker verified — processed task correctly (21×2=42), total tasks: 28",Operational,228
+idle_d0,idle,0,Server Crash,29,False,True,0.7041,"Worker verified — processed task correctly (21×2=42), total tasks: 29",Operational,229
+idle_d0,idle,0,Server Crash,30,False,True,0.709621,"Worker verified — processed task correctly (21×2=42), total tasks: 30",Operational,230
+idle_d0,idle,0,Server Crash,31,False,True,0.703093,"Worker verified — processed task correctly (21×2=42), total tasks: 31",Operational,231
+idle_d0,idle,0,Server Crash,32,False,True,0.708372,"Worker verified — processed task correctly (21×2=42), total tasks: 32",Operational,232
+idle_d0,idle,0,Server Crash,33,False,True,0.702979,"Worker verified — processed task correctly (21×2=42), total tasks: 33",Operational,233
+idle_d0,idle,0,Server Crash,34,False,True,0.702938,"Worker verified — processed task correctly (21×2=42), total tasks: 34",Operational,234
+idle_d0,idle,0,Server Crash,35,False,True,0.712771,"Worker verified — processed task correctly (21×2=42), total tasks: 35",Operational,235
+idle_d0,idle,0,Server Crash,36,False,True,0.715224,"Worker verified — processed task correctly (21×2=42), total tasks: 36",Operational,236
+idle_d0,idle,0,Server Crash,37,False,True,0.71497,"Worker verified — processed task correctly (21×2=42), total tasks: 37",Operational,237
+idle_d0,idle,0,Server Crash,38,False,True,0.708285,"Worker verified — processed task correctly (21×2=42), total tasks: 38",Operational,238
+idle_d0,idle,0,Server Crash,39,False,True,0.703803,"Worker verified — processed task correctly (21×2=42), total tasks: 39",Operational,239
+idle_d0,idle,0,Server Crash,40,False,True,0.7105,"Worker verified — processed task correctly (21×2=42), total tasks: 40",Operational,240
+idle_d0,idle,0,Server Crash,41,False,True,0.704243,"Worker verified — processed task correctly (21×2=42), total tasks: 41",Operational,241
+idle_d0,idle,0,Server Crash,42,False,True,0.702657,"Worker verified — processed task correctly (21×2=42), total tasks: 42",Operational,242
+idle_d0,idle,0,Server Crash,43,False,True,0.713013,"Worker verified — processed task correctly (21×2=42), total tasks: 43",Operational,243
+idle_d0,idle,0,Server Crash,44,False,True,0.717028,"Worker verified — processed task correctly (21×2=42), total tasks: 44",Operational,244
+idle_d0,idle,0,Server Crash,45,False,True,0.701622,"Worker verified — processed task correctly (21×2=42), total tasks: 45",Operational,245
+idle_d0,idle,0,Server Crash,46,False,True,0.704146,"Worker verified — processed task correctly (21×2=42), total tasks: 46",Operational,246
+idle_d0,idle,0,Server Crash,47,False,True,0.706049,"Worker verified — processed task correctly (21×2=42), total tasks: 47",Operational,247
+idle_d0,idle,0,Server Crash,48,False,True,0.716552,"Worker verified — processed task correctly (21×2=42), total tasks: 48",Operational,248
+idle_d0,idle,0,Server Crash,49,False,True,0.712251,"Worker verified — processed task correctly (21×2=42), total tasks: 49",Operational,249
+idle_d0,idle,0,Server Crash,50,False,True,0.700774,"Worker verified — processed task correctly (21×2=42), total tasks: 50",Operational,250
+idle_d0,idle,0,Server Crash,51,False,True,0.707396,"Worker verified — processed task correctly (21×2=42), total tasks: 51",Operational,251
+idle_d0,idle,0,Server Crash,52,False,True,0.701738,"Worker verified — processed task correctly (21×2=42), total tasks: 52",Operational,252
+idle_d0,idle,0,Server Crash,53,False,True,0.703654,"Worker verified — processed task correctly (21×2=42), total tasks: 53",Operational,253
+idle_d0,idle,0,Server Crash,54,False,True,0.702774,"Worker verified — processed task correctly (21×2=42), total tasks: 54",Operational,254
+idle_d0,idle,0,Server Crash,55,False,True,0.719333,"Worker verified — processed task correctly (21×2=42), total tasks: 55",Operational,255
+idle_d0,idle,0,Server Crash,56,False,True,0.70051,"Worker verified — processed task correctly (21×2=42), total tasks: 56",Operational,256
+idle_d0,idle,0,Server Crash,57,False,True,0.722731,"Worker verified — processed task correctly (21×2=42), total tasks: 57",Operational,257
+idle_d0,idle,0,Server Crash,58,False,True,0.706182,"Worker verified — processed task correctly (21×2=42), total tasks: 58",Operational,258
+idle_d0,idle,0,Server Crash,59,False,True,0.705822,"Worker verified — processed task correctly (21×2=42), total tasks: 59",Operational,259
+idle_d0,idle,0,Server Crash,60,False,True,0.704388,"Worker verified — processed task correctly (21×2=42), total tasks: 60",Operational,260
+idle_d0,idle,0,Server Crash,61,False,True,0.703587,"Worker verified — processed task correctly (21×2=42), total tasks: 61",Operational,261
+idle_d0,idle,0,Server Crash,62,False,True,0.714997,"Worker verified — processed task correctly (21×2=42), total tasks: 62",Operational,262
+idle_d0,idle,0,Server Crash,63,False,True,0.71564,"Worker verified — processed task correctly (21×2=42), total tasks: 63",Operational,263
+idle_d0,idle,0,Server Crash,64,False,True,0.711079,"Worker verified — processed task correctly (21×2=42), total tasks: 64",Operational,264
+idle_d0,idle,0,Server Crash,65,False,True,0.701283,"Worker verified — processed task correctly (21×2=42), total tasks: 65",Operational,265
+idle_d0,idle,0,Server Crash,66,False,True,0.710551,"Worker verified — processed task correctly (21×2=42), total tasks: 66",Operational,266
+idle_d0,idle,0,Server Crash,67,False,True,0.703355,"Worker verified — processed task correctly (21×2=42), total tasks: 67",Operational,267
+idle_d0,idle,0,Server Crash,68,False,True,0.70992,"Worker verified — processed task correctly (21×2=42), total tasks: 68",Operational,268
+idle_d0,idle,0,Server Crash,69,False,True,0.71365,"Worker verified — processed task correctly (21×2=42), total tasks: 69",Operational,269
+idle_d0,idle,0,Server Crash,70,False,True,0.705809,"Worker verified — processed task correctly (21×2=42), total tasks: 70",Operational,270
+idle_d0,idle,0,Server Crash,71,False,True,0.715572,"Worker verified — processed task correctly (21×2=42), total tasks: 71",Operational,271
+idle_d0,idle,0,Server Crash,72,False,True,0.701926,"Worker verified — processed task correctly (21×2=42), total tasks: 72",Operational,272
+idle_d0,idle,0,Server Crash,73,False,True,0.713375,"Worker verified — processed task correctly (21×2=42), total tasks: 73",Operational,273
+idle_d0,idle,0,Server Crash,74,False,True,0.716611,"Worker verified — processed task correctly (21×2=42), total tasks: 74",Operational,274
+idle_d0,idle,0,Server Crash,75,False,True,0.713971,"Worker verified — processed task correctly (21×2=42), total tasks: 75",Operational,275
+idle_d0,idle,0,Server Crash,76,False,True,0.703649,"Worker verified — processed task correctly (21×2=42), total tasks: 76",Operational,276
+idle_d0,idle,0,Server Crash,77,False,True,0.710963,"Worker verified — processed task correctly (21×2=42), total tasks: 77",Operational,277
+idle_d0,idle,0,Server Crash,78,False,True,0.71336,"Worker verified — processed task correctly (21×2=42), total tasks: 78",Operational,278
+idle_d0,idle,0,Server Crash,79,False,True,0.712677,"Worker verified — processed task correctly (21×2=42), total tasks: 79",Operational,279
+idle_d0,idle,0,Server Crash,80,False,True,0.704469,"Worker verified — processed task correctly (21×2=42), total tasks: 80",Operational,280
+idle_d0,idle,0,Server Crash,81,False,True,0.713296,"Worker verified — processed task correctly (21×2=42), total tasks: 81",Operational,281
+idle_d0,idle,0,Server Crash,82,False,True,0.703416,"Worker verified — processed task correctly (21×2=42), total tasks: 82",Operational,282
+idle_d0,idle,0,Server Crash,83,False,True,0.703365,"Worker verified — processed task correctly (21×2=42), total tasks: 83",Operational,283
+idle_d0,idle,0,Server Crash,84,False,True,0.701142,"Worker verified — processed task correctly (21×2=42), total tasks: 84",Operational,284
+idle_d0,idle,0,Server Crash,85,False,True,0.704686,"Worker verified — processed task correctly (21×2=42), total tasks: 85",Operational,285
+idle_d0,idle,0,Server Crash,86,False,True,0.706039,"Worker verified — processed task correctly (21×2=42), total tasks: 86",Operational,286
+idle_d0,idle,0,Server Crash,87,False,True,0.715934,"Worker verified — processed task correctly (21×2=42), total tasks: 87",Operational,287
+idle_d0,idle,0,Server Crash,88,False,True,0.703383,"Worker verified — processed task correctly (21×2=42), total tasks: 88",Operational,288
+idle_d0,idle,0,Server Crash,89,False,True,0.703303,"Worker verified — processed task correctly (21×2=42), total tasks: 89",Operational,289
+idle_d0,idle,0,Server Crash,90,False,True,0.715267,"Worker verified — processed task correctly (21×2=42), total tasks: 90",Operational,290
+idle_d0,idle,0,Server Crash,91,False,True,0.713285,"Worker verified — processed task correctly (21×2=42), total tasks: 91",Operational,291
+idle_d0,idle,0,Server Crash,92,False,True,0.706738,"Worker verified — processed task correctly (21×2=42), total tasks: 92",Operational,292
+idle_d0,idle,0,Server Crash,93,False,True,0.701926,"Worker verified — processed task correctly (21×2=42), total tasks: 93",Operational,293
+idle_d0,idle,0,Server Crash,94,False,True,0.70648,"Worker verified — processed task correctly (21×2=42), total tasks: 94",Operational,294
+idle_d0,idle,0,Server Crash,95,False,True,0.7058,"Worker verified — processed task correctly (21×2=42), total tasks: 95",Operational,295
+idle_d0,idle,0,Server Crash,96,False,True,0.714838,"Worker verified — processed task correctly (21×2=42), total tasks: 96",Operational,296
+idle_d0,idle,0,Server Crash,97,False,True,0.701209,"Worker verified — processed task correctly (21×2=42), total tasks: 97",Operational,297
+idle_d0,idle,0,Server Crash,98,False,True,0.713065,"Worker verified — processed task correctly (21×2=42), total tasks: 98",Operational,298
+idle_d0,idle,0,Server Crash,99,False,True,0.703712,"Worker verified — processed task correctly (21×2=42), total tasks: 99",Operational,299
+idle_d0,idle,0,Server Crash,100,False,True,0.708211,"Worker verified — processed task correctly (21×2=42), total tasks: 100",Operational,300
+idle_d100,idle,100,Network Timeout,1,True,True,0.928018,TCP connection verified — server responding,Operational,301
+idle_d100,idle,100,Network Timeout,2,False,True,0.903309,TCP connection verified — server responding,Operational,302
+idle_d100,idle,100,Network Timeout,3,False,True,0.902873,TCP connection verified — server responding,Operational,303
+idle_d100,idle,100,Network Timeout,4,False,True,0.913179,TCP connection verified — server responding,Operational,304
+idle_d100,idle,100,Network Timeout,5,False,True,0.916594,TCP connection verified — server responding,Operational,305
+idle_d100,idle,100,Network Timeout,6,False,True,0.902563,TCP connection verified — server responding,Operational,306
+idle_d100,idle,100,Network Timeout,7,False,True,0.902473,TCP connection verified — server responding,Operational,307
+idle_d100,idle,100,Network Timeout,8,False,True,0.912863,TCP connection verified — server responding,Operational,308
+idle_d100,idle,100,Network Timeout,9,False,True,0.902858,TCP connection verified — server responding,Operational,309
+idle_d100,idle,100,Network Timeout,10,False,True,0.916368,TCP connection verified — server responding,Operational,310
+idle_d100,idle,100,Network Timeout,11,False,True,0.916479,TCP connection verified — server responding,Operational,311
+idle_d100,idle,100,Network Timeout,12,False,True,0.92377,TCP connection verified — server responding,Operational,312
+idle_d100,idle,100,Network Timeout,13,False,True,0.902232,TCP connection verified — server responding,Operational,313
+idle_d100,idle,100,Network Timeout,14,False,True,0.902726,TCP connection verified — server responding,Operational,314
+idle_d100,idle,100,Network Timeout,15,False,True,0.922025,TCP connection verified — server responding,Operational,315
+idle_d100,idle,100,Network Timeout,16,False,True,0.902412,TCP connection verified — server responding,Operational,316
+idle_d100,idle,100,Network Timeout,17,False,True,0.902888,TCP connection verified — server responding,Operational,317
+idle_d100,idle,100,Network Timeout,18,False,True,0.903763,TCP connection verified — server responding,Operational,318
+idle_d100,idle,100,Network Timeout,19,False,True,0.915722,TCP connection verified — server responding,Operational,319
+idle_d100,idle,100,Network Timeout,20,False,True,0.919484,TCP connection verified — server responding,Operational,320
+idle_d100,idle,100,Network Timeout,21,False,True,0.917446,TCP connection verified — server responding,Operational,321
+idle_d100,idle,100,Network Timeout,22,False,True,0.9254,TCP connection verified — server responding,Operational,322
+idle_d100,idle,100,Network Timeout,23,False,True,0.902362,TCP connection verified — server responding,Operational,323
+idle_d100,idle,100,Network Timeout,24,False,True,0.90206,TCP connection verified — server responding,Operational,324
+idle_d100,idle,100,Network Timeout,25,False,True,0.925734,TCP connection verified — server responding,Operational,325
+idle_d100,idle,100,Network Timeout,26,False,True,0.921837,TCP connection verified — server responding,Operational,326
+idle_d100,idle,100,Network Timeout,27,False,True,0.921407,TCP connection verified — server responding,Operational,327
+idle_d100,idle,100,Network Timeout,28,False,True,0.915895,TCP connection verified — server responding,Operational,328
+idle_d100,idle,100,Network Timeout,29,False,True,0.916986,TCP connection verified — server responding,Operational,329
+idle_d100,idle,100,Network Timeout,30,False,True,0.9281,TCP connection verified — server responding,Operational,330
+idle_d100,idle,100,Network Timeout,31,False,True,0.902681,TCP connection verified — server responding,Operational,331
+idle_d100,idle,100,Network Timeout,32,False,True,0.903164,TCP connection verified — server responding,Operational,332
+idle_d100,idle,100,Network Timeout,33,False,True,0.902441,TCP connection verified — server responding,Operational,333
+idle_d100,idle,100,Network Timeout,34,False,True,0.902709,TCP connection verified — server responding,Operational,334
+idle_d100,idle,100,Network Timeout,35,False,True,0.902272,TCP connection verified — server responding,Operational,335
+idle_d100,idle,100,Network Timeout,36,False,True,0.92007,TCP connection verified — server responding,Operational,336
+idle_d100,idle,100,Network Timeout,37,False,True,0.916881,TCP connection verified — server responding,Operational,337
+idle_d100,idle,100,Network Timeout,38,False,True,0.902463,TCP connection verified — server responding,Operational,338
+idle_d100,idle,100,Network Timeout,39,False,True,0.925239,TCP connection verified — server responding,Operational,339
+idle_d100,idle,100,Network Timeout,40,False,True,0.918503,TCP connection verified — server responding,Operational,340
+idle_d100,idle,100,Network Timeout,41,False,True,0.902502,TCP connection verified — server responding,Operational,341
+idle_d100,idle,100,Network Timeout,42,False,True,0.920171,TCP connection verified — server responding,Operational,342
+idle_d100,idle,100,Network Timeout,43,False,True,0.902449,TCP connection verified — server responding,Operational,343
+idle_d100,idle,100,Network Timeout,44,False,True,0.902268,TCP connection verified — server responding,Operational,344
+idle_d100,idle,100,Network Timeout,45,False,True,0.919035,TCP connection verified — server responding,Operational,345
+idle_d100,idle,100,Network Timeout,46,False,True,0.903479,TCP connection verified — server responding,Operational,346
+idle_d100,idle,100,Network Timeout,47,False,True,0.922148,TCP connection verified — server responding,Operational,347
+idle_d100,idle,100,Network Timeout,48,False,True,0.914177,TCP connection verified — server responding,Operational,348
+idle_d100,idle,100,Network Timeout,49,False,True,0.902529,TCP connection verified — server responding,Operational,349
+idle_d100,idle,100,Network Timeout,50,False,True,0.912103,TCP connection verified — server responding,Operational,350
+idle_d100,idle,100,Network Timeout,51,False,True,0.920906,TCP connection verified — server responding,Operational,351
+idle_d100,idle,100,Network Timeout,52,False,True,0.902561,TCP connection verified — server responding,Operational,352
+idle_d100,idle,100,Network Timeout,53,False,True,0.916234,TCP connection verified — server responding,Operational,353
+idle_d100,idle,100,Network Timeout,54,False,True,0.903288,TCP connection verified — server responding,Operational,354
+idle_d100,idle,100,Network Timeout,55,False,True,0.919897,TCP connection verified — server responding,Operational,355
+idle_d100,idle,100,Network Timeout,56,False,True,0.925056,TCP connection verified — server responding,Operational,356
+idle_d100,idle,100,Network Timeout,57,False,True,0.906654,TCP connection verified — server responding,Operational,357
+idle_d100,idle,100,Network Timeout,58,False,True,0.925972,TCP connection verified — server responding,Operational,358
+idle_d100,idle,100,Network Timeout,59,False,True,0.902516,TCP connection verified — server responding,Operational,359
+idle_d100,idle,100,Network Timeout,60,False,True,0.902339,TCP connection verified — server responding,Operational,360
+idle_d100,idle,100,Network Timeout,61,False,True,0.919824,TCP connection verified — server responding,Operational,361
+idle_d100,idle,100,Network Timeout,62,False,True,0.902388,TCP connection verified — server responding,Operational,362
+idle_d100,idle,100,Network Timeout,63,False,True,0.91522,TCP connection verified — server responding,Operational,363
+idle_d100,idle,100,Network Timeout,64,False,True,0.90302,TCP connection verified — server responding,Operational,364
+idle_d100,idle,100,Network Timeout,65,False,True,0.902362,TCP connection verified — server responding,Operational,365
+idle_d100,idle,100,Network Timeout,66,False,True,0.924355,TCP connection verified — server responding,Operational,366
+idle_d100,idle,100,Network Timeout,67,False,True,0.919897,TCP connection verified — server responding,Operational,367
+idle_d100,idle,100,Network Timeout,68,False,True,0.902889,TCP connection verified — server responding,Operational,368
+idle_d100,idle,100,Network Timeout,69,False,True,0.923006,TCP connection verified — server responding,Operational,369
+idle_d100,idle,100,Network Timeout,70,False,True,0.926363,TCP connection verified — server responding,Operational,370
+idle_d100,idle,100,Network Timeout,71,False,True,0.919297,TCP connection verified — server responding,Operational,371
+idle_d100,idle,100,Network Timeout,72,False,True,0.921779,TCP connection verified — server responding,Operational,372
+idle_d100,idle,100,Network Timeout,73,False,True,0.924137,TCP connection verified — server responding,Operational,373
+idle_d100,idle,100,Network Timeout,74,False,True,0.901928,TCP connection verified — server responding,Operational,374
+idle_d100,idle,100,Network Timeout,75,False,True,0.902819,TCP connection verified — server responding,Operational,375
+idle_d100,idle,100,Network Timeout,76,False,True,0.926095,TCP connection verified — server responding,Operational,376
+idle_d100,idle,100,Network Timeout,77,False,True,0.916231,TCP connection verified — server responding,Operational,377
+idle_d100,idle,100,Network Timeout,78,False,True,0.902842,TCP connection verified — server responding,Operational,378
+idle_d100,idle,100,Network Timeout,79,False,True,0.923182,TCP connection verified — server responding,Operational,379
+idle_d100,idle,100,Network Timeout,80,False,True,0.902733,TCP connection verified — server responding,Operational,380
+idle_d100,idle,100,Network Timeout,81,False,True,0.913483,TCP connection verified — server responding,Operational,381
+idle_d100,idle,100,Network Timeout,82,False,True,0.919165,TCP connection verified — server responding,Operational,382
+idle_d100,idle,100,Network Timeout,83,False,True,0.927579,TCP connection verified — server responding,Operational,383
+idle_d100,idle,100,Network Timeout,84,False,True,0.902631,TCP connection verified — server responding,Operational,384
+idle_d100,idle,100,Network Timeout,85,False,True,0.914514,TCP connection verified — server responding,Operational,385
+idle_d100,idle,100,Network Timeout,86,False,True,0.902994,TCP connection verified — server responding,Operational,386
+idle_d100,idle,100,Network Timeout,87,False,True,0.902826,TCP connection verified — server responding,Operational,387
+idle_d100,idle,100,Network Timeout,88,False,True,0.903075,TCP connection verified — server responding,Operational,388
+idle_d100,idle,100,Network Timeout,89,False,True,0.903169,TCP connection verified — server responding,Operational,389
+idle_d100,idle,100,Network Timeout,90,False,True,0.902679,TCP connection verified — server responding,Operational,390
+idle_d100,idle,100,Network Timeout,91,False,True,0.902214,TCP connection verified — server responding,Operational,391
+idle_d100,idle,100,Network Timeout,92,False,True,0.902748,TCP connection verified — server responding,Operational,392
+idle_d100,idle,100,Network Timeout,93,False,True,0.902726,TCP connection verified — server responding,Operational,393
+idle_d100,idle,100,Network Timeout,94,False,True,0.920888,TCP connection verified — server responding,Operational,394
+idle_d100,idle,100,Network Timeout,95,False,True,0.902306,TCP connection verified — server responding,Operational,395
+idle_d100,idle,100,Network Timeout,96,False,True,0.903522,TCP connection verified — server responding,Operational,396
+idle_d100,idle,100,Network Timeout,97,False,True,0.915065,TCP connection verified — server responding,Operational,397
+idle_d100,idle,100,Network Timeout,98,False,True,0.902968,TCP connection verified — server responding,Operational,398
+idle_d100,idle,100,Network Timeout,99,False,True,0.902885,TCP connection verified — server responding,Operational,399
+idle_d100,idle,100,Network Timeout,100,False,True,0.902732,TCP connection verified — server responding,Operational,400
+idle_d100,idle,100,Database Failure,1,True,True,0.008505,"DB verified — 1 config rows, write test passed",Operational,401
+idle_d100,idle,100,Database Failure,2,False,True,0.009791,"DB verified — 1 config rows, write test passed",Operational,402
+idle_d100,idle,100,Database Failure,3,False,True,0.008467,"DB verified — 1 config rows, write test passed",Operational,403
+idle_d100,idle,100,Database Failure,4,False,True,0.009159,"DB verified — 1 config rows, write test passed",Operational,404
+idle_d100,idle,100,Database Failure,5,False,True,0.00833,"DB verified — 1 config rows, write test passed",Operational,405
+idle_d100,idle,100,Database Failure,6,False,True,0.009026,"DB verified — 1 config rows, write test passed",Operational,406
+idle_d100,idle,100,Database Failure,7,False,True,0.008957,"DB verified — 1 config rows, write test passed",Operational,407
+idle_d100,idle,100,Database Failure,8,False,True,0.008635,"DB verified — 1 config rows, write test passed",Operational,408
+idle_d100,idle,100,Database Failure,9,False,True,0.009183,"DB verified — 1 config rows, write test passed",Operational,409
+idle_d100,idle,100,Database Failure,10,False,True,0.009158,"DB verified — 1 config rows, write test passed",Operational,410
+idle_d100,idle,100,Database Failure,11,False,True,0.009929,"DB verified — 1 config rows, write test passed",Operational,411
+idle_d100,idle,100,Database Failure,12,False,True,0.009604,"DB verified — 1 config rows, write test passed",Operational,412
+idle_d100,idle,100,Database Failure,13,False,True,0.009595,"DB verified — 1 config rows, write test passed",Operational,413
+idle_d100,idle,100,Database Failure,14,False,True,0.009478,"DB verified — 1 config rows, write test passed",Operational,414
+idle_d100,idle,100,Database Failure,15,False,True,0.00832,"DB verified — 1 config rows, write test passed",Operational,415
+idle_d100,idle,100,Database Failure,16,False,True,0.009849,"DB verified — 1 config rows, write test passed",Operational,416
+idle_d100,idle,100,Database Failure,17,False,True,0.009003,"DB verified — 1 config rows, write test passed",Operational,417
+idle_d100,idle,100,Database Failure,18,False,True,0.012107,"DB verified — 1 config rows, write test passed",Operational,418
+idle_d100,idle,100,Database Failure,19,False,True,0.009825,"DB verified — 1 config rows, write test passed",Operational,419
+idle_d100,idle,100,Database Failure,20,False,True,0.008106,"DB verified — 1 config rows, write test passed",Operational,420
+idle_d100,idle,100,Database Failure,21,False,True,0.009164,"DB verified — 1 config rows, write test passed",Operational,421
+idle_d100,idle,100,Database Failure,22,False,True,0.008308,"DB verified — 1 config rows, write test passed",Operational,422
+idle_d100,idle,100,Database Failure,23,False,True,0.008896,"DB verified — 1 config rows, write test passed",Operational,423
+idle_d100,idle,100,Database Failure,24,False,True,0.009274,"DB verified — 1 config rows, write test passed",Operational,424
+idle_d100,idle,100,Database Failure,25,False,True,0.00897,"DB verified — 1 config rows, write test passed",Operational,425
+idle_d100,idle,100,Database Failure,26,False,True,0.008135,"DB verified — 1 config rows, write test passed",Operational,426
+idle_d100,idle,100,Database Failure,27,False,True,0.008897,"DB verified — 1 config rows, write test passed",Operational,427
+idle_d100,idle,100,Database Failure,28,False,True,0.008494,"DB verified — 1 config rows, write test passed",Operational,428
+idle_d100,idle,100,Database Failure,29,False,True,0.009192,"DB verified — 1 config rows, write test passed",Operational,429
+idle_d100,idle,100,Database Failure,30,False,True,0.008639,"DB verified — 1 config rows, write test passed",Operational,430
+idle_d100,idle,100,Database Failure,31,False,True,0.009363,"DB verified — 1 config rows, write test passed",Operational,431
+idle_d100,idle,100,Database Failure,32,False,True,0.009194,"DB verified — 1 config rows, write test passed",Operational,432
+idle_d100,idle,100,Database Failure,33,False,True,0.008655,"DB verified — 1 config rows, write test passed",Operational,433
+idle_d100,idle,100,Database Failure,34,False,True,0.008658,"DB verified — 1 config rows, write test passed",Operational,434
+idle_d100,idle,100,Database Failure,35,False,True,0.008184,"DB verified — 1 config rows, write test passed",Operational,435
+idle_d100,idle,100,Database Failure,36,False,True,0.008991,"DB verified — 1 config rows, write test passed",Operational,436
+idle_d100,idle,100,Database Failure,37,False,True,0.00855,"DB verified — 1 config rows, write test passed",Operational,437
+idle_d100,idle,100,Database Failure,38,False,True,0.008583,"DB verified — 1 config rows, write test passed",Operational,438
+idle_d100,idle,100,Database Failure,39,False,True,0.009025,"DB verified — 1 config rows, write test passed",Operational,439
+idle_d100,idle,100,Database Failure,40,False,True,0.010643,"DB verified — 1 config rows, write test passed",Operational,440
+idle_d100,idle,100,Database Failure,41,False,True,0.014435,"DB verified — 1 config rows, write test passed",Operational,441
+idle_d100,idle,100,Database Failure,42,False,True,0.011882,"DB verified — 1 config rows, write test passed",Operational,442
+idle_d100,idle,100,Database Failure,43,False,True,0.012756,"DB verified — 1 config rows, write test passed",Operational,443
+idle_d100,idle,100,Database Failure,44,False,True,0.014201,"DB verified — 1 config rows, write test passed",Operational,444
+idle_d100,idle,100,Database Failure,45,False,True,0.009637,"DB verified — 1 config rows, write test passed",Operational,445
+idle_d100,idle,100,Database Failure,46,False,True,0.010782,"DB verified — 1 config rows, write test passed",Operational,446
+idle_d100,idle,100,Database Failure,47,False,True,0.015697,"DB verified — 1 config rows, write test passed",Operational,447
+idle_d100,idle,100,Database Failure,48,False,True,0.011319,"DB verified — 1 config rows, write test passed",Operational,448
+idle_d100,idle,100,Database Failure,49,False,True,0.009446,"DB verified — 1 config rows, write test passed",Operational,449
+idle_d100,idle,100,Database Failure,50,False,True,0.008324,"DB verified — 1 config rows, write test passed",Operational,450
+idle_d100,idle,100,Database Failure,51,False,True,0.008651,"DB verified — 1 config rows, write test passed",Operational,451
+idle_d100,idle,100,Database Failure,52,False,True,0.008385,"DB verified — 1 config rows, write test passed",Operational,452
+idle_d100,idle,100,Database Failure,53,False,True,0.00936,"DB verified — 1 config rows, write test passed",Operational,453
+idle_d100,idle,100,Database Failure,54,False,True,0.008622,"DB verified — 1 config rows, write test passed",Operational,454
+idle_d100,idle,100,Database Failure,55,False,True,0.009025,"DB verified — 1 config rows, write test passed",Operational,455
+idle_d100,idle,100,Database Failure,56,False,True,0.009023,"DB verified — 1 config rows, write test passed",Operational,456
+idle_d100,idle,100,Database Failure,57,False,True,0.009359,"DB verified — 1 config rows, write test passed",Operational,457
+idle_d100,idle,100,Database Failure,58,False,True,0.009734,"DB verified — 1 config rows, write test passed",Operational,458
+idle_d100,idle,100,Database Failure,59,False,True,0.009727,"DB verified — 1 config rows, write test passed",Operational,459
+idle_d100,idle,100,Database Failure,60,False,True,0.008883,"DB verified — 1 config rows, write test passed",Operational,460
+idle_d100,idle,100,Database Failure,61,False,True,0.00938,"DB verified — 1 config rows, write test passed",Operational,461
+idle_d100,idle,100,Database Failure,62,False,True,0.010871,"DB verified — 1 config rows, write test passed",Operational,462
+idle_d100,idle,100,Database Failure,63,False,True,0.010334,"DB verified — 1 config rows, write test passed",Operational,463
+idle_d100,idle,100,Database Failure,64,False,True,0.009727,"DB verified — 1 config rows, write test passed",Operational,464
+idle_d100,idle,100,Database Failure,65,False,True,0.009887,"DB verified — 1 config rows, write test passed",Operational,465
+idle_d100,idle,100,Database Failure,66,False,True,0.009198,"DB verified — 1 config rows, write test passed",Operational,466
+idle_d100,idle,100,Database Failure,67,False,True,0.009618,"DB verified — 1 config rows, write test passed",Operational,467
+idle_d100,idle,100,Database Failure,68,False,True,0.008604,"DB verified — 1 config rows, write test passed",Operational,468
+idle_d100,idle,100,Database Failure,69,False,True,0.009033,"DB verified — 1 config rows, write test passed",Operational,469
+idle_d100,idle,100,Database Failure,70,False,True,0.008515,"DB verified — 1 config rows, write test passed",Operational,470
+idle_d100,idle,100,Database Failure,71,False,True,0.008898,"DB verified — 1 config rows, write test passed",Operational,471
+idle_d100,idle,100,Database Failure,72,False,True,0.008281,"DB verified — 1 config rows, write test passed",Operational,472
+idle_d100,idle,100,Database Failure,73,False,True,0.008913,"DB verified — 1 config rows, write test passed",Operational,473
+idle_d100,idle,100,Database Failure,74,False,True,0.008833,"DB verified — 1 config rows, write test passed",Operational,474
+idle_d100,idle,100,Database Failure,75,False,True,0.008635,"DB verified — 1 config rows, write test passed",Operational,475
+idle_d100,idle,100,Database Failure,76,False,True,0.009008,"DB verified — 1 config rows, write test passed",Operational,476
+idle_d100,idle,100,Database Failure,77,False,True,0.008657,"DB verified — 1 config rows, write test passed",Operational,477
+idle_d100,idle,100,Database Failure,78,False,True,0.008917,"DB verified — 1 config rows, write test passed",Operational,478
+idle_d100,idle,100,Database Failure,79,False,True,0.008396,"DB verified — 1 config rows, write test passed",Operational,479
+idle_d100,idle,100,Database Failure,80,False,True,0.009192,"DB verified — 1 config rows, write test passed",Operational,480
+idle_d100,idle,100,Database Failure,81,False,True,0.008789,"DB verified — 1 config rows, write test passed",Operational,481
+idle_d100,idle,100,Database Failure,82,False,True,0.008712,"DB verified — 1 config rows, write test passed",Operational,482
+idle_d100,idle,100,Database Failure,83,False,True,0.00856,"DB verified — 1 config rows, write test passed",Operational,483
+idle_d100,idle,100,Database Failure,84,False,True,0.009237,"DB verified — 1 config rows, write test passed",Operational,484
+idle_d100,idle,100,Database Failure,85,False,True,0.009524,"DB verified — 1 config rows, write test passed",Operational,485
+idle_d100,idle,100,Database Failure,86,False,True,0.009465,"DB verified — 1 config rows, write test passed",Operational,486
+idle_d100,idle,100,Database Failure,87,False,True,0.010701,"DB verified — 1 config rows, write test passed",Operational,487
+idle_d100,idle,100,Database Failure,88,False,True,0.009029,"DB verified — 1 config rows, write test passed",Operational,488
+idle_d100,idle,100,Database Failure,89,False,True,0.008915,"DB verified — 1 config rows, write test passed",Operational,489
+idle_d100,idle,100,Database Failure,90,False,True,0.008514,"DB verified — 1 config rows, write test passed",Operational,490
+idle_d100,idle,100,Database Failure,91,False,True,0.009298,"DB verified — 1 config rows, write test passed",Operational,491
+idle_d100,idle,100,Database Failure,92,False,True,0.008102,"DB verified — 1 config rows, write test passed",Operational,492
+idle_d100,idle,100,Database Failure,93,False,True,0.009691,"DB verified — 1 config rows, write test passed",Operational,493
+idle_d100,idle,100,Database Failure,94,False,True,0.008921,"DB verified — 1 config rows, write test passed",Operational,494
+idle_d100,idle,100,Database Failure,95,False,True,0.029263,"DB verified — 1 config rows, write test passed",Operational,495
+idle_d100,idle,100,Database Failure,96,False,True,0.009027,"DB verified — 1 config rows, write test passed",Operational,496
+idle_d100,idle,100,Database Failure,97,False,True,0.008352,"DB verified — 1 config rows, write test passed",Operational,497
+idle_d100,idle,100,Database Failure,98,False,True,0.009156,"DB verified — 1 config rows, write test passed",Operational,498
+idle_d100,idle,100,Database Failure,99,False,True,0.008946,"DB verified — 1 config rows, write test passed",Operational,499
+idle_d100,idle,100,Database Failure,100,False,True,0.011114,"DB verified — 1 config rows, write test passed",Operational,500
+idle_d100,idle,100,Server Crash,1,True,True,0.714634,"Worker verified — processed task correctly (21×2=42), total tasks: 1",Operational,501
+idle_d100,idle,100,Server Crash,2,False,True,0.701114,"Worker verified — processed task correctly (21×2=42), total tasks: 2",Operational,502
+idle_d100,idle,100,Server Crash,3,False,True,0.704644,"Worker verified — processed task correctly (21×2=42), total tasks: 3",Operational,503
+idle_d100,idle,100,Server Crash,4,False,True,0.701034,"Worker verified — processed task correctly (21×2=42), total tasks: 4",Operational,504
+idle_d100,idle,100,Server Crash,5,False,True,0.714328,"Worker verified — processed task correctly (21×2=42), total tasks: 5",Operational,505
+idle_d100,idle,100,Server Crash,6,False,True,0.704493,"Worker verified — processed task correctly (21×2=42), total tasks: 6",Operational,506
+idle_d100,idle,100,Server Crash,7,False,True,0.707527,"Worker verified — processed task correctly (21×2=42), total tasks: 7",Operational,507
+idle_d100,idle,100,Server Crash,8,False,True,0.708733,"Worker verified — processed task correctly (21×2=42), total tasks: 8",Operational,508
+idle_d100,idle,100,Server Crash,9,False,True,0.710285,"Worker verified — processed task correctly (21×2=42), total tasks: 9",Operational,509
+idle_d100,idle,100,Server Crash,10,False,True,0.706881,"Worker verified — processed task correctly (21×2=42), total tasks: 10",Operational,510
+idle_d100,idle,100,Server Crash,11,False,True,0.709014,"Worker verified — processed task correctly (21×2=42), total tasks: 11",Operational,511
+idle_d100,idle,100,Server Crash,12,False,True,0.704776,"Worker verified — processed task correctly (21×2=42), total tasks: 12",Operational,512
+idle_d100,idle,100,Server Crash,13,False,True,0.714654,"Worker verified — processed task correctly (21×2=42), total tasks: 13",Operational,513
+idle_d100,idle,100,Server Crash,14,False,True,0.706,"Worker verified — processed task correctly (21×2=42), total tasks: 14",Operational,514
+idle_d100,idle,100,Server Crash,15,False,True,0.708402,"Worker verified — processed task correctly (21×2=42), total tasks: 15",Operational,515
+idle_d100,idle,100,Server Crash,16,False,True,0.708318,"Worker verified — processed task correctly (21×2=42), total tasks: 16",Operational,516
+idle_d100,idle,100,Server Crash,17,False,True,0.712912,"Worker verified — processed task correctly (21×2=42), total tasks: 17",Operational,517
+idle_d100,idle,100,Server Crash,18,False,True,0.703131,"Worker verified — processed task correctly (21×2=42), total tasks: 18",Operational,518
+idle_d100,idle,100,Server Crash,19,False,True,0.701718,"Worker verified — processed task correctly (21×2=42), total tasks: 19",Operational,519
+idle_d100,idle,100,Server Crash,20,False,True,0.701778,"Worker verified — processed task correctly (21×2=42), total tasks: 20",Operational,520
+idle_d100,idle,100,Server Crash,21,False,True,0.702792,"Worker verified — processed task correctly (21×2=42), total tasks: 21",Operational,521
+idle_d100,idle,100,Server Crash,22,False,True,0.715529,"Worker verified — processed task correctly (21×2=42), total tasks: 22",Operational,522
+idle_d100,idle,100,Server Crash,23,False,True,0.714659,"Worker verified — processed task correctly (21×2=42), total tasks: 23",Operational,523
+idle_d100,idle,100,Server Crash,24,False,True,0.715169,"Worker verified — processed task correctly (21×2=42), total tasks: 24",Operational,524
+idle_d100,idle,100,Server Crash,25,False,True,0.705776,"Worker verified — processed task correctly (21×2=42), total tasks: 25",Operational,525
+idle_d100,idle,100,Server Crash,26,False,True,0.714675,"Worker verified — processed task correctly (21×2=42), total tasks: 26",Operational,526
+idle_d100,idle,100,Server Crash,27,False,True,0.715398,"Worker verified — processed task correctly (21×2=42), total tasks: 27",Operational,527
+idle_d100,idle,100,Server Crash,28,False,True,0.71522,"Worker verified — processed task correctly (21×2=42), total tasks: 28",Operational,528
+idle_d100,idle,100,Server Crash,29,False,True,0.715977,"Worker verified — processed task correctly (21×2=42), total tasks: 29",Operational,529
+idle_d100,idle,100,Server Crash,30,False,True,0.703437,"Worker verified — processed task correctly (21×2=42), total tasks: 30",Operational,530
+idle_d100,idle,100,Server Crash,31,False,True,0.715008,"Worker verified — processed task correctly (21×2=42), total tasks: 31",Operational,531
+idle_d100,idle,100,Server Crash,32,False,True,0.701731,"Worker verified — processed task correctly (21×2=42), total tasks: 32",Operational,532
+idle_d100,idle,100,Server Crash,33,False,True,0.713067,"Worker verified — processed task correctly (21×2=42), total tasks: 33",Operational,533
+idle_d100,idle,100,Server Crash,34,False,True,0.702182,"Worker verified — processed task correctly (21×2=42), total tasks: 34",Operational,534
+idle_d100,idle,100,Server Crash,35,False,True,0.714405,"Worker verified — processed task correctly (21×2=42), total tasks: 35",Operational,535
+idle_d100,idle,100,Server Crash,36,False,True,0.707026,"Worker verified — processed task correctly (21×2=42), total tasks: 36",Operational,536
+idle_d100,idle,100,Server Crash,37,False,True,0.701567,"Worker verified — processed task correctly (21×2=42), total tasks: 37",Operational,537
+idle_d100,idle,100,Server Crash,38,False,True,0.701028,"Worker verified — processed task correctly (21×2=42), total tasks: 38",Operational,538
+idle_d100,idle,100,Server Crash,39,False,True,0.70632,"Worker verified — processed task correctly (21×2=42), total tasks: 39",Operational,539
+idle_d100,idle,100,Server Crash,40,False,True,0.710028,"Worker verified — processed task correctly (21×2=42), total tasks: 40",Operational,540
+idle_d100,idle,100,Server Crash,41,False,True,0.701607,"Worker verified — processed task correctly (21×2=42), total tasks: 41",Operational,541
+idle_d100,idle,100,Server Crash,42,False,True,0.701432,"Worker verified — processed task correctly (21×2=42), total tasks: 42",Operational,542
+idle_d100,idle,100,Server Crash,43,False,True,0.714883,"Worker verified — processed task correctly (21×2=42), total tasks: 43",Operational,543
+idle_d100,idle,100,Server Crash,44,False,True,0.70155,"Worker verified — processed task correctly (21×2=42), total tasks: 44",Operational,544
+idle_d100,idle,100,Server Crash,45,False,True,0.70083,"Worker verified — processed task correctly (21×2=42), total tasks: 45",Operational,545
+idle_d100,idle,100,Server Crash,46,False,True,0.716248,"Worker verified — processed task correctly (21×2=42), total tasks: 46",Operational,546
+idle_d100,idle,100,Server Crash,47,False,True,0.700943,"Worker verified — processed task correctly (21×2=42), total tasks: 47",Operational,547
+idle_d100,idle,100,Server Crash,48,False,True,0.715133,"Worker verified — processed task correctly (21×2=42), total tasks: 48",Operational,548
+idle_d100,idle,100,Server Crash,49,False,True,0.704116,"Worker verified — processed task correctly (21×2=42), total tasks: 49",Operational,549
+idle_d100,idle,100,Server Crash,50,False,True,0.714879,"Worker verified — processed task correctly (21×2=42), total tasks: 50",Operational,550
+idle_d100,idle,100,Server Crash,51,False,True,0.701751,"Worker verified — processed task correctly (21×2=42), total tasks: 51",Operational,551
+idle_d100,idle,100,Server Crash,52,False,True,0.714755,"Worker verified — processed task correctly (21×2=42), total tasks: 52",Operational,552
+idle_d100,idle,100,Server Crash,53,False,True,0.701458,"Worker verified — processed task correctly (21×2=42), total tasks: 53",Operational,553
+idle_d100,idle,100,Server Crash,54,False,True,0.700869,"Worker verified — processed task correctly (21×2=42), total tasks: 54",Operational,554
+idle_d100,idle,100,Server Crash,55,False,True,0.700932,"Worker verified — processed task correctly (21×2=42), total tasks: 55",Operational,555
+idle_d100,idle,100,Server Crash,56,False,True,0.709837,"Worker verified — processed task correctly (21×2=42), total tasks: 56",Operational,556
+idle_d100,idle,100,Server Crash,57,False,True,0.71362,"Worker verified — processed task correctly (21×2=42), total tasks: 57",Operational,557
+idle_d100,idle,100,Server Crash,58,False,True,0.715827,"Worker verified — processed task correctly (21×2=42), total tasks: 58",Operational,558
+idle_d100,idle,100,Server Crash,59,False,True,0.71094,"Worker verified — processed task correctly (21×2=42), total tasks: 59",Operational,559
+idle_d100,idle,100,Server Crash,60,False,True,0.718082,"Worker verified — processed task correctly (21×2=42), total tasks: 60",Operational,560
+idle_d100,idle,100,Server Crash,61,False,True,0.700826,"Worker verified — processed task correctly (21×2=42), total tasks: 61",Operational,561
+idle_d100,idle,100,Server Crash,62,False,True,0.703546,"Worker verified — processed task correctly (21×2=42), total tasks: 62",Operational,562
+idle_d100,idle,100,Server Crash,63,False,True,0.715342,"Worker verified — processed task correctly (21×2=42), total tasks: 63",Operational,563
+idle_d100,idle,100,Server Crash,64,False,True,0.715037,"Worker verified — processed task correctly (21×2=42), total tasks: 64",Operational,564
+idle_d100,idle,100,Server Crash,65,False,True,0.701159,"Worker verified — processed task correctly (21×2=42), total tasks: 65",Operational,565
+idle_d100,idle,100,Server Crash,66,False,True,0.716571,"Worker verified — processed task correctly (21×2=42), total tasks: 66",Operational,566
+idle_d100,idle,100,Server Crash,67,False,True,0.702855,"Worker verified — processed task correctly (21×2=42), total tasks: 67",Operational,567
+idle_d100,idle,100,Server Crash,68,False,True,0.710793,"Worker verified — processed task correctly (21×2=42), total tasks: 68",Operational,568
+idle_d100,idle,100,Server Crash,69,False,True,0.715088,"Worker verified — processed task correctly (21×2=42), total tasks: 69",Operational,569
+idle_d100,idle,100,Server Crash,70,False,True,0.707679,"Worker verified — processed task correctly (21×2=42), total tasks: 70",Operational,570
+idle_d100,idle,100,Server Crash,71,False,True,0.701351,"Worker verified — processed task correctly (21×2=42), total tasks: 71",Operational,571
+idle_d100,idle,100,Server Crash,72,False,True,0.714519,"Worker verified — processed task correctly (21×2=42), total tasks: 72",Operational,572
+idle_d100,idle,100,Server Crash,73,False,True,0.705584,"Worker verified — processed task correctly (21×2=42), total tasks: 73",Operational,573
+idle_d100,idle,100,Server Crash,74,False,True,0.702318,"Worker verified — processed task correctly (21×2=42), total tasks: 74",Operational,574
+idle_d100,idle,100,Server Crash,75,False,True,0.701637,"Worker verified — processed task correctly (21×2=42), total tasks: 75",Operational,575
+idle_d100,idle,100,Server Crash,76,False,True,0.711929,"Worker verified — processed task correctly (21×2=42), total tasks: 76",Operational,576
+idle_d100,idle,100,Server Crash,77,False,True,0.715845,"Worker verified — processed task correctly (21×2=42), total tasks: 77",Operational,577
+idle_d100,idle,100,Server Crash,78,False,True,0.710105,"Worker verified — processed task correctly (21×2=42), total tasks: 78",Operational,578
+idle_d100,idle,100,Server Crash,79,False,True,0.708821,"Worker verified — processed task correctly (21×2=42), total tasks: 79",Operational,579
+idle_d100,idle,100,Server Crash,80,False,True,0.701771,"Worker verified — processed task correctly (21×2=42), total tasks: 80",Operational,580
+idle_d100,idle,100,Server Crash,81,False,True,0.713462,"Worker verified — processed task correctly (21×2=42), total tasks: 81",Operational,581
+idle_d100,idle,100,Server Crash,82,False,True,0.708322,"Worker verified — processed task correctly (21×2=42), total tasks: 82",Operational,582
+idle_d100,idle,100,Server Crash,83,False,True,0.708161,"Worker verified — processed task correctly (21×2=42), total tasks: 83",Operational,583
+idle_d100,idle,100,Server Crash,84,False,True,0.714285,"Worker verified — processed task correctly (21×2=42), total tasks: 84",Operational,584
+idle_d100,idle,100,Server Crash,85,False,True,0.713321,"Worker verified — processed task correctly (21×2=42), total tasks: 85",Operational,585
+idle_d100,idle,100,Server Crash,86,False,True,0.711377,"Worker verified — processed task correctly (21×2=42), total tasks: 86",Operational,586
+idle_d100,idle,100,Server Crash,87,False,True,0.713896,"Worker verified — processed task correctly (21×2=42), total tasks: 87",Operational,587
+idle_d100,idle,100,Server Crash,88,False,True,0.715066,"Worker verified — processed task correctly (21×2=42), total tasks: 88",Operational,588
+idle_d100,idle,100,Server Crash,89,False,True,0.702624,"Worker verified — processed task correctly (21×2=42), total tasks: 89",Operational,589
+idle_d100,idle,100,Server Crash,90,False,True,0.715277,"Worker verified — processed task correctly (21×2=42), total tasks: 90",Operational,590
+idle_d100,idle,100,Server Crash,91,False,True,0.701761,"Worker verified — processed task correctly (21×2=42), total tasks: 91",Operational,591
+idle_d100,idle,100,Server Crash,92,False,True,0.700766,"Worker verified — processed task correctly (21×2=42), total tasks: 92",Operational,592
+idle_d100,idle,100,Server Crash,93,False,True,0.715646,"Worker verified — processed task correctly (21×2=42), total tasks: 93",Operational,593
+idle_d100,idle,100,Server Crash,94,False,True,0.702007,"Worker verified — processed task correctly (21×2=42), total tasks: 94",Operational,594
+idle_d100,idle,100,Server Crash,95,False,True,0.714787,"Worker verified — processed task correctly (21×2=42), total tasks: 95",Operational,595
+idle_d100,idle,100,Server Crash,96,False,True,0.702406,"Worker verified — processed task correctly (21×2=42), total tasks: 96",Operational,596
+idle_d100,idle,100,Server Crash,97,False,True,0.716885,"Worker verified — processed task correctly (21×2=42), total tasks: 97",Operational,597
+idle_d100,idle,100,Server Crash,98,False,True,0.701463,"Worker verified — processed task correctly (21×2=42), total tasks: 98",Operational,598
+idle_d100,idle,100,Server Crash,99,False,True,0.714465,"Worker verified — processed task correctly (21×2=42), total tasks: 99",Operational,599
+idle_d100,idle,100,Server Crash,100,False,True,0.70355,"Worker verified — processed task correctly (21×2=42), total tasks: 100",Operational,600
+stress_d0,stress,0,Network Timeout,1,True,True,4.296439,TCP connection verified — server responding,Operational,601
+stress_d0,stress,0,Network Timeout,2,False,True,4.954042,TCP connection verified — server responding,Operational,602
+stress_d0,stress,0,Network Timeout,3,False,True,5.655092,TCP connection verified — server responding,Operational,603
+stress_d0,stress,0,Network Timeout,4,False,True,4.547499,TCP connection verified — server responding,Operational,604
+stress_d0,stress,0,Network Timeout,5,False,True,4.847547,TCP connection verified — server responding,Operational,605
+stress_d0,stress,0,Network Timeout,6,False,True,6.161017,TCP connection verified — server responding,Operational,606
+stress_d0,stress,0,Network Timeout,7,False,True,5.47229,TCP connection verified — server responding,Operational,607
+stress_d0,stress,0,Network Timeout,8,False,True,4.556454,TCP connection verified — server responding,Operational,608
+stress_d0,stress,0,Network Timeout,9,False,True,4.379498,TCP connection verified — server responding,Operational,609
+stress_d0,stress,0,Network Timeout,10,False,True,5.010105,TCP connection verified — server responding,Operational,610
+stress_d0,stress,0,Network Timeout,11,False,True,4.977985,TCP connection verified — server responding,Operational,611
+stress_d0,stress,0,Network Timeout,12,False,True,4.262227,TCP connection verified — server responding,Operational,612
+stress_d0,stress,0,Network Timeout,13,False,True,4.575695,TCP connection verified — server responding,Operational,613
+stress_d0,stress,0,Network Timeout,14,False,True,3.467365,TCP connection verified — server responding,Operational,614
+stress_d0,stress,0,Network Timeout,15,False,True,5.001925,TCP connection verified — server responding,Operational,615
+stress_d0,stress,0,Network Timeout,16,False,True,4.714049,TCP connection verified — server responding,Operational,616
+stress_d0,stress,0,Network Timeout,17,False,True,3.628523,TCP connection verified — server responding,Operational,617
+stress_d0,stress,0,Network Timeout,18,False,True,5.20362,TCP connection verified — server responding,Operational,618
+stress_d0,stress,0,Network Timeout,19,False,True,4.932614,TCP connection verified — server responding,Operational,619
+stress_d0,stress,0,Network Timeout,20,False,True,5.835786,TCP connection verified — server responding,Operational,620
+stress_d0,stress,0,Network Timeout,21,False,True,5.364005,TCP connection verified — server responding,Operational,621
+stress_d0,stress,0,Network Timeout,22,False,True,4.608098,TCP connection verified — server responding,Operational,622
+stress_d0,stress,0,Network Timeout,23,False,True,4.682038,TCP connection verified — server responding,Operational,623
+stress_d0,stress,0,Network Timeout,24,False,True,5.20969,TCP connection verified — server responding,Operational,624
+stress_d0,stress,0,Network Timeout,25,False,True,3.957992,TCP connection verified — server responding,Operational,625
+stress_d0,stress,0,Network Timeout,26,False,True,6.377723,TCP connection verified — server responding,Operational,626
+stress_d0,stress,0,Network Timeout,27,False,True,5.768688,TCP connection verified — server responding,Operational,627
+stress_d0,stress,0,Network Timeout,28,False,True,4.800458,TCP connection verified — server responding,Operational,628
+stress_d0,stress,0,Network Timeout,29,False,True,3.709934,TCP connection verified — server responding,Operational,629
+stress_d0,stress,0,Network Timeout,30,False,True,4.096793,TCP connection verified — server responding,Operational,630
+stress_d0,stress,0,Network Timeout,31,False,True,6.159754,TCP connection verified — server responding,Operational,631
+stress_d0,stress,0,Network Timeout,32,False,True,5.361618,TCP connection verified — server responding,Operational,632
+stress_d0,stress,0,Network Timeout,33,False,True,6.337951,TCP connection verified — server responding,Operational,633
+stress_d0,stress,0,Network Timeout,34,False,True,4.029893,TCP connection verified — server responding,Operational,634
+stress_d0,stress,0,Network Timeout,35,False,True,5.004429,TCP connection verified — server responding,Operational,635
+stress_d0,stress,0,Network Timeout,36,False,True,3.808587,TCP connection verified — server responding,Operational,636
+stress_d0,stress,0,Network Timeout,37,False,True,5.119078,TCP connection verified — server responding,Operational,637
+stress_d0,stress,0,Network Timeout,38,False,True,6.865448,TCP connection verified — server responding,Operational,638
+stress_d0,stress,0,Network Timeout,39,False,True,4.155246,TCP connection verified — server responding,Operational,639
+stress_d0,stress,0,Network Timeout,40,False,True,3.838498,TCP connection verified — server responding,Operational,640
+stress_d0,stress,0,Network Timeout,41,False,True,5.120139,TCP connection verified — server responding,Operational,641
+stress_d0,stress,0,Network Timeout,42,False,True,4.489622,TCP connection verified — server responding,Operational,642
+stress_d0,stress,0,Network Timeout,43,False,True,5.930842,TCP connection verified — server responding,Operational,643
+stress_d0,stress,0,Network Timeout,44,False,True,3.908842,TCP connection verified — server responding,Operational,644
+stress_d0,stress,0,Network Timeout,45,False,True,5.462879,TCP connection verified — server responding,Operational,645
+stress_d0,stress,0,Network Timeout,46,False,True,5.570799,TCP connection verified — server responding,Operational,646
+stress_d0,stress,0,Network Timeout,47,False,True,5.107115,TCP connection verified — server responding,Operational,647
+stress_d0,stress,0,Network Timeout,48,False,True,5.609028,TCP connection verified — server responding,Operational,648
+stress_d0,stress,0,Network Timeout,49,False,True,6.278497,TCP connection verified — server responding,Operational,649
+stress_d0,stress,0,Network Timeout,50,False,True,4.475444,TCP connection verified — server responding,Operational,650
+stress_d0,stress,0,Network Timeout,51,False,True,4.49851,TCP connection verified — server responding,Operational,651
+stress_d0,stress,0,Network Timeout,52,False,True,4.147829,TCP connection verified — server responding,Operational,652
+stress_d0,stress,0,Network Timeout,53,False,True,3.130916,TCP connection verified — server responding,Operational,653
+stress_d0,stress,0,Network Timeout,54,False,True,3.911405,TCP connection verified — server responding,Operational,654
+stress_d0,stress,0,Network Timeout,55,False,True,4.257183,TCP connection verified — server responding,Operational,655
+stress_d0,stress,0,Network Timeout,56,False,True,4.102319,TCP connection verified — server responding,Operational,656
+stress_d0,stress,0,Network Timeout,57,False,True,3.664503,TCP connection verified — server responding,Operational,657
+stress_d0,stress,0,Network Timeout,58,False,True,5.01504,TCP connection verified — server responding,Operational,658
+stress_d0,stress,0,Network Timeout,59,False,True,5.437171,TCP connection verified — server responding,Operational,659
+stress_d0,stress,0,Network Timeout,60,False,True,3.886572,TCP connection verified — server responding,Operational,660
+stress_d0,stress,0,Network Timeout,61,False,True,4.310075,TCP connection verified — server responding,Operational,661
+stress_d0,stress,0,Network Timeout,62,False,True,3.855057,TCP connection verified — server responding,Operational,662
+stress_d0,stress,0,Network Timeout,63,False,True,5.647999,TCP connection verified — server responding,Operational,663
+stress_d0,stress,0,Network Timeout,64,False,True,4.788733,TCP connection verified — server responding,Operational,664
+stress_d0,stress,0,Network Timeout,65,False,True,5.969204,TCP connection verified — server responding,Operational,665
+stress_d0,stress,0,Network Timeout,66,False,True,5.010607,TCP connection verified — server responding,Operational,666
+stress_d0,stress,0,Network Timeout,67,False,True,4.488816,TCP connection verified — server responding,Operational,667
+stress_d0,stress,0,Network Timeout,68,False,True,4.301359,TCP connection verified — server responding,Operational,668
+stress_d0,stress,0,Network Timeout,69,False,True,4.784087,TCP connection verified — server responding,Operational,669
+stress_d0,stress,0,Network Timeout,70,False,True,4.380203,TCP connection verified — server responding,Operational,670
+stress_d0,stress,0,Network Timeout,71,False,True,4.673257,TCP connection verified — server responding,Operational,671
+stress_d0,stress,0,Network Timeout,72,False,True,5.02658,TCP connection verified — server responding,Operational,672
+stress_d0,stress,0,Network Timeout,73,False,True,3.824071,TCP connection verified — server responding,Operational,673
+stress_d0,stress,0,Network Timeout,74,False,True,5.896638,TCP connection verified — server responding,Operational,674
+stress_d0,stress,0,Network Timeout,75,False,True,5.122869,TCP connection verified — server responding,Operational,675
+stress_d0,stress,0,Network Timeout,76,False,True,4.396935,TCP connection verified — server responding,Operational,676
+stress_d0,stress,0,Network Timeout,77,False,True,4.267838,TCP connection verified — server responding,Operational,677
+stress_d0,stress,0,Network Timeout,78,False,True,5.151864,TCP connection verified — server responding,Operational,678
+stress_d0,stress,0,Network Timeout,79,False,True,4.657711,TCP connection verified — server responding,Operational,679
+stress_d0,stress,0,Network Timeout,80,False,True,4.745216,TCP connection verified — server responding,Operational,680
+stress_d0,stress,0,Network Timeout,81,False,True,6.000804,TCP connection verified — server responding,Operational,681
+stress_d0,stress,0,Network Timeout,82,False,True,6.9154,TCP connection verified — server responding,Operational,682
+stress_d0,stress,0,Network Timeout,83,False,True,5.755858,TCP connection verified — server responding,Operational,683
+stress_d0,stress,0,Network Timeout,84,False,True,4.285627,TCP connection verified — server responding,Operational,684
+stress_d0,stress,0,Network Timeout,85,False,True,4.869548,TCP connection verified — server responding,Operational,685
+stress_d0,stress,0,Network Timeout,86,False,True,4.806363,TCP connection verified — server responding,Operational,686
+stress_d0,stress,0,Network Timeout,87,False,True,4.417954,TCP connection verified — server responding,Operational,687
+stress_d0,stress,0,Network Timeout,88,False,True,5.715575,TCP connection verified — server responding,Operational,688
+stress_d0,stress,0,Network Timeout,89,False,True,4.368138,TCP connection verified — server responding,Operational,689
+stress_d0,stress,0,Network Timeout,90,False,True,6.779358,TCP connection verified — server responding,Operational,690
+stress_d0,stress,0,Network Timeout,91,False,True,5.017502,TCP connection verified — server responding,Operational,691
+stress_d0,stress,0,Network Timeout,92,False,True,4.428966,TCP connection verified — server responding,Operational,692
+stress_d0,stress,0,Network Timeout,93,False,True,3.784761,TCP connection verified — server responding,Operational,693
+stress_d0,stress,0,Network Timeout,94,False,True,4.239136,TCP connection verified — server responding,Operational,694
+stress_d0,stress,0,Network Timeout,95,False,True,4.668535,TCP connection verified — server responding,Operational,695
+stress_d0,stress,0,Network Timeout,96,False,True,3.94217,TCP connection verified — server responding,Operational,696
+stress_d0,stress,0,Network Timeout,97,False,True,5.007939,TCP connection verified — server responding,Operational,697
+stress_d0,stress,0,Network Timeout,98,False,True,5.863509,TCP connection verified — server responding,Operational,698
+stress_d0,stress,0,Network Timeout,99,False,True,5.227439,TCP connection verified — server responding,Operational,699
+stress_d0,stress,0,Network Timeout,100,False,True,6.899837,TCP connection verified — server responding,Operational,700
+stress_d0,stress,0,Database Failure,1,True,True,10.184466,"DB verified — 1 config rows, write test passed",Operational,701
+stress_d0,stress,0,Database Failure,2,False,True,8.272061,"DB verified — 1 config rows, write test passed",Operational,702
+stress_d0,stress,0,Database Failure,3,False,True,8.303353,"DB verified — 1 config rows, write test passed",Operational,703
+stress_d0,stress,0,Database Failure,4,False,True,8.057392,"DB verified — 1 config rows, write test passed",Operational,704
+stress_d0,stress,0,Database Failure,5,False,True,7.458236,"DB verified — 1 config rows, write test passed",Operational,705
+stress_d0,stress,0,Database Failure,6,False,True,8.015325,"DB verified — 1 config rows, write test passed",Operational,706
+stress_d0,stress,0,Database Failure,7,False,True,11.327251,"DB verified — 1 config rows, write test passed",Operational,707
+stress_d0,stress,0,Database Failure,8,False,True,10.642815,"DB verified — 1 config rows, write test passed",Operational,708
+stress_d0,stress,0,Database Failure,9,False,True,7.202555,"DB verified — 1 config rows, write test passed",Operational,709
+stress_d0,stress,0,Database Failure,10,False,True,9.6437,"DB verified — 1 config rows, write test passed",Operational,710
+stress_d0,stress,0,Database Failure,11,False,True,9.849281,"DB verified — 1 config rows, write test passed",Operational,711
+stress_d0,stress,0,Database Failure,12,False,True,10.128989,"DB verified — 1 config rows, write test passed",Operational,712
+stress_d0,stress,0,Database Failure,13,False,True,7.760227,"DB verified — 1 config rows, write test passed",Operational,713
+stress_d0,stress,0,Database Failure,14,False,True,9.241096,"DB verified — 1 config rows, write test passed",Operational,714
+stress_d0,stress,0,Database Failure,15,False,True,8.538779,"DB verified — 1 config rows, write test passed",Operational,715
+stress_d0,stress,0,Database Failure,16,False,True,8.677426,"DB verified — 1 config rows, write test passed",Operational,716
+stress_d0,stress,0,Database Failure,17,False,True,9.32237,"DB verified — 1 config rows, write test passed",Operational,717
+stress_d0,stress,0,Database Failure,18,False,True,7.999634,"DB verified — 1 config rows, write test passed",Operational,718
+stress_d0,stress,0,Database Failure,19,False,True,9.540018,"DB verified — 1 config rows, write test passed",Operational,719
+stress_d0,stress,0,Database Failure,20,False,True,8.29298,"DB verified — 1 config rows, write test passed",Operational,720
+stress_d0,stress,0,Database Failure,21,False,True,11.432635,"DB verified — 1 config rows, write test passed",Operational,721
+stress_d0,stress,0,Database Failure,22,False,True,7.681208,"DB verified — 1 config rows, write test passed",Operational,722
+stress_d0,stress,0,Database Failure,23,False,True,8.043965,"DB verified — 1 config rows, write test passed",Operational,723
+stress_d0,stress,0,Database Failure,24,False,True,7.975371,"DB verified — 1 config rows, write test passed",Operational,724
+stress_d0,stress,0,Database Failure,25,False,True,6.866287,"DB verified — 1 config rows, write test passed",Operational,725
+stress_d0,stress,0,Database Failure,26,False,True,10.88304,"DB verified — 1 config rows, write test passed",Operational,726
+stress_d0,stress,0,Database Failure,27,False,True,9.075479,"DB verified — 1 config rows, write test passed",Operational,727
+stress_d0,stress,0,Database Failure,28,False,True,10.371494,"DB verified — 1 config rows, write test passed",Operational,728
+stress_d0,stress,0,Database Failure,29,False,True,9.010164,"DB verified — 1 config rows, write test passed",Operational,729
+stress_d0,stress,0,Database Failure,30,False,True,8.254947,"DB verified — 1 config rows, write test passed",Operational,730
+stress_d0,stress,0,Database Failure,31,False,True,10.127918,"DB verified — 1 config rows, write test passed",Operational,731
+stress_d0,stress,0,Database Failure,32,False,True,8.856453,"DB verified — 1 config rows, write test passed",Operational,732
+stress_d0,stress,0,Database Failure,33,False,True,6.706151,"DB verified — 1 config rows, write test passed",Operational,733
+stress_d0,stress,0,Database Failure,34,False,True,6.18521,"DB verified — 1 config rows, write test passed",Operational,734
+stress_d0,stress,0,Database Failure,35,False,True,5.956487,"DB verified — 1 config rows, write test passed",Operational,735
+stress_d0,stress,0,Database Failure,36,False,True,7.596805,"DB verified — 1 config rows, write test passed",Operational,736
+stress_d0,stress,0,Database Failure,37,False,True,8.669523,"DB verified — 1 config rows, write test passed",Operational,737
+stress_d0,stress,0,Database Failure,38,False,True,10.232044,"DB verified — 1 config rows, write test passed",Operational,738
+stress_d0,stress,0,Database Failure,39,False,True,10.387316,"DB verified — 1 config rows, write test passed",Operational,739
+stress_d0,stress,0,Database Failure,40,False,True,9.705567,"DB verified — 1 config rows, write test passed",Operational,740
+stress_d0,stress,0,Database Failure,41,False,True,7.276935,"DB verified — 1 config rows, write test passed",Operational,741
+stress_d0,stress,0,Database Failure,42,False,True,9.761894,"DB verified — 1 config rows, write test passed",Operational,742
+stress_d0,stress,0,Database Failure,43,False,True,6.651012,"DB verified — 1 config rows, write test passed",Operational,743
+stress_d0,stress,0,Database Failure,44,False,True,8.518542,"DB verified — 1 config rows, write test passed",Operational,744
+stress_d0,stress,0,Database Failure,45,False,True,7.523633,"DB verified — 1 config rows, write test passed",Operational,745
+stress_d0,stress,0,Database Failure,46,False,True,10.551945,"DB verified — 1 config rows, write test passed",Operational,746
+stress_d0,stress,0,Database Failure,47,False,True,7.994861,"DB verified — 1 config rows, write test passed",Operational,747
+stress_d0,stress,0,Database Failure,48,False,True,9.891759,"DB verified — 1 config rows, write test passed",Operational,748
+stress_d0,stress,0,Database Failure,49,False,True,10.28131,"DB verified — 1 config rows, write test passed",Operational,749
+stress_d0,stress,0,Database Failure,50,False,True,8.547703,"DB verified — 1 config rows, write test passed",Operational,750
+stress_d0,stress,0,Database Failure,51,False,True,7.43346,"DB verified — 1 config rows, write test passed",Operational,751
+stress_d0,stress,0,Database Failure,52,False,True,8.915701,"DB verified — 1 config rows, write test passed",Operational,752
+stress_d0,stress,0,Database Failure,53,False,True,9.271769,"DB verified — 1 config rows, write test passed",Operational,753
+stress_d0,stress,0,Database Failure,54,False,True,9.340505,"DB verified — 1 config rows, write test passed",Operational,754
+stress_d0,stress,0,Database Failure,55,False,True,10.586554,"DB verified — 1 config rows, write test passed",Operational,755
+stress_d0,stress,0,Database Failure,56,False,True,12.86684,"DB verified — 1 config rows, write test passed",Operational,756
+stress_d0,stress,0,Database Failure,57,False,True,8.006486,"DB verified — 1 config rows, write test passed",Operational,757
+stress_d0,stress,0,Database Failure,58,False,True,10.764111,"DB verified — 1 config rows, write test passed",Operational,758
+stress_d0,stress,0,Database Failure,59,False,True,8.706189,"DB verified — 1 config rows, write test passed",Operational,759
+stress_d0,stress,0,Database Failure,60,False,True,7.187696,"DB verified — 1 config rows, write test passed",Operational,760
+stress_d0,stress,0,Database Failure,61,False,True,10.042861,"DB verified — 1 config rows, write test passed",Operational,761
+stress_d0,stress,0,Database Failure,62,False,True,7.789001,"DB verified — 1 config rows, write test passed",Operational,762
+stress_d0,stress,0,Database Failure,63,False,True,8.424101,"DB verified — 1 config rows, write test passed",Operational,763
+stress_d0,stress,0,Database Failure,64,False,True,9.588167,"DB verified — 1 config rows, write test passed",Operational,764
+stress_d0,stress,0,Database Failure,65,False,True,9.395392,"DB verified — 1 config rows, write test passed",Operational,765
+stress_d0,stress,0,Database Failure,66,False,True,8.074015,"DB verified — 1 config rows, write test passed",Operational,766
+stress_d0,stress,0,Database Failure,67,False,True,7.025896,"DB verified — 1 config rows, write test passed",Operational,767
+stress_d0,stress,0,Database Failure,68,False,True,12.936811,"DB verified — 1 config rows, write test passed",Operational,768
+stress_d0,stress,0,Database Failure,69,False,True,7.175227,"DB verified — 1 config rows, write test passed",Operational,769
+stress_d0,stress,0,Database Failure,70,False,True,9.035568,"DB verified — 1 config rows, write test passed",Operational,770
+stress_d0,stress,0,Database Failure,71,False,True,8.453467,"DB verified — 1 config rows, write test passed",Operational,771
+stress_d0,stress,0,Database Failure,72,False,True,8.267437,"DB verified — 1 config rows, write test passed",Operational,772
+stress_d0,stress,0,Database Failure,73,False,True,9.486306,"DB verified — 1 config rows, write test passed",Operational,773
+stress_d0,stress,0,Database Failure,74,False,True,8.951692,"DB verified — 1 config rows, write test passed",Operational,774
+stress_d0,stress,0,Database Failure,75,False,True,7.031879,"DB verified — 1 config rows, write test passed",Operational,775
+stress_d0,stress,0,Database Failure,76,False,True,13.142573,"DB verified — 1 config rows, write test passed",Operational,776
+stress_d0,stress,0,Database Failure,77,False,True,9.369722,"DB verified — 1 config rows, write test passed",Operational,777
+stress_d0,stress,0,Database Failure,78,False,True,9.429173,"DB verified — 1 config rows, write test passed",Operational,778
+stress_d0,stress,0,Database Failure,79,False,True,8.939759,"DB verified — 1 config rows, write test passed",Operational,779
+stress_d0,stress,0,Database Failure,80,False,True,10.525039,"DB verified — 1 config rows, write test passed",Operational,780
+stress_d0,stress,0,Database Failure,81,False,True,11.560128,"DB verified — 1 config rows, write test passed",Operational,781
+stress_d0,stress,0,Database Failure,82,False,True,9.807904,"DB verified — 1 config rows, write test passed",Operational,782
+stress_d0,stress,0,Database Failure,83,False,True,8.608204,"DB verified — 1 config rows, write test passed",Operational,783
+stress_d0,stress,0,Database Failure,84,False,True,8.50505,"DB verified — 1 config rows, write test passed",Operational,784
+stress_d0,stress,0,Database Failure,85,False,True,9.004664,"DB verified — 1 config rows, write test passed",Operational,785
+stress_d0,stress,0,Database Failure,86,False,True,9.242369,"DB verified — 1 config rows, write test passed",Operational,786
+stress_d0,stress,0,Database Failure,87,False,True,10.929381,"DB verified — 1 config rows, write test passed",Operational,787
+stress_d0,stress,0,Database Failure,88,False,True,10.458133,"DB verified — 1 config rows, write test passed",Operational,788
+stress_d0,stress,0,Database Failure,89,False,True,7.860199,"DB verified — 1 config rows, write test passed",Operational,789
+stress_d0,stress,0,Database Failure,90,False,True,9.52942,"DB verified — 1 config rows, write test passed",Operational,790
+stress_d0,stress,0,Database Failure,91,False,True,13.24099,"DB verified — 1 config rows, write test passed",Operational,791
+stress_d0,stress,0,Database Failure,92,False,True,8.401567,"DB verified — 1 config rows, write test passed",Operational,792
+stress_d0,stress,0,Database Failure,93,False,True,10.173854,"DB verified — 1 config rows, write test passed",Operational,793
+stress_d0,stress,0,Database Failure,94,False,True,7.127918,"DB verified — 1 config rows, write test passed",Operational,794
+stress_d0,stress,0,Database Failure,95,False,True,9.072456,"DB verified — 1 config rows, write test passed",Operational,795
+stress_d0,stress,0,Database Failure,96,False,True,10.120466,"DB verified — 1 config rows, write test passed",Operational,796
+stress_d0,stress,0,Database Failure,97,False,True,8.480695,"DB verified — 1 config rows, write test passed",Operational,797
+stress_d0,stress,0,Database Failure,98,False,True,10.402156,"DB verified — 1 config rows, write test passed",Operational,798
+stress_d0,stress,0,Database Failure,99,False,True,10.843053,"DB verified — 1 config rows, write test passed",Operational,799
+stress_d0,stress,0,Database Failure,100,False,True,10.264805,"DB verified — 1 config rows, write test passed",Operational,800
+stress_d0,stress,0,Server Crash,1,True,True,2.920492,"Worker verified — processed task correctly (21×2=42), total tasks: 1",Operational,801
+stress_d0,stress,0,Server Crash,2,False,True,3.144125,"Worker verified — processed task correctly (21×2=42), total tasks: 2",Operational,802
+stress_d0,stress,0,Server Crash,3,False,True,3.248789,"Worker verified — processed task correctly (21×2=42), total tasks: 3",Operational,803
+stress_d0,stress,0,Server Crash,4,False,True,3.042047,"Worker verified — processed task correctly (21×2=42), total tasks: 4",Operational,804
+stress_d0,stress,0,Server Crash,5,False,True,4.659887,"Worker verified — processed task correctly (21×2=42), total tasks: 5",Operational,805
+stress_d0,stress,0,Server Crash,6,False,True,2.604736,"Worker verified — processed task correctly (21×2=42), total tasks: 6",Operational,806
+stress_d0,stress,0,Server Crash,7,False,True,3.082576,"Worker verified — processed task correctly (21×2=42), total tasks: 7",Operational,807
+stress_d0,stress,0,Server Crash,8,False,True,2.340815,"Worker verified — processed task correctly (21×2=42), total tasks: 8",Operational,808
+stress_d0,stress,0,Server Crash,9,False,True,3.267915,"Worker verified — processed task correctly (21×2=42), total tasks: 9",Operational,809
+stress_d0,stress,0,Server Crash,10,False,True,4.104384,"Worker verified — processed task correctly (21×2=42), total tasks: 10",Operational,810
+stress_d0,stress,0,Server Crash,11,False,True,4.350732,"Worker verified — processed task correctly (21×2=42), total tasks: 11",Operational,811
+stress_d0,stress,0,Server Crash,12,False,True,4.469153,"Worker verified — processed task correctly (21×2=42), total tasks: 12",Operational,812
+stress_d0,stress,0,Server Crash,13,False,True,2.85339,"Worker verified — processed task correctly (21×2=42), total tasks: 13",Operational,813
+stress_d0,stress,0,Server Crash,14,False,True,3.512987,"Worker verified — processed task correctly (21×2=42), total tasks: 14",Operational,814
+stress_d0,stress,0,Server Crash,15,False,True,2.727878,"Worker verified — processed task correctly (21×2=42), total tasks: 15",Operational,815
+stress_d0,stress,0,Server Crash,16,False,True,3.619885,"Worker verified — processed task correctly (21×2=42), total tasks: 16",Operational,816
+stress_d0,stress,0,Server Crash,17,False,True,1.607869,"Worker verified — processed task correctly (21×2=42), total tasks: 17",Operational,817
+stress_d0,stress,0,Server Crash,18,False,True,2.845345,"Worker verified — processed task correctly (21×2=42), total tasks: 18",Operational,818
+stress_d0,stress,0,Server Crash,19,False,True,3.052204,"Worker verified — processed task correctly (21×2=42), total tasks: 19",Operational,819
+stress_d0,stress,0,Server Crash,20,False,True,3.592434,"Worker verified — processed task correctly (21×2=42), total tasks: 20",Operational,820
+stress_d0,stress,0,Server Crash,21,False,True,3.361859,"Worker verified — processed task correctly (21×2=42), total tasks: 21",Operational,821
+stress_d0,stress,0,Server Crash,22,False,True,3.391036,"Worker verified — processed task correctly (21×2=42), total tasks: 22",Operational,822
+stress_d0,stress,0,Server Crash,23,False,True,2.928155,"Worker verified — processed task correctly (21×2=42), total tasks: 23",Operational,823
+stress_d0,stress,0,Server Crash,24,False,True,3.565856,"Worker verified — processed task correctly (21×2=42), total tasks: 24",Operational,824
+stress_d0,stress,0,Server Crash,25,False,True,3.315596,"Worker verified — processed task correctly (21×2=42), total tasks: 25",Operational,825
+stress_d0,stress,0,Server Crash,26,False,True,2.072483,"Worker verified — processed task correctly (21×2=42), total tasks: 26",Operational,826
+stress_d0,stress,0,Server Crash,27,False,True,2.750331,"Worker verified — processed task correctly (21×2=42), total tasks: 27",Operational,827
+stress_d0,stress,0,Server Crash,28,False,True,3.266315,"Worker verified — processed task correctly (21×2=42), total tasks: 28",Operational,828
+stress_d0,stress,0,Server Crash,29,False,True,4.047338,"Worker verified — processed task correctly (21×2=42), total tasks: 29",Operational,829
+stress_d0,stress,0,Server Crash,30,False,True,3.483891,"Worker verified — processed task correctly (21×2=42), total tasks: 30",Operational,830
+stress_d0,stress,0,Server Crash,31,False,True,3.303557,"Worker verified — processed task correctly (21×2=42), total tasks: 31",Operational,831
+stress_d0,stress,0,Server Crash,32,False,True,2.570126,"Worker verified — processed task correctly (21×2=42), total tasks: 32",Operational,832
+stress_d0,stress,0,Server Crash,33,False,True,3.302038,"Worker verified — processed task correctly (21×2=42), total tasks: 33",Operational,833
+stress_d0,stress,0,Server Crash,34,False,True,3.236389,"Worker verified — processed task correctly (21×2=42), total tasks: 34",Operational,834
+stress_d0,stress,0,Server Crash,35,False,True,2.702203,"Worker verified — processed task correctly (21×2=42), total tasks: 35",Operational,835
+stress_d0,stress,0,Server Crash,36,False,True,3.90273,"Worker verified — processed task correctly (21×2=42), total tasks: 36",Operational,836
+stress_d0,stress,0,Server Crash,37,False,True,1.886071,"Worker verified — processed task correctly (21×2=42), total tasks: 37",Operational,837
+stress_d0,stress,0,Server Crash,38,False,True,2.3133,"Worker verified — processed task correctly (21×2=42), total tasks: 38",Operational,838
+stress_d0,stress,0,Server Crash,39,False,True,2.982923,"Worker verified — processed task correctly (21×2=42), total tasks: 39",Operational,839
+stress_d0,stress,0,Server Crash,40,False,True,2.90435,"Worker verified — processed task correctly (21×2=42), total tasks: 40",Operational,840
+stress_d0,stress,0,Server Crash,41,False,True,2.608478,"Worker verified — processed task correctly (21×2=42), total tasks: 41",Operational,841
+stress_d0,stress,0,Server Crash,42,False,True,3.045614,"Worker verified — processed task correctly (21×2=42), total tasks: 42",Operational,842
+stress_d0,stress,0,Server Crash,43,False,True,2.886515,"Worker verified — processed task correctly (21×2=42), total tasks: 43",Operational,843
+stress_d0,stress,0,Server Crash,44,False,True,2.943978,"Worker verified — processed task correctly (21×2=42), total tasks: 44",Operational,844
+stress_d0,stress,0,Server Crash,45,False,True,3.284838,"Worker verified — processed task correctly (21×2=42), total tasks: 45",Operational,845
+stress_d0,stress,0,Server Crash,46,False,True,3.967495,"Worker verified — processed task correctly (21×2=42), total tasks: 46",Operational,846
+stress_d0,stress,0,Server Crash,47,False,True,2.46655,"Worker verified — processed task correctly (21×2=42), total tasks: 47",Operational,847
+stress_d0,stress,0,Server Crash,48,False,True,2.797316,"Worker verified — processed task correctly (21×2=42), total tasks: 48",Operational,848
+stress_d0,stress,0,Server Crash,49,False,True,4.398774,"Worker verified — processed task correctly (21×2=42), total tasks: 49",Operational,849
+stress_d0,stress,0,Server Crash,50,False,True,1.779995,"Worker verified — processed task correctly (21×2=42), total tasks: 50",Operational,850
+stress_d0,stress,0,Server Crash,51,False,True,1.599961,"Worker verified — processed task correctly (21×2=42), total tasks: 51",Operational,851
+stress_d0,stress,0,Server Crash,52,False,True,3.793914,"Worker verified — processed task correctly (21×2=42), total tasks: 52",Operational,852
+stress_d0,stress,0,Server Crash,53,False,True,2.592919,"Worker verified — processed task correctly (21×2=42), total tasks: 53",Operational,853
+stress_d0,stress,0,Server Crash,54,False,True,3.381696,"Worker verified — processed task correctly (21×2=42), total tasks: 54",Operational,854
+stress_d0,stress,0,Server Crash,55,False,True,3.575428,"Worker verified — processed task correctly (21×2=42), total tasks: 55",Operational,855
+stress_d0,stress,0,Server Crash,56,False,True,4.29781,"Worker verified — processed task correctly (21×2=42), total tasks: 56",Operational,856
+stress_d0,stress,0,Server Crash,57,False,True,4.360138,"Worker verified — processed task correctly (21×2=42), total tasks: 57",Operational,857
+stress_d0,stress,0,Server Crash,58,False,True,1.704038,"Worker verified — processed task correctly (21×2=42), total tasks: 58",Operational,858
+stress_d0,stress,0,Server Crash,59,False,True,2.699232,"Worker verified — processed task correctly (21×2=42), total tasks: 59",Operational,859
+stress_d0,stress,0,Server Crash,60,False,True,3.077933,"Worker verified — processed task correctly (21×2=42), total tasks: 60",Operational,860
+stress_d0,stress,0,Server Crash,61,False,True,3.277828,"Worker verified — processed task correctly (21×2=42), total tasks: 61",Operational,861
+stress_d0,stress,0,Server Crash,62,False,True,2.393062,"Worker verified — processed task correctly (21×2=42), total tasks: 62",Operational,862
+stress_d0,stress,0,Server Crash,63,False,True,2.677454,"Worker verified — processed task correctly (21×2=42), total tasks: 63",Operational,863
+stress_d0,stress,0,Server Crash,64,False,True,2.378437,"Worker verified — processed task correctly (21×2=42), total tasks: 64",Operational,864
+stress_d0,stress,0,Server Crash,65,False,True,3.968927,"Worker verified — processed task correctly (21×2=42), total tasks: 65",Operational,865
+stress_d0,stress,0,Server Crash,66,False,True,3.557658,"Worker verified — processed task correctly (21×2=42), total tasks: 66",Operational,866
+stress_d0,stress,0,Server Crash,67,False,True,4.357403,"Worker verified — processed task correctly (21×2=42), total tasks: 67",Operational,867
+stress_d0,stress,0,Server Crash,68,False,True,2.7309,"Worker verified — processed task correctly (21×2=42), total tasks: 68",Operational,868
+stress_d0,stress,0,Server Crash,69,False,True,3.034058,"Worker verified — processed task correctly (21×2=42), total tasks: 69",Operational,869
+stress_d0,stress,0,Server Crash,70,False,True,3.389461,"Worker verified — processed task correctly (21×2=42), total tasks: 70",Operational,870
+stress_d0,stress,0,Server Crash,71,False,True,3.468248,"Worker verified — processed task correctly (21×2=42), total tasks: 71",Operational,871
+stress_d0,stress,0,Server Crash,72,False,True,3.772886,"Worker verified — processed task correctly (21×2=42), total tasks: 72",Operational,872
+stress_d0,stress,0,Server Crash,73,False,True,3.734988,"Worker verified — processed task correctly (21×2=42), total tasks: 73",Operational,873
+stress_d0,stress,0,Server Crash,74,False,True,3.49736,"Worker verified — processed task correctly (21×2=42), total tasks: 74",Operational,874
+stress_d0,stress,0,Server Crash,75,False,True,2.745132,"Worker verified — processed task correctly (21×2=42), total tasks: 75",Operational,875
+stress_d0,stress,0,Server Crash,76,False,True,3.094573,"Worker verified — processed task correctly (21×2=42), total tasks: 76",Operational,876
+stress_d0,stress,0,Server Crash,77,False,True,1.903948,"Worker verified — processed task correctly (21×2=42), total tasks: 77",Operational,877
+stress_d0,stress,0,Server Crash,78,False,True,3.784953,"Worker verified — processed task correctly (21×2=42), total tasks: 78",Operational,878
+stress_d0,stress,0,Server Crash,79,False,True,2.271795,"Worker verified — processed task correctly (21×2=42), total tasks: 79",Operational,879
+stress_d0,stress,0,Server Crash,80,False,True,2.56584,"Worker verified — processed task correctly (21×2=42), total tasks: 80",Operational,880
+stress_d0,stress,0,Server Crash,81,False,True,4.406186,"Worker verified — processed task correctly (21×2=42), total tasks: 81",Operational,881
+stress_d0,stress,0,Server Crash,82,False,True,4.068865,"Worker verified — processed task correctly (21×2=42), total tasks: 82",Operational,882
+stress_d0,stress,0,Server Crash,83,False,True,3.189767,"Worker verified — processed task correctly (21×2=42), total tasks: 83",Operational,883
+stress_d0,stress,0,Server Crash,84,False,True,2.398169,"Worker verified — processed task correctly (21×2=42), total tasks: 84",Operational,884
+stress_d0,stress,0,Server Crash,85,False,True,4.144025,"Worker verified — processed task correctly (21×2=42), total tasks: 85",Operational,885
+stress_d0,stress,0,Server Crash,86,False,True,3.508267,"Worker verified — processed task correctly (21×2=42), total tasks: 86",Operational,886
+stress_d0,stress,0,Server Crash,87,False,True,4.025272,"Worker verified — processed task correctly (21×2=42), total tasks: 87",Operational,887
+stress_d0,stress,0,Server Crash,88,False,True,3.518295,"Worker verified — processed task correctly (21×2=42), total tasks: 88",Operational,888
+stress_d0,stress,0,Server Crash,89,False,True,5.665741,"Worker verified — processed task correctly (21×2=42), total tasks: 89",Operational,889
+stress_d0,stress,0,Server Crash,90,False,True,2.381262,"Worker verified — processed task correctly (21×2=42), total tasks: 90",Operational,890
+stress_d0,stress,0,Server Crash,91,False,True,4.712975,"Worker verified — processed task correctly (21×2=42), total tasks: 91",Operational,891
+stress_d0,stress,0,Server Crash,92,False,True,2.952198,"Worker verified — processed task correctly (21×2=42), total tasks: 92",Operational,892
+stress_d0,stress,0,Server Crash,93,False,True,1.818654,"Worker verified — processed task correctly (21×2=42), total tasks: 93",Operational,893
+stress_d0,stress,0,Server Crash,94,False,True,3.802099,"Worker verified — processed task correctly (21×2=42), total tasks: 94",Operational,894
+stress_d0,stress,0,Server Crash,95,False,True,3.637816,"Worker verified — processed task correctly (21×2=42), total tasks: 95",Operational,895
+stress_d0,stress,0,Server Crash,96,False,True,2.769811,"Worker verified — processed task correctly (21×2=42), total tasks: 96",Operational,896
+stress_d0,stress,0,Server Crash,97,False,True,3.902045,"Worker verified — processed task correctly (21×2=42), total tasks: 97",Operational,897
+stress_d0,stress,0,Server Crash,98,False,True,3.768662,"Worker verified — processed task correctly (21×2=42), total tasks: 98",Operational,898
+stress_d0,stress,0,Server Crash,99,False,True,3.05322,"Worker verified — processed task correctly (21×2=42), total tasks: 99",Operational,899
+stress_d0,stress,0,Server Crash,100,False,True,3.501879,"Worker verified — processed task correctly (21×2=42), total tasks: 100",Operational,900
+stress_d100,stress,100,Network Timeout,1,True,True,6.919128,TCP connection verified — server responding,Operational,901
+stress_d100,stress,100,Network Timeout,2,False,True,5.736812,TCP connection verified — server responding,Operational,902
+stress_d100,stress,100,Network Timeout,3,False,True,6.264245,TCP connection verified — server responding,Operational,903
+stress_d100,stress,100,Network Timeout,4,False,True,6.679532,TCP connection verified — server responding,Operational,904
+stress_d100,stress,100,Network Timeout,5,False,True,6.50236,TCP connection verified — server responding,Operational,905
+stress_d100,stress,100,Network Timeout,6,False,True,5.575152,TCP connection verified — server responding,Operational,906
+stress_d100,stress,100,Network Timeout,7,False,True,4.69639,TCP connection verified — server responding,Operational,907
+stress_d100,stress,100,Network Timeout,8,False,True,6.762568,TCP connection verified — server responding,Operational,908
+stress_d100,stress,100,Network Timeout,9,False,True,5.270083,TCP connection verified — server responding,Operational,909
+stress_d100,stress,100,Network Timeout,10,False,True,5.32152,TCP connection verified — server responding,Operational,910
+stress_d100,stress,100,Network Timeout,11,False,True,8.907461,TCP connection verified — server responding,Operational,911
+stress_d100,stress,100,Network Timeout,12,False,True,6.526771,TCP connection verified — server responding,Operational,912
+stress_d100,stress,100,Network Timeout,13,False,True,6.575311,TCP connection verified — server responding,Operational,913
+stress_d100,stress,100,Network Timeout,14,False,True,5.24329,TCP connection verified — server responding,Operational,914
+stress_d100,stress,100,Network Timeout,15,False,True,7.594174,TCP connection verified — server responding,Operational,915
+stress_d100,stress,100,Network Timeout,16,False,True,5.039496,TCP connection verified — server responding,Operational,916
+stress_d100,stress,100,Network Timeout,17,False,True,4.913753,TCP connection verified — server responding,Operational,917
+stress_d100,stress,100,Network Timeout,18,False,True,5.592162,TCP connection verified — server responding,Operational,918
+stress_d100,stress,100,Network Timeout,19,False,True,6.521761,TCP connection verified — server responding,Operational,919
+stress_d100,stress,100,Network Timeout,20,False,True,4.782424,TCP connection verified — server responding,Operational,920
+stress_d100,stress,100,Network Timeout,21,False,True,5.125693,TCP connection verified — server responding,Operational,921
+stress_d100,stress,100,Network Timeout,22,False,True,5.871397,TCP connection verified — server responding,Operational,922
+stress_d100,stress,100,Network Timeout,23,False,True,7.889063,TCP connection verified — server responding,Operational,923
+stress_d100,stress,100,Network Timeout,24,False,True,5.910764,TCP connection verified — server responding,Operational,924
+stress_d100,stress,100,Network Timeout,25,False,True,6.382812,TCP connection verified — server responding,Operational,925
+stress_d100,stress,100,Network Timeout,26,False,True,6.505516,TCP connection verified — server responding,Operational,926
+stress_d100,stress,100,Network Timeout,27,False,True,5.620096,TCP connection verified — server responding,Operational,927
+stress_d100,stress,100,Network Timeout,28,False,True,6.472636,TCP connection verified — server responding,Operational,928
+stress_d100,stress,100,Network Timeout,29,False,True,6.641385,TCP connection verified — server responding,Operational,929
+stress_d100,stress,100,Network Timeout,30,False,True,7.307047,TCP connection verified — server responding,Operational,930
+stress_d100,stress,100,Network Timeout,31,False,True,6.265629,TCP connection verified — server responding,Operational,931
+stress_d100,stress,100,Network Timeout,32,False,True,7.232378,TCP connection verified — server responding,Operational,932
+stress_d100,stress,100,Network Timeout,33,False,True,6.455821,TCP connection verified — server responding,Operational,933
+stress_d100,stress,100,Network Timeout,34,False,True,6.713809,TCP connection verified — server responding,Operational,934
+stress_d100,stress,100,Network Timeout,35,False,True,5.771644,TCP connection verified — server responding,Operational,935
+stress_d100,stress,100,Network Timeout,36,False,True,6.255028,TCP connection verified — server responding,Operational,936
+stress_d100,stress,100,Network Timeout,37,False,True,5.938449,TCP connection verified — server responding,Operational,937
+stress_d100,stress,100,Network Timeout,38,False,True,5.936815,TCP connection verified — server responding,Operational,938
+stress_d100,stress,100,Network Timeout,39,False,True,6.389024,TCP connection verified — server responding,Operational,939
+stress_d100,stress,100,Network Timeout,40,False,True,7.65674,TCP connection verified — server responding,Operational,940
+stress_d100,stress,100,Network Timeout,41,False,True,7.805839,TCP connection verified — server responding,Operational,941
+stress_d100,stress,100,Network Timeout,42,False,True,6.823302,TCP connection verified — server responding,Operational,942
+stress_d100,stress,100,Network Timeout,43,False,True,5.521044,TCP connection verified — server responding,Operational,943
+stress_d100,stress,100,Network Timeout,44,False,True,6.222055,TCP connection verified — server responding,Operational,944
+stress_d100,stress,100,Network Timeout,45,False,True,6.387656,TCP connection verified — server responding,Operational,945
+stress_d100,stress,100,Network Timeout,46,False,True,8.073186,TCP connection verified — server responding,Operational,946
+stress_d100,stress,100,Network Timeout,47,False,True,4.971264,TCP connection verified — server responding,Operational,947
+stress_d100,stress,100,Network Timeout,48,False,True,4.899297,TCP connection verified — server responding,Operational,948
+stress_d100,stress,100,Network Timeout,49,False,True,5.894563,TCP connection verified — server responding,Operational,949
+stress_d100,stress,100,Network Timeout,50,False,True,8.05423,TCP connection verified — server responding,Operational,950
+stress_d100,stress,100,Network Timeout,51,False,True,7.895842,TCP connection verified — server responding,Operational,951
+stress_d100,stress,100,Network Timeout,52,False,True,6.122864,TCP connection verified — server responding,Operational,952
+stress_d100,stress,100,Network Timeout,53,False,True,5.075353,TCP connection verified — server responding,Operational,953
+stress_d100,stress,100,Network Timeout,54,False,True,6.281938,TCP connection verified — server responding,Operational,954
+stress_d100,stress,100,Network Timeout,55,False,True,5.66119,TCP connection verified — server responding,Operational,955
+stress_d100,stress,100,Network Timeout,56,False,True,5.412895,TCP connection verified — server responding,Operational,956
+stress_d100,stress,100,Network Timeout,57,False,True,6.330628,TCP connection verified — server responding,Operational,957
+stress_d100,stress,100,Network Timeout,58,False,True,5.609436,TCP connection verified — server responding,Operational,958
+stress_d100,stress,100,Network Timeout,59,False,True,3.686533,TCP connection verified — server responding,Operational,959
+stress_d100,stress,100,Network Timeout,60,False,True,6.504994,TCP connection verified — server responding,Operational,960
+stress_d100,stress,100,Network Timeout,61,False,True,6.802115,TCP connection verified — server responding,Operational,961
+stress_d100,stress,100,Network Timeout,62,False,True,5.21513,TCP connection verified — server responding,Operational,962
+stress_d100,stress,100,Network Timeout,63,False,True,6.288884,TCP connection verified — server responding,Operational,963
+stress_d100,stress,100,Network Timeout,64,False,True,8.280528,TCP connection verified — server responding,Operational,964
+stress_d100,stress,100,Network Timeout,65,False,True,6.502172,TCP connection verified — server responding,Operational,965
+stress_d100,stress,100,Network Timeout,66,False,True,6.528821,TCP connection verified — server responding,Operational,966
+stress_d100,stress,100,Network Timeout,67,False,True,7.066583,TCP connection verified — server responding,Operational,967
+stress_d100,stress,100,Network Timeout,68,False,True,4.253702,TCP connection verified — server responding,Operational,968
+stress_d100,stress,100,Network Timeout,69,False,True,5.167821,TCP connection verified — server responding,Operational,969
+stress_d100,stress,100,Network Timeout,70,False,True,4.877237,TCP connection verified — server responding,Operational,970
+stress_d100,stress,100,Network Timeout,71,False,True,5.569818,TCP connection verified — server responding,Operational,971
+stress_d100,stress,100,Network Timeout,72,False,True,6.051738,TCP connection verified — server responding,Operational,972
+stress_d100,stress,100,Network Timeout,73,False,True,6.173542,TCP connection verified — server responding,Operational,973
+stress_d100,stress,100,Network Timeout,74,False,True,5.384765,TCP connection verified — server responding,Operational,974
+stress_d100,stress,100,Network Timeout,75,False,True,5.671868,TCP connection verified — server responding,Operational,975
+stress_d100,stress,100,Network Timeout,76,False,True,5.954906,TCP connection verified — server responding,Operational,976
+stress_d100,stress,100,Network Timeout,77,False,True,7.279042,TCP connection verified — server responding,Operational,977
+stress_d100,stress,100,Network Timeout,78,False,True,6.069651,TCP connection verified — server responding,Operational,978
+stress_d100,stress,100,Network Timeout,79,False,True,7.32309,TCP connection verified — server responding,Operational,979
+stress_d100,stress,100,Network Timeout,80,False,True,6.574115,TCP connection verified — server responding,Operational,980
+stress_d100,stress,100,Network Timeout,81,False,True,6.851659,TCP connection verified — server responding,Operational,981
+stress_d100,stress,100,Network Timeout,82,False,True,6.699265,TCP connection verified — server responding,Operational,982
+stress_d100,stress,100,Network Timeout,83,False,True,4.954169,TCP connection verified — server responding,Operational,983
+stress_d100,stress,100,Network Timeout,84,False,True,6.227373,TCP connection verified — server responding,Operational,984
+stress_d100,stress,100,Network Timeout,85,False,True,4.662186,TCP connection verified — server responding,Operational,985
+stress_d100,stress,100,Network Timeout,86,False,True,4.846988,TCP connection verified — server responding,Operational,986
+stress_d100,stress,100,Network Timeout,87,False,True,6.239123,TCP connection verified — server responding,Operational,987
+stress_d100,stress,100,Network Timeout,88,False,True,6.388053,TCP connection verified — server responding,Operational,988
+stress_d100,stress,100,Network Timeout,89,False,True,5.643025,TCP connection verified — server responding,Operational,989
+stress_d100,stress,100,Network Timeout,90,False,True,6.054469,TCP connection verified — server responding,Operational,990
+stress_d100,stress,100,Network Timeout,91,False,True,6.53462,TCP connection verified — server responding,Operational,991
+stress_d100,stress,100,Network Timeout,92,False,True,5.819732,TCP connection verified — server responding,Operational,992
+stress_d100,stress,100,Network Timeout,93,False,True,4.568084,TCP connection verified — server responding,Operational,993
+stress_d100,stress,100,Network Timeout,94,False,True,8.268041,TCP connection verified — server responding,Operational,994
+stress_d100,stress,100,Network Timeout,95,False,True,6.273841,TCP connection verified — server responding,Operational,995
+stress_d100,stress,100,Network Timeout,96,False,True,7.762678,TCP connection verified — server responding,Operational,996
+stress_d100,stress,100,Network Timeout,97,False,True,7.540213,TCP connection verified — server responding,Operational,997
+stress_d100,stress,100,Network Timeout,98,False,True,5.993101,TCP connection verified — server responding,Operational,998
+stress_d100,stress,100,Network Timeout,99,False,True,6.69976,TCP connection verified — server responding,Operational,999
+stress_d100,stress,100,Network Timeout,100,False,True,5.887866,TCP connection verified — server responding,Operational,1000
+stress_d100,stress,100,Database Failure,1,True,True,12.871063,"DB verified — 1 config rows, write test passed",Operational,1001
+stress_d100,stress,100,Database Failure,2,False,True,8.667562,"DB verified — 1 config rows, write test passed",Operational,1002
+stress_d100,stress,100,Database Failure,3,False,True,9.8023,"DB verified — 1 config rows, write test passed",Operational,1003
+stress_d100,stress,100,Database Failure,4,False,True,8.803596,"DB verified — 1 config rows, write test passed",Operational,1004
+stress_d100,stress,100,Database Failure,5,False,True,11.069632,"DB verified — 1 config rows, write test passed",Operational,1005
+stress_d100,stress,100,Database Failure,6,False,True,11.290105,"DB verified — 1 config rows, write test passed",Operational,1006
+stress_d100,stress,100,Database Failure,7,False,True,7.784186,"DB verified — 1 config rows, write test passed",Operational,1007
+stress_d100,stress,100,Database Failure,8,False,True,10.3587,"DB verified — 1 config rows, write test passed",Operational,1008
+stress_d100,stress,100,Database Failure,9,False,True,8.888691,"DB verified — 1 config rows, write test passed",Operational,1009
+stress_d100,stress,100,Database Failure,10,False,True,8.626361,"DB verified — 1 config rows, write test passed",Operational,1010
+stress_d100,stress,100,Database Failure,11,False,True,8.18317,"DB verified — 1 config rows, write test passed",Operational,1011
+stress_d100,stress,100,Database Failure,12,False,True,9.300497,"DB verified — 1 config rows, write test passed",Operational,1012
+stress_d100,stress,100,Database Failure,13,False,True,9.122407,"DB verified — 1 config rows, write test passed",Operational,1013
+stress_d100,stress,100,Database Failure,14,False,True,8.839581,"DB verified — 1 config rows, write test passed",Operational,1014
+stress_d100,stress,100,Database Failure,15,False,True,9.938346,"DB verified — 1 config rows, write test passed",Operational,1015
+stress_d100,stress,100,Database Failure,16,False,True,8.493719,"DB verified — 1 config rows, write test passed",Operational,1016
+stress_d100,stress,100,Database Failure,17,False,True,8.640273,"DB verified — 1 config rows, write test passed",Operational,1017
+stress_d100,stress,100,Database Failure,18,False,True,7.768654,"DB verified — 1 config rows, write test passed",Operational,1018
+stress_d100,stress,100,Database Failure,19,False,True,8.102113,"DB verified — 1 config rows, write test passed",Operational,1019
+stress_d100,stress,100,Database Failure,20,False,True,12.331483,"DB verified — 1 config rows, write test passed",Operational,1020
+stress_d100,stress,100,Database Failure,21,False,True,7.828667,"DB verified — 1 config rows, write test passed",Operational,1021
+stress_d100,stress,100,Database Failure,22,False,True,7.601249,"DB verified — 1 config rows, write test passed",Operational,1022
+stress_d100,stress,100,Database Failure,23,False,True,8.506705,"DB verified — 1 config rows, write test passed",Operational,1023
+stress_d100,stress,100,Database Failure,24,False,True,9.623923,"DB verified — 1 config rows, write test passed",Operational,1024
+stress_d100,stress,100,Database Failure,25,False,True,8.790366,"DB verified — 1 config rows, write test passed",Operational,1025
+stress_d100,stress,100,Database Failure,26,False,True,11.327469,"DB verified — 1 config rows, write test passed",Operational,1026
+stress_d100,stress,100,Database Failure,27,False,True,9.140595,"DB verified — 1 config rows, write test passed",Operational,1027
+stress_d100,stress,100,Database Failure,28,False,True,10.100279,"DB verified — 1 config rows, write test passed",Operational,1028
+stress_d100,stress,100,Database Failure,29,False,True,10.300352,"DB verified — 1 config rows, write test passed",Operational,1029
+stress_d100,stress,100,Database Failure,30,False,True,9.836158,"DB verified — 1 config rows, write test passed",Operational,1030
+stress_d100,stress,100,Database Failure,31,False,True,7.781147,"DB verified — 1 config rows, write test passed",Operational,1031
+stress_d100,stress,100,Database Failure,32,False,True,10.805888,"DB verified — 1 config rows, write test passed",Operational,1032
+stress_d100,stress,100,Database Failure,33,False,True,10.097844,"DB verified — 1 config rows, write test passed",Operational,1033
+stress_d100,stress,100,Database Failure,34,False,True,9.240006,"DB verified — 1 config rows, write test passed",Operational,1034
+stress_d100,stress,100,Database Failure,35,False,True,7.738071,"DB verified — 1 config rows, write test passed",Operational,1035
+stress_d100,stress,100,Database Failure,36,False,True,9.318341,"DB verified — 1 config rows, write test passed",Operational,1036
+stress_d100,stress,100,Database Failure,37,False,True,11.26868,"DB verified — 1 config rows, write test passed",Operational,1037
+stress_d100,stress,100,Database Failure,38,False,True,8.873133,"DB verified — 1 config rows, write test passed",Operational,1038
+stress_d100,stress,100,Database Failure,39,False,True,12.254005,"DB verified — 1 config rows, write test passed",Operational,1039
+stress_d100,stress,100,Database Failure,40,False,True,10.326803,"DB verified — 1 config rows, write test passed",Operational,1040
+stress_d100,stress,100,Database Failure,41,False,True,9.089435,"DB verified — 1 config rows, write test passed",Operational,1041
+stress_d100,stress,100,Database Failure,42,False,True,10.503799,"DB verified — 1 config rows, write test passed",Operational,1042
+stress_d100,stress,100,Database Failure,43,False,True,9.665451,"DB verified — 1 config rows, write test passed",Operational,1043
+stress_d100,stress,100,Database Failure,44,False,True,10.643402,"DB verified — 1 config rows, write test passed",Operational,1044
+stress_d100,stress,100,Database Failure,45,False,True,8.3288,"DB verified — 1 config rows, write test passed",Operational,1045
+stress_d100,stress,100,Database Failure,46,False,True,8.764799,"DB verified — 1 config rows, write test passed",Operational,1046
+stress_d100,stress,100,Database Failure,47,False,True,10.671775,"DB verified — 1 config rows, write test passed",Operational,1047
+stress_d100,stress,100,Database Failure,48,False,True,7.344161,"DB verified — 1 config rows, write test passed",Operational,1048
+stress_d100,stress,100,Database Failure,49,False,True,8.179461,"DB verified — 1 config rows, write test passed",Operational,1049
+stress_d100,stress,100,Database Failure,50,False,True,7.909547,"DB verified — 1 config rows, write test passed",Operational,1050
+stress_d100,stress,100,Database Failure,51,False,True,10.41285,"DB verified — 1 config rows, write test passed",Operational,1051
+stress_d100,stress,100,Database Failure,52,False,True,9.043388,"DB verified — 1 config rows, write test passed",Operational,1052
+stress_d100,stress,100,Database Failure,53,False,True,9.500466,"DB verified — 1 config rows, write test passed",Operational,1053
+stress_d100,stress,100,Database Failure,54,False,True,10.501239,"DB verified — 1 config rows, write test passed",Operational,1054
+stress_d100,stress,100,Database Failure,55,False,True,8.922949,"DB verified — 1 config rows, write test passed",Operational,1055
+stress_d100,stress,100,Database Failure,56,False,True,11.093557,"DB verified — 1 config rows, write test passed",Operational,1056
+stress_d100,stress,100,Database Failure,57,False,True,8.732425,"DB verified — 1 config rows, write test passed",Operational,1057
+stress_d100,stress,100,Database Failure,58,False,True,9.239455,"DB verified — 1 config rows, write test passed",Operational,1058
+stress_d100,stress,100,Database Failure,59,False,True,10.119832,"DB verified — 1 config rows, write test passed",Operational,1059
+stress_d100,stress,100,Database Failure,60,False,True,8.530177,"DB verified — 1 config rows, write test passed",Operational,1060
+stress_d100,stress,100,Database Failure,61,False,True,8.782084,"DB verified — 1 config rows, write test passed",Operational,1061
+stress_d100,stress,100,Database Failure,62,False,True,10.056737,"DB verified — 1 config rows, write test passed",Operational,1062
+stress_d100,stress,100,Database Failure,63,False,True,9.722151,"DB verified — 1 config rows, write test passed",Operational,1063
+stress_d100,stress,100,Database Failure,64,False,True,8.796476,"DB verified — 1 config rows, write test passed",Operational,1064
+stress_d100,stress,100,Database Failure,65,False,True,10.255393,"DB verified — 1 config rows, write test passed",Operational,1065
+stress_d100,stress,100,Database Failure,66,False,True,10.242311,"DB verified — 1 config rows, write test passed",Operational,1066
+stress_d100,stress,100,Database Failure,67,False,True,8.419633,"DB verified — 1 config rows, write test passed",Operational,1067
+stress_d100,stress,100,Database Failure,68,False,True,9.868495,"DB verified — 1 config rows, write test passed",Operational,1068
+stress_d100,stress,100,Database Failure,69,False,True,9.255766,"DB verified — 1 config rows, write test passed",Operational,1069
+stress_d100,stress,100,Database Failure,70,False,True,10.196249,"DB verified — 1 config rows, write test passed",Operational,1070
+stress_d100,stress,100,Database Failure,71,False,True,12.467115,"DB verified — 1 config rows, write test passed",Operational,1071
+stress_d100,stress,100,Database Failure,72,False,True,9.419446,"DB verified — 1 config rows, write test passed",Operational,1072
+stress_d100,stress,100,Database Failure,73,False,True,9.513596,"DB verified — 1 config rows, write test passed",Operational,1073
+stress_d100,stress,100,Database Failure,74,False,True,10.552583,"DB verified — 1 config rows, write test passed",Operational,1074
+stress_d100,stress,100,Database Failure,75,False,True,7.795776,"DB verified — 1 config rows, write test passed",Operational,1075
+stress_d100,stress,100,Database Failure,76,False,True,8.01431,"DB verified — 1 config rows, write test passed",Operational,1076
+stress_d100,stress,100,Database Failure,77,False,True,9.500431,"DB verified — 1 config rows, write test passed",Operational,1077
+stress_d100,stress,100,Database Failure,78,False,True,9.658826,"DB verified — 1 config rows, write test passed",Operational,1078
+stress_d100,stress,100,Database Failure,79,False,True,11.762345,"DB verified — 1 config rows, write test passed",Operational,1079
+stress_d100,stress,100,Database Failure,80,False,True,9.572612,"DB verified — 1 config rows, write test passed",Operational,1080
+stress_d100,stress,100,Database Failure,81,False,True,8.694193,"DB verified — 1 config rows, write test passed",Operational,1081
+stress_d100,stress,100,Database Failure,82,False,True,8.519685,"DB verified — 1 config rows, write test passed",Operational,1082
+stress_d100,stress,100,Database Failure,83,False,True,9.110234,"DB verified — 1 config rows, write test passed",Operational,1083
+stress_d100,stress,100,Database Failure,84,False,True,10.536326,"DB verified — 1 config rows, write test passed",Operational,1084
+stress_d100,stress,100,Database Failure,85,False,True,11.547193,"DB verified — 1 config rows, write test passed",Operational,1085
+stress_d100,stress,100,Database Failure,86,False,True,8.280262,"DB verified — 1 config rows, write test passed",Operational,1086
+stress_d100,stress,100,Database Failure,87,False,True,10.39489,"DB verified — 1 config rows, write test passed",Operational,1087
+stress_d100,stress,100,Database Failure,88,False,True,10.951895,"DB verified — 1 config rows, write test passed",Operational,1088
+stress_d100,stress,100,Database Failure,89,False,True,8.795748,"DB verified — 1 config rows, write test passed",Operational,1089
+stress_d100,stress,100,Database Failure,90,False,True,9.728681,"DB verified — 1 config rows, write test passed",Operational,1090
+stress_d100,stress,100,Database Failure,91,False,True,9.772088,"DB verified — 1 config rows, write test passed",Operational,1091
+stress_d100,stress,100,Database Failure,92,False,True,10.354462,"DB verified — 1 config rows, write test passed",Operational,1092
+stress_d100,stress,100,Database Failure,93,False,True,11.131939,"DB verified — 1 config rows, write test passed",Operational,1093
+stress_d100,stress,100,Database Failure,94,False,True,8.053751,"DB verified — 1 config rows, write test passed",Operational,1094
+stress_d100,stress,100,Database Failure,95,False,True,9.475872,"DB verified — 1 config rows, write test passed",Operational,1095
+stress_d100,stress,100,Database Failure,96,False,True,9.621204,"DB verified — 1 config rows, write test passed",Operational,1096
+stress_d100,stress,100,Database Failure,97,False,True,7.079835,"DB verified — 1 config rows, write test passed",Operational,1097
+stress_d100,stress,100,Database Failure,98,False,True,9.033497,"DB verified — 1 config rows, write test passed",Operational,1098
+stress_d100,stress,100,Database Failure,99,False,True,10.793632,"DB verified — 1 config rows, write test passed",Operational,1099
+stress_d100,stress,100,Database Failure,100,False,True,9.577221,"DB verified — 1 config rows, write test passed",Operational,1100
+stress_d100,stress,100,Server Crash,1,True,True,2.736391,"Worker verified — processed task correctly (21×2=42), total tasks: 1",Operational,1101
+stress_d100,stress,100,Server Crash,2,False,True,3.864033,"Worker verified — processed task correctly (21×2=42), total tasks: 2",Operational,1102
+stress_d100,stress,100,Server Crash,3,False,True,2.615923,"Worker verified — processed task correctly (21×2=42), total tasks: 3",Operational,1103
+stress_d100,stress,100,Server Crash,4,False,True,2.659477,"Worker verified — processed task correctly (21×2=42), total tasks: 4",Operational,1104
+stress_d100,stress,100,Server Crash,5,False,True,3.516035,"Worker verified — processed task correctly (21×2=42), total tasks: 5",Operational,1105
+stress_d100,stress,100,Server Crash,6,False,True,2.622251,"Worker verified — processed task correctly (21×2=42), total tasks: 6",Operational,1106
+stress_d100,stress,100,Server Crash,7,False,True,2.891092,"Worker verified — processed task correctly (21×2=42), total tasks: 7",Operational,1107
+stress_d100,stress,100,Server Crash,8,False,True,2.564447,"Worker verified — processed task correctly (21×2=42), total tasks: 8",Operational,1108
+stress_d100,stress,100,Server Crash,9,False,True,4.581802,"Worker verified — processed task correctly (21×2=42), total tasks: 9",Operational,1109
+stress_d100,stress,100,Server Crash,10,False,True,3.439317,"Worker verified — processed task correctly (21×2=42), total tasks: 10",Operational,1110
+stress_d100,stress,100,Server Crash,11,False,True,3.734433,"Worker verified — processed task correctly (21×2=42), total tasks: 11",Operational,1111
+stress_d100,stress,100,Server Crash,12,False,True,4.106054,"Worker verified — processed task correctly (21×2=42), total tasks: 12",Operational,1112
+stress_d100,stress,100,Server Crash,13,False,True,3.162845,"Worker verified — processed task correctly (21×2=42), total tasks: 13",Operational,1113
+stress_d100,stress,100,Server Crash,14,False,True,3.901468,"Worker verified — processed task correctly (21×2=42), total tasks: 14",Operational,1114
+stress_d100,stress,100,Server Crash,15,False,True,2.97655,"Worker verified — processed task correctly (21×2=42), total tasks: 15",Operational,1115
+stress_d100,stress,100,Server Crash,16,False,True,3.978206,"Worker verified — processed task correctly (21×2=42), total tasks: 16",Operational,1116
+stress_d100,stress,100,Server Crash,17,False,True,3.531726,"Worker verified — processed task correctly (21×2=42), total tasks: 17",Operational,1117
+stress_d100,stress,100,Server Crash,18,False,True,3.946929,"Worker verified — processed task correctly (21×2=42), total tasks: 18",Operational,1118
+stress_d100,stress,100,Server Crash,19,False,True,2.654954,"Worker verified — processed task correctly (21×2=42), total tasks: 19",Operational,1119
+stress_d100,stress,100,Server Crash,20,False,True,2.848814,"Worker verified — processed task correctly (21×2=42), total tasks: 20",Operational,1120
+stress_d100,stress,100,Server Crash,21,False,True,4.639982,"Worker verified — processed task correctly (21×2=42), total tasks: 21",Operational,1121
+stress_d100,stress,100,Server Crash,22,False,True,2.618734,"Worker verified — processed task correctly (21×2=42), total tasks: 22",Operational,1122
+stress_d100,stress,100,Server Crash,23,False,True,2.332227,"Worker verified — processed task correctly (21×2=42), total tasks: 23",Operational,1123
+stress_d100,stress,100,Server Crash,24,False,True,2.837561,"Worker verified — processed task correctly (21×2=42), total tasks: 24",Operational,1124
+stress_d100,stress,100,Server Crash,25,False,True,2.344818,"Worker verified — processed task correctly (21×2=42), total tasks: 25",Operational,1125
+stress_d100,stress,100,Server Crash,26,False,True,2.626066,"Worker verified — processed task correctly (21×2=42), total tasks: 26",Operational,1126
+stress_d100,stress,100,Server Crash,27,False,True,3.451746,"Worker verified — processed task correctly (21×2=42), total tasks: 27",Operational,1127
+stress_d100,stress,100,Server Crash,28,False,True,3.675856,"Worker verified — processed task correctly (21×2=42), total tasks: 28",Operational,1128
+stress_d100,stress,100,Server Crash,29,False,True,2.063424,"Worker verified — processed task correctly (21×2=42), total tasks: 29",Operational,1129
+stress_d100,stress,100,Server Crash,30,False,True,2.791115,"Worker verified — processed task correctly (21×2=42), total tasks: 30",Operational,1130
+stress_d100,stress,100,Server Crash,31,False,True,3.396598,"Worker verified — processed task correctly (21×2=42), total tasks: 31",Operational,1131
+stress_d100,stress,100,Server Crash,32,False,True,2.437112,"Worker verified — processed task correctly (21×2=42), total tasks: 32",Operational,1132
+stress_d100,stress,100,Server Crash,33,False,True,3.544214,"Worker verified — processed task correctly (21×2=42), total tasks: 33",Operational,1133
+stress_d100,stress,100,Server Crash,34,False,True,2.58884,"Worker verified — processed task correctly (21×2=42), total tasks: 34",Operational,1134
+stress_d100,stress,100,Server Crash,35,False,True,2.689791,"Worker verified — processed task correctly (21×2=42), total tasks: 35",Operational,1135
+stress_d100,stress,100,Server Crash,36,False,True,3.768616,"Worker verified — processed task correctly (21×2=42), total tasks: 36",Operational,1136
+stress_d100,stress,100,Server Crash,37,False,True,3.108628,"Worker verified — processed task correctly (21×2=42), total tasks: 37",Operational,1137
+stress_d100,stress,100,Server Crash,38,False,True,3.546516,"Worker verified — processed task correctly (21×2=42), total tasks: 38",Operational,1138
+stress_d100,stress,100,Server Crash,39,False,True,3.558718,"Worker verified — processed task correctly (21×2=42), total tasks: 39",Operational,1139
+stress_d100,stress,100,Server Crash,40,False,True,3.452545,"Worker verified — processed task correctly (21×2=42), total tasks: 40",Operational,1140
+stress_d100,stress,100,Server Crash,41,False,True,3.423592,"Worker verified — processed task correctly (21×2=42), total tasks: 41",Operational,1141
+stress_d100,stress,100,Server Crash,42,False,True,3.002443,"Worker verified — processed task correctly (21×2=42), total tasks: 42",Operational,1142
+stress_d100,stress,100,Server Crash,43,False,True,3.193133,"Worker verified — processed task correctly (21×2=42), total tasks: 43",Operational,1143
+stress_d100,stress,100,Server Crash,44,False,True,3.316538,"Worker verified — processed task correctly (21×2=42), total tasks: 44",Operational,1144
+stress_d100,stress,100,Server Crash,45,False,True,3.100113,"Worker verified — processed task correctly (21×2=42), total tasks: 45",Operational,1145
+stress_d100,stress,100,Server Crash,46,False,True,3.228309,"Worker verified — processed task correctly (21×2=42), total tasks: 46",Operational,1146
+stress_d100,stress,100,Server Crash,47,False,True,2.842797,"Worker verified — processed task correctly (21×2=42), total tasks: 47",Operational,1147
+stress_d100,stress,100,Server Crash,48,False,True,4.306709,"Worker verified — processed task correctly (21×2=42), total tasks: 48",Operational,1148
+stress_d100,stress,100,Server Crash,49,False,True,5.061981,"Worker verified — processed task correctly (21×2=42), total tasks: 49",Operational,1149
+stress_d100,stress,100,Server Crash,50,False,True,3.63302,"Worker verified — processed task correctly (21×2=42), total tasks: 50",Operational,1150
+stress_d100,stress,100,Server Crash,51,False,True,3.156911,"Worker verified — processed task correctly (21×2=42), total tasks: 51",Operational,1151
+stress_d100,stress,100,Server Crash,52,False,True,3.347885,"Worker verified — processed task correctly (21×2=42), total tasks: 52",Operational,1152
+stress_d100,stress,100,Server Crash,53,False,True,3.587066,"Worker verified — processed task correctly (21×2=42), total tasks: 53",Operational,1153
+stress_d100,stress,100,Server Crash,54,False,True,3.052925,"Worker verified — processed task correctly (21×2=42), total tasks: 54",Operational,1154
+stress_d100,stress,100,Server Crash,55,False,True,3.983866,"Worker verified — processed task correctly (21×2=42), total tasks: 55",Operational,1155
+stress_d100,stress,100,Server Crash,56,False,True,2.277396,"Worker verified — processed task correctly (21×2=42), total tasks: 56",Operational,1156
+stress_d100,stress,100,Server Crash,57,False,True,4.291342,"Worker verified — processed task correctly (21×2=42), total tasks: 57",Operational,1157
+stress_d100,stress,100,Server Crash,58,False,True,4.256696,"Worker verified — processed task correctly (21×2=42), total tasks: 58",Operational,1158
+stress_d100,stress,100,Server Crash,59,False,True,3.464088,"Worker verified — processed task correctly (21×2=42), total tasks: 59",Operational,1159
+stress_d100,stress,100,Server Crash,60,False,True,2.389384,"Worker verified — processed task correctly (21×2=42), total tasks: 60",Operational,1160
+stress_d100,stress,100,Server Crash,61,False,True,2.956662,"Worker verified — processed task correctly (21×2=42), total tasks: 61",Operational,1161
+stress_d100,stress,100,Server Crash,62,False,True,2.611571,"Worker verified — processed task correctly (21×2=42), total tasks: 62",Operational,1162
+stress_d100,stress,100,Server Crash,63,False,True,3.957223,"Worker verified — processed task correctly (21×2=42), total tasks: 63",Operational,1163
+stress_d100,stress,100,Server Crash,64,False,True,2.074334,"Worker verified — processed task correctly (21×2=42), total tasks: 64",Operational,1164
+stress_d100,stress,100,Server Crash,65,False,True,3.985904,"Worker verified — processed task correctly (21×2=42), total tasks: 65",Operational,1165
+stress_d100,stress,100,Server Crash,66,False,True,2.962425,"Worker verified — processed task correctly (21×2=42), total tasks: 66",Operational,1166
+stress_d100,stress,100,Server Crash,67,False,True,2.969634,"Worker verified — processed task correctly (21×2=42), total tasks: 67",Operational,1167
+stress_d100,stress,100,Server Crash,68,False,True,4.15635,"Worker verified — processed task correctly (21×2=42), total tasks: 68",Operational,1168
+stress_d100,stress,100,Server Crash,69,False,True,2.327546,"Worker verified — processed task correctly (21×2=42), total tasks: 69",Operational,1169
+stress_d100,stress,100,Server Crash,70,False,True,4.013291,"Worker verified — processed task correctly (21×2=42), total tasks: 70",Operational,1170
+stress_d100,stress,100,Server Crash,71,False,True,2.732097,"Worker verified — processed task correctly (21×2=42), total tasks: 71",Operational,1171
+stress_d100,stress,100,Server Crash,72,False,True,2.312875,"Worker verified — processed task correctly (21×2=42), total tasks: 72",Operational,1172
+stress_d100,stress,100,Server Crash,73,False,True,2.61894,"Worker verified — processed task correctly (21×2=42), total tasks: 73",Operational,1173
+stress_d100,stress,100,Server Crash,74,False,True,2.932099,"Worker verified — processed task correctly (21×2=42), total tasks: 74",Operational,1174
+stress_d100,stress,100,Server Crash,75,False,True,3.696505,"Worker verified — processed task correctly (21×2=42), total tasks: 75",Operational,1175
+stress_d100,stress,100,Server Crash,76,False,True,2.428528,"Worker verified — processed task correctly (21×2=42), total tasks: 76",Operational,1176
+stress_d100,stress,100,Server Crash,77,False,True,4.221161,"Worker verified — processed task correctly (21×2=42), total tasks: 77",Operational,1177
+stress_d100,stress,100,Server Crash,78,False,True,3.388152,"Worker verified — processed task correctly (21×2=42), total tasks: 78",Operational,1178
+stress_d100,stress,100,Server Crash,79,False,True,4.529759,"Worker verified — processed task correctly (21×2=42), total tasks: 79",Operational,1179
+stress_d100,stress,100,Server Crash,80,False,True,3.026656,"Worker verified — processed task correctly (21×2=42), total tasks: 80",Operational,1180
+stress_d100,stress,100,Server Crash,81,False,True,5.018274,"Worker verified — processed task correctly (21×2=42), total tasks: 81",Operational,1181
+stress_d100,stress,100,Server Crash,82,False,True,3.783591,"Worker verified — processed task correctly (21×2=42), total tasks: 82",Operational,1182
+stress_d100,stress,100,Server Crash,83,False,True,3.718894,"Worker verified — processed task correctly (21×2=42), total tasks: 83",Operational,1183
+stress_d100,stress,100,Server Crash,84,False,True,3.279501,"Worker verified — processed task correctly (21×2=42), total tasks: 84",Operational,1184
+stress_d100,stress,100,Server Crash,85,False,True,3.300122,"Worker verified — processed task correctly (21×2=42), total tasks: 85",Operational,1185
+stress_d100,stress,100,Server Crash,86,False,True,3.26246,"Worker verified — processed task correctly (21×2=42), total tasks: 86",Operational,1186
+stress_d100,stress,100,Server Crash,87,False,True,2.33727,"Worker verified — processed task correctly (21×2=42), total tasks: 87",Operational,1187
+stress_d100,stress,100,Server Crash,88,False,True,3.028296,"Worker verified — processed task correctly (21×2=42), total tasks: 88",Operational,1188
+stress_d100,stress,100,Server Crash,89,False,True,3.643359,"Worker verified — processed task correctly (21×2=42), total tasks: 89",Operational,1189
+stress_d100,stress,100,Server Crash,90,False,True,3.139498,"Worker verified — processed task correctly (21×2=42), total tasks: 90",Operational,1190
+stress_d100,stress,100,Server Crash,91,False,True,3.166641,"Worker verified — processed task correctly (21×2=42), total tasks: 91",Operational,1191
+stress_d100,stress,100,Server Crash,92,False,True,3.64182,"Worker verified — processed task correctly (21×2=42), total tasks: 92",Operational,1192
+stress_d100,stress,100,Server Crash,93,False,True,3.532192,"Worker verified — processed task correctly (21×2=42), total tasks: 93",Operational,1193
+stress_d100,stress,100,Server Crash,94,False,True,4.45504,"Worker verified — processed task correctly (21×2=42), total tasks: 94",Operational,1194
+stress_d100,stress,100,Server Crash,95,False,True,5.283718,"Worker verified — processed task correctly (21×2=42), total tasks: 95",Operational,1195
+stress_d100,stress,100,Server Crash,96,False,True,2.665203,"Worker verified — processed task correctly (21×2=42), total tasks: 96",Operational,1196
+stress_d100,stress,100,Server Crash,97,False,True,2.378615,"Worker verified — processed task correctly (21×2=42), total tasks: 97",Operational,1197
+stress_d100,stress,100,Server Crash,98,False,True,2.409499,"Worker verified — processed task correctly (21×2=42), total tasks: 98",Operational,1198
+stress_d100,stress,100,Server Crash,99,False,True,3.960103,"Worker verified — processed task correctly (21×2=42), total tasks: 99",Operational,1199
+stress_d100,stress,100,Server Crash,100,False,True,2.715721,"Worker verified — processed task correctly (21×2=42), total tasks: 100",Operational,1200
