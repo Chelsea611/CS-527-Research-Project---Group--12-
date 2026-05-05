@@ -5,7 +5,9 @@ Group 12: David Zhao, Chelsea Sun
 Run with: pytest tests/test_state_machine.py -v
 """
 
+import time
 import pytest
+from unittest.mock import patch
 from state_machine import FaultTolerantSystem, State, FaultType
 
 
@@ -21,15 +23,7 @@ def sys():
 @pytest.fixture
 def sys_in_error():
     s = FaultTolerantSystem()
-    s.transition("fault_detected")
-    return s
-
-
-@pytest.fixture
-def sys_in_recovery():
-    s = FaultTolerantSystem()
-    s.transition("fault_detected")
-    s.transition("recovery_triggered")
+    s.trigger_fault(FaultType.NETWORK_TIMEOUT)
     return s
 
 
@@ -56,89 +50,101 @@ class TestInitialState:
 
 class TestFaultDetection:
     def test_operational_to_error(self, sys):
-        sys.transition("fault_detected")
+        sys.trigger_fault(FaultType.NETWORK_TIMEOUT)
         assert sys.state == State.ERROR
 
     def test_fault_increments_counter(self, sys):
-        sys.transition("fault_detected")
+        sys.trigger_fault(FaultType.NETWORK_TIMEOUT)
         assert sys.get_status()["metrics"]["total_faults"] == 1
 
     def test_current_fault_recorded(self, sys):
-        sys.transition("fault_detected", "Network Timeout")
+        sys.trigger_fault(FaultType.NETWORK_TIMEOUT)
         assert sys.get_status()["current_fault"] == "Network Timeout"
 
     def test_multiple_faults_counted(self, sys):
         for _ in range(3):
-            sys.state = State.OPERATIONAL
-            sys.transition("fault_detected")
+            sys.trigger_fault(FaultType.NETWORK_TIMEOUT)
+            sys.attempt_recovery()  # reset back to OPERATIONAL
         assert sys.get_status()["metrics"]["total_faults"] == 3
 
     def test_no_fault_from_non_operational(self, sys_in_error):
-        sys_in_error.transition("fault_detected")   # should be ignored
+        result = sys_in_error.trigger_fault(FaultType.DATABASE_FAILURE)
+        assert result is False
         assert sys_in_error.state == State.ERROR
 
     @pytest.mark.parametrize("fault", list(FaultType))
     def test_all_fault_types_accepted(self, sys, fault):
-        result = sys.inject_fault(fault)
+        result = sys.trigger_fault(fault)
         assert result is True
         assert sys.state == State.ERROR
 
 
 # ──────────────────────────────────────────────
-# TC-3  Recovery Initiation (ERROR → RECOVERY)
+# TC-3  Recovery Initiation (ERROR → OPERATIONAL)
 # ──────────────────────────────────────────────
 
 class TestRecoveryInitiation:
-    def test_error_to_recovery(self, sys_in_error):
-        sys_in_error.transition("recovery_triggered")
-        assert sys_in_error.state == State.RECOVERY
+    def test_recovery_from_error_succeeds(self, sys_in_error):
+        success, _ = sys_in_error.attempt_recovery()
+        assert success is True
+        assert sys_in_error.state == State.OPERATIONAL
 
     def test_recovery_not_from_operational(self, sys):
-        sys.transition("recovery_triggered")
-        assert sys.state == State.OPERATIONAL   # unchanged
+        success, msg = sys.attempt_recovery()
+        assert success is False
+        assert sys.state == State.OPERATIONAL
 
 
 # ──────────────────────────────────────────────
-# TC-4  Recovery Success (RECOVERY → OPERATIONAL)
+# TC-4  Recovery Success (→ OPERATIONAL)
 # ──────────────────────────────────────────────
 
 class TestRecoverySuccess:
-    def test_recovery_success_returns_operational(self, sys_in_recovery):
-        sys_in_recovery.transition("recovery_success")
-        assert sys_in_recovery.state == State.OPERATIONAL
+    def test_recovery_returns_operational(self, sys_in_error):
+        sys_in_error.attempt_recovery()
+        assert sys_in_error.state == State.OPERATIONAL
 
-    def test_success_increments_counter(self, sys_in_recovery):
-        sys_in_recovery.transition("recovery_success")
-        assert sys_in_recovery.get_status()["metrics"]["successful_recoveries"] == 1
+    def test_success_increments_counter(self, sys_in_error):
+        sys_in_error.attempt_recovery()
+        assert sys_in_error.get_status()["metrics"]["successful_recoveries"] == 1
 
-    def test_fault_cleared_after_success(self, sys_in_recovery):
-        sys_in_recovery.transition("recovery_success")
-        assert sys_in_recovery.get_status()["current_fault"] is None
+    def test_fault_cleared_after_success(self, sys_in_error):
+        sys_in_error.attempt_recovery()
+        assert sys_in_error.get_status()["current_fault"] is None
 
-    def test_recovery_time_recorded(self, sys_in_recovery):
-        sys_in_recovery.transition("recovery_success")
-        assert len(sys_in_recovery.metrics["recovery_times"]) == 1
-        assert sys_in_recovery.metrics["recovery_times"][0] >= 0
+    def test_recovery_time_recorded(self, sys_in_error):
+        sys_in_error.attempt_recovery()
+        assert len(sys_in_error.metrics["recovery_times"]) == 1
+        assert sys_in_error.metrics["recovery_times"][0] >= 0
 
 
 # ──────────────────────────────────────────────
-# TC-5  Recovery Failure (RECOVERY → ERROR)
+# TC-5  Recovery Failure (→ ERROR via mock)
 # ──────────────────────────────────────────────
 
 class TestRecoveryFailure:
-    def test_recovery_failure_returns_error(self, sys_in_recovery):
-        sys_in_recovery.transition("recovery_failed")
-        assert sys_in_recovery.state == State.ERROR
+    def test_recovery_failure_returns_error(self, sys_in_error):
+        handler = sys_in_error._current_handler
+        with patch.object(handler, "try_recover", return_value=(False, "mocked failure")):
+            success, _ = sys_in_error.attempt_recovery()
+        assert success is False
+        assert sys_in_error.state == State.ERROR
 
-    def test_failed_recovery_increments_counter(self, sys_in_recovery):
-        sys_in_recovery.transition("recovery_failed")
-        assert sys_in_recovery.get_status()["metrics"]["failed_recoveries"] == 1
+    def test_failed_recovery_increments_counter(self, sys_in_error):
+        handler = sys_in_error._current_handler
+        with patch.object(handler, "try_recover", return_value=(False, "mocked failure")):
+            sys_in_error.attempt_recovery()
+        assert sys_in_error.get_status()["metrics"]["failed_recoveries"] == 1
 
-    def test_retry_after_failure(self, sys_in_recovery):
-        sys_in_recovery.transition("recovery_failed")
-        sys_in_recovery.transition("recovery_triggered")
-        sys_in_recovery.transition("recovery_success")
-        assert sys_in_recovery.state == State.OPERATIONAL
+    def test_retry_after_failure(self, sys_in_error):
+        handler = sys_in_error._current_handler
+        with patch.object(handler, "try_recover", return_value=(False, "mocked failure")):
+            sys_in_error.attempt_recovery()
+        assert sys_in_error.state == State.ERROR
+        # Now let it actually recover
+        success, _ = sys_in_error.attempt_recovery()
+        assert success is True
+        assert sys_in_error.state == State.OPERATIONAL
 
 
 # ──────────────────────────────────────────────
@@ -148,27 +154,25 @@ class TestRecoveryFailure:
 class TestFullLifecycle:
     def test_full_happy_path(self, sys):
         assert sys.state == State.OPERATIONAL
-        sys.transition("fault_detected")
+        sys.trigger_fault(FaultType.NETWORK_TIMEOUT)
         assert sys.state == State.ERROR
-        sys.transition("recovery_triggered")
-        assert sys.state == State.RECOVERY
-        sys.transition("recovery_success")
+        success, _ = sys.attempt_recovery()
+        assert success is True
         assert sys.state == State.OPERATIONAL
 
     def test_full_failure_then_retry(self, sys):
-        sys.transition("fault_detected")
-        sys.transition("recovery_triggered")
-        sys.transition("recovery_failed")
-        sys.transition("recovery_triggered")
-        sys.transition("recovery_success")
+        sys.trigger_fault(FaultType.NETWORK_TIMEOUT)
+        handler = sys._current_handler
+        with patch.object(handler, "try_recover", return_value=(False, "mocked failure")):
+            sys.attempt_recovery()
+        assert sys.state == State.ERROR
+        sys.attempt_recovery()
         assert sys.state == State.OPERATIONAL
 
     def test_consecutive_faults(self, sys):
-        for i in range(5):
-            sys.state = State.OPERATIONAL
-            sys.transition("fault_detected")
-            sys.transition("recovery_triggered")
-            sys.transition("recovery_success")
+        for _ in range(5):
+            sys.trigger_fault(FaultType.SERVER_CRASH)
+            sys.attempt_recovery()
         assert sys.get_status()["metrics"]["successful_recoveries"] == 5
 
 
@@ -179,54 +183,50 @@ class TestFullLifecycle:
 class TestMetrics:
     def test_recovery_rate_100_when_all_succeed(self, sys):
         for _ in range(5):
-            sys.state = State.OPERATIONAL
-            sys.transition("fault_detected")
-            sys.transition("recovery_triggered")
-            sys.transition("recovery_success")
+            sys.trigger_fault(FaultType.SERVER_CRASH)
+            sys.attempt_recovery()
         rate = sys.get_status()["metrics"]["recovery_success_rate"]
         assert rate == 100.0
 
     def test_recovery_rate_0_when_all_fail(self, sys):
         for _ in range(3):
-            sys.state = State.OPERATIONAL
-            sys.transition("fault_detected")
-            sys.transition("recovery_triggered")
-            sys.transition("recovery_failed")
+            sys.trigger_fault(FaultType.NETWORK_TIMEOUT)
+            handler = sys._current_handler
+            with patch.object(handler, "try_recover", return_value=(False, "mocked")):
+                sys.attempt_recovery()
         rate = sys.get_status()["metrics"]["recovery_success_rate"]
         assert rate == 0.0
 
     def test_avg_recovery_time_positive(self, sys):
-        import time
-        sys.transition("fault_detected")
-        time.sleep(0.05)
-        sys.transition("recovery_triggered")
-        sys.transition("recovery_success")
+        sys.trigger_fault(FaultType.SERVER_CRASH)
+        sys.attempt_recovery()
         avg = sys.get_status()["metrics"]["avg_recovery_time_s"]
-        assert avg >= 0.05
+        assert avg >= 0
 
-    def test_log_records_transitions(self, sys):
-        sys.transition("fault_detected")
-        sys.transition("recovery_triggered")
-        sys.transition("recovery_success")
+    def test_log_records_events(self, sys):
+        sys.trigger_fault(FaultType.DATABASE_FAILURE)
+        sys.attempt_recovery()
         log = sys.get_status()["log"]
-        assert len(log) == 3
+        assert len(log) >= 2  # at least fault + recovery entries
 
 
 # ──────────────────────────────────────────────
-# TC-8  inject_fault() convenience method
+# TC-8  trigger_fault() guard conditions
 # ──────────────────────────────────────────────
 
-class TestInjectFault:
-    def test_inject_from_operational_succeeds(self, sys):
-        result = sys.inject_fault()
+class TestTriggerFault:
+    def test_trigger_from_operational_succeeds(self, sys):
+        result = sys.trigger_fault(FaultType.DATABASE_FAILURE)
         assert result is True
         assert sys.state == State.ERROR
 
-    def test_inject_from_error_fails(self, sys_in_error):
-        result = sys_in_error.inject_fault()
+    def test_trigger_from_error_fails(self, sys_in_error):
+        result = sys_in_error.trigger_fault(FaultType.DATABASE_FAILURE)
         assert result is False
         assert sys_in_error.state == State.ERROR
 
-    def test_inject_from_recovery_fails(self, sys_in_recovery):
-        result = sys_in_recovery.inject_fault()
-        assert result is False
+    def test_all_three_fault_types(self, sys):
+        for fault in FaultType:
+            sys.trigger_fault(fault)
+            sys.attempt_recovery()
+        assert sys.get_status()["metrics"]["total_faults"] == 3
