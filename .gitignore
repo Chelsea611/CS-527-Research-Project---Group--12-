@@ -1,1 +1,14 @@
-report.txt
+# LaTeX outputs from local build (report.tex -> report.pdf)
+*.aux
+*.log
+*.out
+*.synctex.gz
+report.pdf
+
+# Local build scripts / alternate pdflatex jobname output
+build-report.bat
+build-report.ps1
+report-buildcheck.pdf
+report-buildcheck.aux
+report-buildcheck.log
+report-buildcheck.out
