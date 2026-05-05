@@ -5,7 +5,8 @@ Requires: pip install matplotlib
 
 Usage:
   python plot_simulation.py --input simulation_results.csv
-  python plot_simulation.py --input simulation_results.csv --out-dir figures
+  python plot_simulation.py --input simulation_results.csv --out-dir other_dir
+  Default output directory is figures/ next to the CSV (matches report.tex \\graphicspath).
 """
 
 from __future__ import annotations
@@ -84,7 +85,7 @@ def _stats_matrix(
 
 def generate_plots(csv_path: str | Path, out_dir: str | Path | None = None) -> list[Path]:
     csv_path = Path(csv_path)
-    out_dir = Path(out_dir) if out_dir else csv_path.parent
+    out_dir = Path(out_dir) if out_dir else (csv_path.parent / "figures")
     out_dir.mkdir(parents=True, exist_ok=True)
 
     try:
@@ -291,7 +292,12 @@ def generate_plots(csv_path: str | Path, out_dir: str | Path | None = None) -> l
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--input", type=str, default="simulation_results.csv")
-    ap.add_argument("--out-dir", type=str, default=".")
+    ap.add_argument(
+        "--out-dir",
+        type=str,
+        default=None,
+        help="Directory for PNG outputs (default: figures/ next to the input CSV).",
+    )
     args = ap.parse_args()
     generate_plots(args.input, args.out_dir)
 

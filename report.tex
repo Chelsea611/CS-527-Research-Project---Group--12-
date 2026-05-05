@@ -17,6 +17,8 @@
 \usepackage{comment}
 \usepackage{adjustbox}
 \usepackage{array,multirow,graphicx}
+% Plots are generated under figures/; keep \includegraphics{plot_*.png} as-is.
+\graphicspath{{figures/}}
 \newcommand{\DashboardScreenshot}{%
   \IfFileExists{FSM.png}{%
     \includegraphics[width=\linewidth,height=6.8cm,keepaspectratio]{FSM.png}%
@@ -65,11 +67,20 @@
 \title{CS 527 Research Project Report: Group 12}
 
 
-\author{David Zhao, Chelsea Sun}
-\affiliation{
-    \institution{University of Illinois at Urbana-Champaign}
-}
-\email{[dekaiz2,qiaochu9]@illinois.edu}
+\author{David Zhao}
+\email{dekaiz2@illinois.edu}
+\affiliation{%
+  \institution{University of Illinois Urbana-Champaign}
+  \city{Urbana}
+  \state{IL}
+  \country{USA}}
+\author{Chelsea Sun}
+\email{qiaochu9@illinois.edu}
+\affiliation{%
+  \institution{University of Illinois Urbana-Champaign}
+  \city{Urbana}
+  \state{IL}
+  \country{USA}}
 
 \begin{abstract}
 Intermittent faults are routine in deployed software; encoding explicit failure/recovery lifecycles supports regression testing and auditability. Our team presents a compact, model-driven fault-tolerant \emph{controller} as a three-state finite-state machine (\emph{Operational}/\emph{Error}/\emph{Recovery}) that drives \emph{real} local injections and repairs (TCP, SQLite, worker queue), with ``recovered'' treated as a falsifiable claim via handler-specific post-conditions. Concretely, \emph{FaultTolerantSystem} (\emph{state\_machine.py}) coordinates handlers under locks, a Flask dashboard exposes status and lab-aligned knobs, and \emph{run\_simulation.py} evaluates a $4{\times}3$ environment grid with $N{=}100$ trials per cell on a long-lived instance, exporting \emph{simulation\_results.csv} and \emph{simulation\_summary.csv}. In our archived run ($n{=}1200$), single-shot recovery succeeds in \textbf{every} trial---an outcome we engineered toward (deterministic repairs + checks), not a universal real-world theorem. Latency spans orders of magnitude: idle TCP/worker paths are sub-second versus multi-second paths under synthetic CPU stress (SQLite is the outlier), with an $\approx$100\,ms mean shift when a pre-recovery network delay knob is enabled.

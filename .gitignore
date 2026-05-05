@@ -1,4 +1,5 @@
 # LaTeX outputs from local build (report.tex -> report.pdf)
+report.tex
 *.aux
 *.log
 *.out

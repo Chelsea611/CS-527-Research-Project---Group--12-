@@ -11,6 +11,8 @@ Usage:
   python run_simulation.py --trials 100 --output simulation_results.csv
   python run_simulation.py --quick
   python run_simulation.py --trials 50 --plots
+
+With --plots, PNGs are written under figures/ next to the output CSV path.
 """
 
 from __future__ import annotations
@@ -332,9 +334,18 @@ def maybe_run_plots(csv_path: str) -> None:
     if not plot_script.is_file():
         _safe_print("[WARN] plot_simulation.py not found; skip --plots")
         return
+    csv_p = Path(csv_path).resolve()
+    figures_dir = csv_p.parent / "figures"
     try:
         subprocess.run(
-            [sys.executable, str(plot_script), "--input", csv_path],
+            [
+                sys.executable,
+                str(plot_script),
+                "--input",
+                str(csv_p),
+                "--out-dir",
+                str(figures_dir),
+            ],
             check=False,
             cwd=str(plot_script.parent),
         )
